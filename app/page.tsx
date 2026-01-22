@@ -63,9 +63,9 @@ export default async function Home() {
           <SocialLinksSection />
         </PageSection>
 
-        <PageSection id="work-experience">
+        {/* <PageSection id="work-experience">
           <WorkExperienceSection />
-        </PageSection>
+        </PageSection> */}
 
         <PageSection>
           <GitHubActivitySection contributions={contributions} total={total} />
