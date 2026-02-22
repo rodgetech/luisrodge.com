@@ -17,9 +17,10 @@ export function CurrentlyWorkingOnSection() {
         </p>
       </div>
 
-      <div className="flex flex-col-reverse sm:flex-row gap-6">
+      <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6">
+        <div className="flex flex-col-reverse sm:flex-row gap-6">
         {/* Text content */}
-        <div className="rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col gap-3 flex-1">
+        <div className="flex flex-col gap-3 flex-1">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -75,8 +76,8 @@ export function CurrentlyWorkingOnSection() {
             </ul>
         </div>
 
-        {/* Video preview */}
-        <button
+          {/* Video preview */}
+          <button
             onClick={() => window.innerWidth >= 640 && setOpen(true)}
             className="group relative w-full sm:w-72 shrink-0 aspect-[9/16] overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 cursor-pointer"
           >
@@ -95,7 +96,8 @@ export function CurrentlyWorkingOnSection() {
                 </svg>
               </div>
             </div>
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Modal */}
