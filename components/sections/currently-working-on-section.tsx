@@ -77,7 +77,7 @@ export function CurrentlyWorkingOnSection() {
 
         {/* Video preview */}
         <button
-            onClick={() => setOpen(true)}
+            onClick={() => window.innerWidth >= 640 && setOpen(true)}
             className="group relative w-full sm:w-72 shrink-0 aspect-[9/16] overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 cursor-pointer"
           >
             <video
