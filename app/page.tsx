@@ -6,7 +6,7 @@ import {
   WorkExperienceSection,
   GitHubActivitySection,
   TechStackSection,
-  ProjectsSection,
+  CurrentlyWorkingOnSection,
   LetsTalkSection,
 } from "@/components/sections";
 import { USER } from "@/config/site";
@@ -75,8 +75,8 @@ export default async function Home() {
           <TechStackSection />
         </PageSection>
 
-        <PageSection id="projects">
-          <ProjectsSection />
+        <PageSection id="currently-working-on">
+          <CurrentlyWorkingOnSection />
         </PageSection>
 
         <PageSection id="lets-chat">
