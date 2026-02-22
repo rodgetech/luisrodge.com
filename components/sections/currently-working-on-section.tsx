@@ -39,7 +39,7 @@ export function CurrentlyWorkingOnSection() {
                 and relive daily moments through short video clips.
               </p>
               <blockquote className="border-l-2 border-zinc-200 dark:border-zinc-700 pl-3">
-                <p className="text-sm italic text-zinc-500 dark:text-zinc-400">
+                <p className="text-sm italic text-zinc-500 dark:text-zinc-50">
                   &ldquo;Writing never captured it for me. With video, I can go back months later and actually
                   see myself — how I looked, the weight behind my eyes, whether I seemed lost or full of
                   life. It&apos;s an honest record of who I was, and a mirror for how far I&apos;ve come.&rdquo;
