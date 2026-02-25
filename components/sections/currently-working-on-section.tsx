@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export function CurrentlyWorkingOnSection() {
   const techStack = ["Swift", "iOS", "SwiftUI", "AVFoundation"];
@@ -32,9 +33,18 @@ export function CurrentlyWorkingOnSection() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <h3 className="font-heading text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-                Video Journal
-              </h3>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/journalapp-icon.png"
+                  alt="Video Journal app icon"
+                  width={44}
+                  height={44}
+                  className="rounded-lg shadow-sm"
+                />
+                <h3 className="font-heading text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+                  Video Journal
+                </h3>
+              </div>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 A TikTok-style video journaling app for iOS. Record, organize,
                 and relive daily moments through short video clips.
