@@ -6,3 +6,7 @@ export { GitHubActivitySection } from "./github-activity-section";
 export { TechStackSection } from "./tech-stack-section";
 export { CurrentlyWorkingOnSection } from "./currently-working-on-section";
 export { LetsTalkSection } from "./lets-talk-section";
+export { AboutSection } from "./about-section";
+export { ServicesSection } from "./services-section";
+export { WorkSection } from "./work-section";
+export { ContactSection } from "./contact-section";

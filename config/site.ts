@@ -1,3 +1,15 @@
+export const COMPANY = {
+  name: "rodgetech",
+  tagline: "Engineering Software Solutions for Belize and Beyond",
+  description:
+    "Independent software engineering and cloud consultancy based in Belize. 10+ years building what matters.",
+  phone: "+501-608-2077",
+  email: "rodgetech@gmail.com",
+  location: "Belize, Central America",
+  website: "https://rodgetech.com",
+  calLink: "https://cal.com/luisrodge/15min",
+};
+
 export const USER = {
   firstName: "Luis",
   lastName: "Rodriguez",

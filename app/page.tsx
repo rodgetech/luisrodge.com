@@ -1,104 +1,125 @@
-import { unstable_cache } from "next/cache";
 import {
   HeroSection,
-  BioSection,
-  SocialLinksSection,
-  WorkExperienceSection,
-  GitHubActivitySection,
-  TechStackSection,
-  CurrentlyWorkingOnSection,
-  LetsTalkSection,
+  AboutSection,
+  ServicesSection,
+  WorkSection,
+  ContactSection,
 } from "@/components/sections";
-import { USER } from "@/config/site";
-import { PageSection } from "@/components/ui/page-section";
+import { COMPANY, SOCIAL_LINKS } from "@/config/site";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 
-type Response = {
-  total: Record<number, number>;
-  contributions: Array<{
-    date: string;
-    count: number;
-    level: number;
-  }>;
-};
-
-const username = "rodgetech";
-
-const getCachedContributions = unstable_cache(
-  async () => {
-    const url = new URL(
-      `/v4/${username}`,
-      "https://github-contributions-api.jogruber.de"
-    );
-    const response = await fetch(url);
-    const data = (await response.json()) as Response;
-    const currentYear = new Date().getFullYear();
-    const total = data.total[currentYear];
-
-    // Filter contributions to only include current year
-    const contributions = data.contributions.filter((contribution) => {
-      return contribution.date.startsWith(String(currentYear));
-    });
-
-    return { contributions, total };
-  },
-  ["github-contributions-rodgetech"],
-  { revalidate: 60 * 60 * 24 }
-);
-
-export default async function Home() {
-  const { contributions, total } = await getCachedContributions();
-
+export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 dark:bg-zinc-950">
-      {/* Hero Section with Cover Image */}
+    <div className="min-h-screen bg-white dark:bg-zinc-950">
       <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <WorkSection />
+      <ContactSection />
 
-      {/* Main Content */}
-      <main className="mx-auto w-full max-w-4xl flex-1 px-6 sm:px-12">
-        <PageSection hideGrid className="mt-8">
-          <BioSection />
-        </PageSection>
+      {/* Footer */}
+      <footer className="border-t border-zinc-100 bg-white dark:border-white/[0.06] dark:bg-zinc-950">
+        {/* Three-column body */}
+        <div className="mx-auto max-w-5xl px-6 py-16 sm:px-12">
+          <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
+            {/* Col 1 — Brand */}
+            <div className="flex flex-col gap-3">
+              <p className="font-heading text-base font-semibold text-zinc-900 dark:text-white">
+                rodgetech
+              </p>
+              <p className="text-sm leading-6 text-zinc-400 dark:text-zinc-500">
+                {COMPANY.description}
+              </p>
+              <div className="flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-500">
+                <MapPin className="h-3.5 w-3.5 shrink-0" />
+                {COMPANY.location}
+              </div>
+            </div>
 
-        <PageSection>
-          <SocialLinksSection />
-        </PageSection>
+            {/* Col 2 — Services */}
+            <div className="flex flex-col gap-4">
+              <p className="font-mono text-[11px] tracking-[0.22em] text-zinc-400 uppercase dark:text-zinc-600">
+                Services
+              </p>
+              <ul className="flex flex-col gap-2.5">
+                {[
+                  "Enterprise Application Development",
+                  "Cloud Engineering & Infrastructure",
+                  "Software Migration & Modernisation",
+                  "Security Assessment & Pen Testing",
+                ].map((s) => (
+                  <li key={s} className="text-sm text-zinc-500 dark:text-zinc-400">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <PageSection id="work-experience">
-          <WorkExperienceSection />
-        </PageSection>
-
-        <PageSection>
-          <GitHubActivitySection contributions={contributions} total={total} />
-        </PageSection>
-
-        <PageSection>
-          <TechStackSection />
-        </PageSection>
-
-        <PageSection id="currently-working-on">
-          <CurrentlyWorkingOnSection />
-        </PageSection>
-
-        <PageSection id="lets-chat">
-          <LetsTalkSection />
-        </PageSection>
-
-        {/* Footer */}
-        <PageSection showBottomSeparator hideGrid>
-          <div className="flex flex-col gap-2 items-center">
-            <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
-              © {new Date().getFullYear()} {USER.displayName}. All rights
-              reserved.
-            </p>
-            <a
-              href={`mailto:${USER.email}`}
-              className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors"
-            >
-              {USER.email}
-            </a>
+            {/* Col 3 — Get in Touch */}
+            <div className="flex flex-col gap-4">
+              <p className="font-mono text-[11px] tracking-[0.22em] text-zinc-400 uppercase dark:text-zinc-600">
+                Get in Touch
+              </p>
+              <ul className="flex flex-col gap-3">
+                <li>
+                  <a
+                    href={`mailto:${COMPANY.email}`}
+                    className="flex items-center gap-2.5 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    <Mail className="h-3.5 w-3.5 shrink-0" />
+                    {COMPANY.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${COMPANY.phone}`}
+                    className="flex items-center gap-2.5 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    <Phone className="h-3.5 w-3.5 shrink-0" />
+                    {COMPANY.phone}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={SOCIAL_LINKS.linkedin.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    <Linkedin className="h-3.5 w-3.5 shrink-0" />
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={SOCIAL_LINKS.github.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    <Github className="h-3.5 w-3.5 shrink-0" />
+                    GitHub
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </PageSection>
-      </main>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-zinc-100 dark:border-white/[0.06]">
+          <div className="mx-auto max-w-5xl px-6 py-6 sm:px-12">
+            <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
+              <p className="font-mono text-[11px] tracking-[0.22em] text-zinc-400 uppercase dark:text-zinc-600">
+                rodgetech — Belize
+              </p>
+              <p className="text-xs text-zinc-400 dark:text-zinc-600">
+                © 2025 rodgetech. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
