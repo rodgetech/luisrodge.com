@@ -20,7 +20,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-zinc-100 bg-white dark:border-white/[0.06] dark:bg-zinc-950">
         {/* Three-column body */}
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:px-12">
+        <div className="mx-auto max-w-6xl px-8 py-16 sm:px-12">
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
             {/* Col 1 — Brand */}
             <div className="flex flex-col gap-3">
@@ -108,7 +108,7 @@ export default function Home() {
 
         {/* Bottom bar */}
         <div className="border-t border-zinc-100 dark:border-white/[0.06]">
-          <div className="mx-auto max-w-5xl px-6 py-6 sm:px-12">
+          <div className="mx-auto max-w-6xl px-8 py-6 sm:px-12">
             <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
               <p className="font-mono text-[11px] tracking-[0.22em] text-zinc-400 uppercase dark:text-zinc-600">
                 rodgetech — Belize
