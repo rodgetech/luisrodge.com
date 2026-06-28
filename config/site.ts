@@ -3,16 +3,10 @@ export const USER = {
   lastName: "Rodriguez",
   displayName: "Luis Rodge",
   username: "rodgetech",
-  gender: "male",
-  bio: "Creating with code. Small details matter.",
-  longBio: `
-  I'm a software engineer from Belize, Central America. I'm very passionate about building web and mobile apps. I work mostly with Typescript, React, and React Native but I'm always looking to learn new technologies I've been coding for so long now, you can just look at my GitHub timeline to see how long I've been at it.
+  tagline: "Full-stack engineer building indie SaaS and experiments",
+  longBio: `I'm a software engineer from Belize. I take products from idea to launch — web, mobile, and everything in between. Currently building an iOS app solo.
 
-  `,
-  flipSentences: [
-    "Creating with code. Small details matter.",
-    "Software Engineer",
-  ],
+Open to full-time roles, contract MVPs, and co-building with founders.`,
   address: "Cayo, Belize, Central America",
   phoneNumber: "+5016082077",
   email: "rodgetech@gmail.com",
@@ -21,15 +15,60 @@ export const USER = {
   avatar: "/me.png",
   ogImage: "/me.png",
   timeZone: "America/Belize",
-  keywords: ["rodgetech", "luis rodriguez", "luis", "rodriguez"],
+  keywords: [
+    "rodgetech",
+    "luis rodriguez",
+    "software engineer belize",
+    "full-stack developer",
+    "indie hacker",
+  ],
   dateCreated: "2025-12-14", // YYYY-MM-DD
 };
+
+export const BOOKING_URL = "https://cal.com/luisrodge/15min";
+export const BOOKING_CTA_LABEL = "Book a call";
+
+export const CONTACT_CTA_LABEL = "Say Hi";
+export const CONTACT_MAILTO = `mailto:${USER.email}`;
+
+export const FOOTER_TAGLINE = "Always building and shipping.";
+
+export const SECTIONS = {
+  about: {
+    id: "about",
+    label: "About",
+  },
+  building: {
+    id: "currently-working-on",
+    label: "Now building",
+    navLabel: "Building",
+    navShortLabel: "Now",
+  },
+  work: {
+    id: "work-experience",
+    label: "Last role",
+    navLabel: "Experience",
+    navShortLabel: "Work",
+  },
+  stack: {
+    id: "stack",
+    label: "Stack",
+  },
+  proud: {
+    id: "proud-moment",
+    label: "What I'm Most Proud Of",
+  },
+} as const;
+
+export type SectionKey = keyof typeof SECTIONS;
+
+export const NAV_SECTION_KEYS = ["building", "work"] as const satisfies readonly SectionKey[];
 
 export const SITE_INFO = {
   name: USER.displayName,
   url: "https://rodgetech.com",
   ogImage: USER.ogImage,
-  description: USER.bio,
+  description: `${USER.firstName} ${USER.lastName} — full-stack engineer from Belize. Building Video Journal. Open to work and partnerships.`,
   keywords: USER.keywords,
 };
 
@@ -66,63 +105,49 @@ export const WORK_EXPERIENCE = {
     startDate: "2023",
     endDate: "2025",
     responsibilities: [
-      "Strengthened developer community through hands-on support and engaging content",
-      "Created demos, community-driven templates, and hosted weekly YouTube videos",
-      "Enhanced product documentation and provided direct support via email, Discord, and meetings",
-      "Led community events to foster collaboration and knowledge sharing",
-      "Collaborated with cross-functional teams to improve user experience on BuildShip's platform",
+      "Built and maintained developer-facing demos, templates, and sample apps on BuildShip's visual backend platform",
+      "Produced weekly YouTube tutorials showing real product workflows — translating complex APIs into approachable content",
+      "Owned developer support across Discord, email, and live sessions — surfacing product feedback directly to engineering",
+      "Improved platform documentation and onboarding, reducing time-to-first-integration for new users",
+      "Hosted community events and led knowledge-sharing sessions with cross-functional teams",
     ],
+    highlightCount: 3,
   },
   resumeUrl: "/resume.pdf",
 };
 
 export const TECH_STACK = [
-  // Programming languages
   { name: "TypeScript", icon: "/stack/typescript.svg" },
   { name: "JavaScript", icon: "/stack/javascript.svg" },
   { name: "Python", icon: "/stack/python.svg" },
   { name: "Ruby", icon: "/stack/ruby.svg" },
-  // Frameworks
   { name: "React", icon: "/stack/react.svg" },
   { name: "Next.js", icon: "/stack/nextjs.svg" },
   { name: "Tailwind CSS", icon: "/stack/tailwindcss.svg" },
   { name: "NestJS", icon: "/stack/nestjs.svg" },
   { name: "Ruby on Rails", icon: "/stack/rubyonrails.svg" },
-  // Infrastructures
   { name: "PostgreSQL", icon: "/stack/postgresql.svg" },
   { name: "AWS", icon: "/stack/aws.svg" },
   { name: "Supabase", icon: "/stack/supabase.png" },
   { name: "Convex", icon: "/stack/convex.png" },
 ];
 
-export const PROJECTS = [
-  {
-    name: "Ext Gaps",
-    description: `
-      Find gaps in existing chrome extensions. 
-      This is a useful tool that you can use to determine if there are any opportunities to build 
-      a similar extension but with your own twist. It does this by scraping the extension reviews 
-      and formulates a gap score.`,
-    url: "https://extgaps.vercel.app/",
-    image: "/projects/extgaps.png",
-    techStack: ["Next.js", "Upstash", "Firecrawl SDK", "Vercel", "Claude Code"],
-  },
-  {
-    name: "Screen Mockups",
-    description: `A comprehensive SaaS to generate beautiful mobile app screen designs using AI. 
-      You can use it to quickly generate screen designs for your app ideas, iterate on them, and export as static images or copy directly to Figma.`,
-    url: "https://screenmockups.app/",
-    image: "/projects/screenmockups.png",
-    techStack: [
-      "React",
-      "Express.js",
-      "Clerk",
-      "Dodo",
-      "Netlify",
-      "OpenRouter",
-      "Supabase",
-      "Fly.io",
-      "Cursor",
-    ],
-  },
-];
+export const VIDEO_JOURNAL = {
+  name: "Video Journal",
+  description:
+    "A TikTok-style video journaling app for iOS. Writing never captured how I actually felt — with video, I can go back and see myself, not just the story I wrote down.",
+  highlights: "Feed · Streaks · Transcription · iCloud sync",
+  techStack: ["Swift", "iOS", "SwiftUI", "AVFoundation"],
+  videoSrc: "/videos/videojournalapp.mp4",
+  iconSrc: "/journalapp-icon.png",
+};
+
+export const PROUD_MOMENT = {
+  paragraphs: [
+    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built on my own that someone I'd never met actually paid for.",
+    "That first internet dollar wasn't about the amount. It was proof I could build something real enough for someone to open their wallet — and that's the builder I want to be.",
+  ],
+  image: "/first-payout.png",
+  imageAlt:
+    "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups",
+};
