@@ -17,16 +17,17 @@ export function VideoDemoDialog({
 }: VideoDemoDialogProps) {
   return (
     <ModalDialog open={open} onClose={onClose} title={`${title} demo`}>
-      <div className="surface-elevated overflow-hidden">
-        <video
-          src={src}
-          autoPlay
-          controls
-          loop
-          playsInline
-          className="max-h-[90vh] w-auto"
-        />
-      </div>
+      {open ? (
+        <div className="surface-elevated overflow-hidden">
+          <video
+            src={src}
+            controls
+            loop
+            playsInline
+            className="max-h-[90vh] w-auto"
+          />
+        </div>
+      ) : null}
     </ModalDialog>
   );
 }
