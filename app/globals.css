@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-heading: var(--font-ibm-plex-sans);
+  --font-serif: var(--font-newsreader);
   --font-sans: var(--font-ibm-plex-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -142,19 +142,18 @@
     @apply bg-background text-foreground font-sans text-[0.9375rem] leading-[1.7];
     font-feature-settings: "ss01", "cv01";
   }
-  .font-heading {
-    font-family: var(--font-ibm-plex-sans);
-    font-weight: 600;
-  }
 }
 
 @layer components {
   .section-label {
-    @apply font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground;
+    font-family: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+    @apply text-xl font-normal italic text-foreground;
+    letter-spacing: -0.01em;
+    text-transform: lowercase;
   }
 
   .section-title {
-    @apply font-heading text-base font-semibold tracking-tight text-foreground;
+    @apply text-base font-semibold tracking-tight text-foreground;
   }
 
   .text-body {
@@ -214,4 +213,9 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

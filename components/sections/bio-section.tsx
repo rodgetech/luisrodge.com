@@ -1,18 +1,26 @@
-import { SECTIONS, USER } from "@/config/site";
+import Link from "next/link";
+import { BIO, SECTIONS, SOCIAL_LINKS } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
 import { SectionLabel } from "@/components/ui/section-label";
-import { SocialLinksSection } from "./social-links-section";
 
-type BioSectionProps = {
-  githubTotal: number;
-};
-
-export function BioSection({ githubTotal }: BioSectionProps) {
+export function BioSection() {
   return (
     <SectionContent>
       <SectionLabel>{SECTIONS.about.label}</SectionLabel>
-      <p className="text-body whitespace-pre-line">{USER.longBio.trim()}</p>
-      <SocialLinksSection githubTotal={githubTotal} />
+      <p className="text-body">{BIO.intro}</p>
+      <p className="text-body">{BIO.openTo}</p>
+      <p className="text-body">
+        Sometimes I&apos;m on{" "}
+        <Link
+          href={SOCIAL_LINKS.youtube.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-underline"
+        >
+          YouTube
+        </Link>{" "}
+        too.
+      </p>
     </SectionContent>
   );
 }

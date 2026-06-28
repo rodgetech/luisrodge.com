@@ -29,7 +29,7 @@ export function WorkExperienceSection() {
               </p>
             </div>
             <p className="text-meta shrink-0 tabular-nums">
-              {mostRecent.startDate} – {mostRecent.endDate}
+              {mostRecent.startDate} to {mostRecent.endDate}
             </p>
           </div>
 

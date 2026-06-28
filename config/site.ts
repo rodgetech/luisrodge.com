@@ -3,10 +3,7 @@ export const USER = {
   lastName: "Rodriguez",
   displayName: "Luis Rodge",
   username: "rodgetech",
-  tagline: "Full-stack engineer building indie SaaS and experiments",
-  longBio: `I'm a software engineer from Belize. I take products from idea to launch — web, mobile, and everything in between. Currently building an iOS app solo.
-
-Open to full-time roles, contract MVPs, and co-building with founders.`,
+  tagline: "Full stack engineer building indie SaaS and experiments",
   address: "Cayo, Belize, Central America",
   phoneNumber: "+5016082077",
   email: "rodgetech@gmail.com",
@@ -19,7 +16,7 @@ Open to full-time roles, contract MVPs, and co-building with founders.`,
     "rodgetech",
     "luis rodriguez",
     "software engineer belize",
-    "full-stack developer",
+    "full stack developer",
     "indie hacker",
   ],
   dateCreated: "2025-12-14", // YYYY-MM-DD
@@ -33,6 +30,12 @@ export const CONTACT_MAILTO = `mailto:${USER.email}`;
 
 export const FOOTER_TAGLINE = "Always building and shipping.";
 
+export const BIO = {
+  intro:
+    "I'm a software engineer from Belize. I take products from idea to launch on web and mobile. Currently building an iOS app solo.",
+  openTo: "Open to full time roles, contract MVPs, and building with founders.",
+} as const;
+
 export const SECTIONS = {
   about: {
     id: "about",
@@ -40,15 +43,11 @@ export const SECTIONS = {
   },
   building: {
     id: "currently-working-on",
-    label: "Now building",
-    navLabel: "Building",
-    navShortLabel: "Now",
+    label: "Building",
   },
   work: {
     id: "work-experience",
     label: "Last role",
-    navLabel: "Experience",
-    navShortLabel: "Work",
   },
   stack: {
     id: "stack",
@@ -56,19 +55,17 @@ export const SECTIONS = {
   },
   proud: {
     id: "proud-moment",
-    label: "What I'm Most Proud Of",
+    label: "Proud moment",
   },
 } as const;
 
 export type SectionKey = keyof typeof SECTIONS;
 
-export const NAV_SECTION_KEYS = ["building", "work"] as const satisfies readonly SectionKey[];
-
 export const SITE_INFO = {
   name: USER.displayName,
   url: "https://rodgetech.com",
   ogImage: USER.ogImage,
-  description: `${USER.firstName} ${USER.lastName} — full-stack engineer from Belize. Building Video Journal. Open to work and partnerships.`,
+  description: `${USER.firstName} ${USER.lastName}, full stack engineer from Belize. Building Video Journal. Open to work and partnerships.`,
   keywords: USER.keywords,
 };
 
@@ -105,11 +102,11 @@ export const WORK_EXPERIENCE = {
     startDate: "2023",
     endDate: "2025",
     responsibilities: [
-      "Built and maintained developer-facing demos, templates, and sample apps on BuildShip's visual backend platform",
-      "Produced weekly YouTube tutorials showing real product workflows — translating complex APIs into approachable content",
-      "Owned developer support across Discord, email, and live sessions — surfacing product feedback directly to engineering",
-      "Improved platform documentation and onboarding, reducing time-to-first-integration for new users",
-      "Hosted community events and led knowledge-sharing sessions with cross-functional teams",
+      "Built and maintained developer facing demos, templates, and sample apps on BuildShip's visual backend platform",
+      "Produced weekly YouTube tutorials showing real product workflows, translating complex APIs into approachable content",
+      "Owned developer support across Discord, email, and live sessions, surfacing product feedback directly to engineering",
+      "Improved platform documentation and onboarding, reducing time to first integration for new users",
+      "Hosted community events and led knowledge sharing sessions with cross functional teams",
     ],
     highlightCount: 3,
   },
@@ -135,7 +132,7 @@ export const TECH_STACK = [
 export const VIDEO_JOURNAL = {
   name: "Video Journal",
   description:
-    "A TikTok-style video journaling app for iOS. Writing never captured how I actually felt — with video, I can go back and see myself, not just the story I wrote down.",
+    "A TikTok style video journaling app for iOS. Writing never captured how I actually felt. With video, I can go back and see myself, not just the story I wrote down.",
   highlights: "Feed · Streaks · Transcription · iCloud sync",
   techStack: ["Swift", "iOS", "SwiftUI", "AVFoundation"],
   videoSrc: "/videos/videojournalapp.mp4",
@@ -144,8 +141,8 @@ export const VIDEO_JOURNAL = {
 
 export const PROUD_MOMENT = {
   paragraphs: [
-    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built on my own that someone I'd never met actually paid for.",
-    "That first internet dollar wasn't about the amount. It was proof I could build something real enough for someone to open their wallet — and that's the builder I want to be.",
+    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups, the first thing I built on my own that someone I'd never met actually paid for.",
+    "That first internet dollar wasn't about the amount. It was proof I could build something real enough for someone to open their wallet, and that's the builder I want to be.",
   ],
   image: "/first-payout.png",
   imageAlt:

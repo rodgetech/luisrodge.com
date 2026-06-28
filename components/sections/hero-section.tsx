@@ -30,7 +30,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col gap-1.5 pb-1">
-              <h1 className="font-heading text-[2rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[2.25rem]">
+              <h1 className="text-[2rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[2.25rem]">
                 {USER.displayName}
               </h1>
               <p className="text-base text-muted-foreground">{USER.tagline}</p>

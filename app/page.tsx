@@ -8,21 +8,17 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { PageSection } from "@/components/ui/page-section";
-import { SiteNav } from "@/components/ui/site-nav";
+import { SiteDock } from "@/components/ui/site-dock";
 import { SECTIONS } from "@/config/site";
-import { getCachedGitHubContributionsTotal } from "@/lib/github";
 
-export default async function Home() {
-  const githubTotal = await getCachedGitHubContributionsTotal();
-
+export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <HeroSection />
-      <SiteNav />
 
-      <main className="page-x mx-auto w-full max-w-2xl flex-1">
+      <main className="page-x mx-auto w-full max-w-2xl flex-1 pb-24">
         <PageSection first id={SECTIONS.about.id}>
-          <BioSection githubTotal={githubTotal} />
+          <BioSection />
         </PageSection>
 
         <PageSection id={SECTIONS.building.id}>
@@ -45,6 +41,8 @@ export default async function Home() {
           <FooterSection />
         </PageSection>
       </main>
+
+      <SiteDock />
     </div>
   );
 }

@@ -8,7 +8,7 @@ type ErrorProps = {
 export default function Error({ reset }: ErrorProps) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background px-6 text-center">
-      <h1 className="font-heading text-lg font-semibold text-foreground">
+      <h1 className="font-serif text-lg font-semibold text-foreground">
         Something went wrong
       </h1>
       <p className="text-sm text-muted-foreground">

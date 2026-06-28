@@ -1,6 +1,5 @@
 export { HeroSection } from "./hero-section";
 export { BioSection } from "./bio-section";
-export { SocialLinksSection } from "./social-links-section";
 export { WorkExperienceSection } from "./work-experience-section";
 export { TechStackSection } from "./tech-stack-section";
 export { CurrentlyWorkingOnSection } from "./currently-working-on-section";
