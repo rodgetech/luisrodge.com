@@ -16,7 +16,7 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon-sm"
-      className="relative rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white/90 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-100 dark:hover:bg-zinc-800"
+      className="surface relative rounded-lg border-0 bg-transparent text-muted-foreground hover:bg-muted hover:text-foreground"
       onClick={toggleTheme}
     >
       <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

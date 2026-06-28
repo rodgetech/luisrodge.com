@@ -1,49 +1,34 @@
 import Image from "next/image";
-import { TECH_STACK } from "@/config/site";
-import { Separator } from "@/components/ui/separator";
+import { TECH_STACK, SECTIONS } from "@/config/site";
+import { SectionContent } from "@/components/ui/section-content";
+import { SectionLabel } from "@/components/ui/section-label";
 
 export function TechStackSection() {
-  // Group icons into rows of 4
-  const rows: (typeof TECH_STACK)[] = [];
-  for (let i = 0; i < TECH_STACK.length; i += 4) {
-    rows.push(TECH_STACK.slice(i, i + 4));
-  }
-
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        <h2 className="font-heading text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-          Tech Stack
-        </h2>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Technologies and tools I use to build applications.
-        </p>
-      </div>
-      <div className="flex flex-col">
-        {rows.map((row, rowIndex) => (
-          <div key={rowIndex}>
-            {rowIndex > 0 && <Separator />}
-            <div className="grid grid-cols-4 py-6">
-              {row.map((tech) => (
-                <div key={tech.name} className="flex justify-center">
-                  <div
-                    className="flex h-14 w-14 items-center justify-center rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
-                    title={tech.name}
-                  >
-                    <Image
-                      src={tech.icon}
-                      alt={tech.name}
-                      width={28}
-                      height={28}
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <SectionContent>
+      <SectionLabel>{SECTIONS.stack.label}</SectionLabel>
+      <div className="flex flex-wrap gap-2">
+        {TECH_STACK.map((tech) => (
+          <span
+            key={tech.name}
+            title={tech.name}
+            className="inline-flex items-center gap-1.5 rounded-md bg-muted px-2 py-1 text-meta"
+          >
+            <Image
+              src={tech.icon}
+              alt=""
+              width={14}
+              height={14}
+              className="object-contain opacity-80"
+              aria-hidden
+            />
+            {tech.name}
+          </span>
         ))}
+        <span className="inline-flex items-center px-2 py-1 text-meta">
+          and more
+        </span>
       </div>
-    </div>
+    </SectionContent>
   );
 }
