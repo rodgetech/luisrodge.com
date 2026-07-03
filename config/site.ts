@@ -133,7 +133,7 @@ export const VIDEO_JOURNAL = {
   name: "Video Journal",
   description:
     "A TikTok style video journaling app for iOS. Writing never captured how I actually felt. With video, I can go back and see myself, not just the story I wrote down.",
-  highlights: "Feed · Streaks · Transcription · iCloud sync",
+  highlights: ["Feed", "Streaks", "Transcription", "iCloud sync"],
   techStack: ["Swift", "iOS", "SwiftUI", "AVFoundation"],
   videoSrc: "/videos/videojournalapp.mp4",
   iconSrc: "/journalapp-icon.png",
@@ -147,4 +147,18 @@ export const PROUD_MOMENT = {
   image: "/first-payout.png",
   imageAlt:
     "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups",
+  link: {
+    label: "See on TrustMRR",
+    url: "https://trustmrr.com/startup/screen-mockups",
+  },
+  shineBorder: {
+    borderWidth: {
+      light: 2,
+      dark: 1,
+    },
+    shineColor: {
+      light: ["#7C3AED", "#DB2777", "#EA580C"],
+      dark: ["#A07CFE", "#FE8FB5", "#FFBE7B"],
+    },
+  },
 };
