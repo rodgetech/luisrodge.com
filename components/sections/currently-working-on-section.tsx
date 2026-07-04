@@ -30,11 +30,28 @@ export function CurrentlyWorkingOnSection() {
 
             <p className="text-body">{VIDEO_JOURNAL.description}</p>
 
-            <p className="text-meta">
-              {VIDEO_JOURNAL.highlights}
-              <span className="mx-2 text-border">·</span>
-              {VIDEO_JOURNAL.techStack.join(" · ")}
-            </p>
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-1.5">
+                {VIDEO_JOURNAL.highlights.map((feature) => (
+                  <span
+                    key={feature}
+                    className="rounded-md bg-muted px-2 py-1 text-meta"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {VIDEO_JOURNAL.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-border px-2 py-1 text-meta"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <button

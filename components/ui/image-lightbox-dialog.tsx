@@ -24,13 +24,15 @@ export function ImageLightboxDialog({
 }: ImageLightboxDialogProps) {
   return (
     <ModalDialog open={open} onClose={onClose} title={title}>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="h-auto max-h-[85vh] w-auto max-w-[min(90vw,280px)] rounded-[1.75rem] shadow-elevated"
-      />
+      <div className="surface-elevated overflow-hidden">
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className="h-auto max-h-[85vh] w-auto max-w-[min(90vw,280px)]"
+        />
+      </div>
     </ModalDialog>
   );
 }
