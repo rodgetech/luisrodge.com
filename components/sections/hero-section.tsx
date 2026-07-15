@@ -30,10 +30,12 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-col gap-1.5 pb-1">
-              <h1 className="text-[2rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[2.25rem]">
+              <h1 className="text-[2rem] font-semibold tracking-[-0.02em] text-balance text-foreground sm:text-[2.25rem]">
                 {USER.displayName}
               </h1>
-              <p className="text-base text-muted-foreground">{USER.tagline}</p>
+              <p className="max-w-[36ch] text-base text-pretty text-muted-foreground">
+                {USER.tagline}
+              </p>
               <div className="text-meta flex flex-col gap-1.5 pt-0.5 sm:flex-row sm:items-center sm:gap-3">
                 <span>Belize · US timezone overlap</span>
                 <span aria-hidden className="hidden text-border sm:inline">

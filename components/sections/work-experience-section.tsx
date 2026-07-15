@@ -23,7 +23,7 @@ export function WorkExperienceSection() {
         <div className="flex min-w-0 flex-1 flex-col gap-4">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
             <div>
-              <h3 className="section-title">{mostRecent.company}</h3>
+              <h3 className="section-title text-balance">{mostRecent.company}</h3>
               <p className="text-body text-[0.875rem] leading-relaxed">
                 {mostRecent.title}
               </p>
@@ -33,11 +33,17 @@ export function WorkExperienceSection() {
             </p>
           </div>
 
-          <ul className="flex flex-col gap-3 border-l border-border pl-4 text-body text-[0.875rem] leading-relaxed">
+          <ul className="flex flex-col gap-3 text-body text-[0.875rem] leading-relaxed">
             {mostRecent.responsibilities
               .slice(0, mostRecent.highlightCount)
               .map((responsibility) => (
-                <li key={responsibility}>{responsibility}</li>
+                <li key={responsibility} className="relative pl-4">
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-[0.65em] size-1 rounded-full bg-muted-foreground/50"
+                  />
+                  {responsibility}
+                </li>
               ))}
           </ul>
 

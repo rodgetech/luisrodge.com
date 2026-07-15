@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -9,13 +8,9 @@ import { PROUD_MOMENT, SECTIONS } from "@/config/site";
 import { ImageLightboxDialog } from "@/components/ui/image-lightbox-dialog";
 import { SectionContent } from "@/components/ui/section-content";
 import { SectionLabel } from "@/components/ui/section-label";
-import { ShineBorder } from "@/components/ui/shine-border";
 
 export function ProudMomentSection() {
   const [open, setOpen] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const { borderWidth, shineColor } = PROUD_MOMENT.shineBorder;
-  const isDark = resolvedTheme === "dark";
 
   return (
     <>
@@ -37,17 +32,13 @@ export function ProudMomentSection() {
               height={1024}
               className="h-auto w-full"
             />
-            <ShineBorder
-              borderWidth={isDark ? borderWidth.dark : borderWidth.light}
-              shineColor={isDark ? shineColor.dark : shineColor.light}
-            />
           </button>
 
           <div className="flex min-w-0 flex-1 flex-col gap-4">
-            <p className="text-body text-[0.875rem] leading-relaxed">
+            <p className="text-body text-pretty text-[0.875rem] leading-relaxed">
               {PROUD_MOMENT.paragraphs[0]}
             </p>
-            <p className="text-body text-[0.875rem] leading-relaxed">
+            <p className="text-body text-pretty text-[0.875rem] leading-relaxed">
               {PROUD_MOMENT.paragraphs[1]}
             </p>
             <Link

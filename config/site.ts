@@ -3,7 +3,7 @@ export const USER = {
   lastName: "Rodriguez",
   displayName: "Luis Rodge",
   username: "rodgetech",
-  tagline: "Full stack engineer building indie SaaS and experiments",
+  tagline: "Full stack engineer who takes products from idea to launch",
   address: "Cayo, Belize, Central America",
   phoneNumber: "+5016082077",
   email: "rodgetech@gmail.com",
@@ -65,7 +65,7 @@ export const SITE_INFO = {
   name: USER.displayName,
   url: "https://rodgetech.com",
   ogImage: USER.ogImage,
-  description: `${USER.firstName} ${USER.lastName}, full stack engineer from Belize. Building Video Journal. Open to work and partnerships.`,
+  description: `${USER.firstName} ${USER.lastName}, full stack engineer from Belize who takes products from idea to launch. Building Video Journal. Open to full-time roles and founder partnerships.`,
   keywords: USER.keywords,
 };
 
@@ -150,15 +150,5 @@ export const PROUD_MOMENT = {
   link: {
     label: "See on TrustMRR",
     url: "https://trustmrr.com/startup/screen-mockups",
-  },
-  shineBorder: {
-    borderWidth: {
-      light: 2,
-      dark: 1,
-    },
-    shineColor: {
-      light: ["#7C3AED", "#DB2777", "#EA580C"],
-      dark: ["#A07CFE", "#FE8FB5", "#FFBE7B"],
-    },
   },
 };

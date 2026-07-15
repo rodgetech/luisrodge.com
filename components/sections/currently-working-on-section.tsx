@@ -28,7 +28,7 @@ export function CurrentlyWorkingOnSection() {
               <h3 className="section-title">{VIDEO_JOURNAL.name}</h3>
             </div>
 
-            <p className="text-body">{VIDEO_JOURNAL.description}</p>
+            <p className="text-body text-pretty">{VIDEO_JOURNAL.description}</p>
 
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap gap-1.5">
