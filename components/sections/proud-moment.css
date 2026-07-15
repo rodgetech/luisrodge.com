@@ -12,7 +12,7 @@
 
 .proud-phone-hint {
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(4px) scale(0.92);
   transition:
     opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1),
     transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
@@ -21,7 +21,7 @@
 .proud-phone:hover .proud-phone-hint,
 .proud-phone:focus-visible .proud-phone-hint {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (hover: none) {

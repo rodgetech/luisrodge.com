@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Expand } from "lucide-react";
 import { PROUD_MOMENT, SECTIONS } from "@/config/site";
 import { ModalDialog } from "@/components/ui/modal-dialog";
 import { SectionContent } from "@/components/ui/section-content";
@@ -19,8 +19,16 @@ export function ProudMomentSection() {
       <SectionContent>
         <SectionLabel emphasis>{SECTIONS.proud.label}</SectionLabel>
 
-        <div className="flex flex-col sm:flex-row sm:items-start sm:gap-[var(--media-gutter)]">
-          <figure className="mx-auto flex w-full max-w-[140px] shrink-0 flex-col gap-2 sm:mx-0 sm:max-w-[180px]">
+        {/*
+          Mobile (1 col): lead → large proof → closing.
+          Desktop: image left, copy right (lead + closing stacked).
+        */}
+        <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-x-[var(--media-gutter)] sm:gap-y-[var(--stack-prose)]">
+          <p className="text-body sm:col-start-2 sm:row-start-1">
+            {PROUD_MOMENT.lead}
+          </p>
+
+          <figure className="proud-figure mx-auto flex w-full max-w-[min(72vw,240px)] flex-col gap-2 sm:col-start-1 sm:row-start-1 sm:row-span-2 sm:mx-0 sm:max-w-none sm:w-[180px]">
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -33,11 +41,12 @@ export function ProudMomentSection() {
                 alt={PROUD_MOMENT.imageAlt}
                 width={736}
                 height={1024}
-                sizes="(max-width: 640px) 140px, 180px"
+                sizes="(max-width: 640px) 72vw, 180px"
                 className="h-auto w-full"
               />
-              <span className="proud-phone-hint pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-background/80 to-transparent px-2 pb-2.5 pt-8 text-meta text-foreground/80">
-                Expand
+              <span className="proud-phone-hint pointer-events-none absolute right-2 bottom-2 flex size-9 items-center justify-center rounded-full bg-background/90 text-foreground shadow-sm">
+                <Expand className="size-3.5" strokeWidth={2} aria-hidden />
+                <span className="sr-only">Expand</span>
               </span>
             </button>
             <figcaption className="text-meta px-0.5 text-center font-serif italic sm:text-left">
@@ -45,8 +54,7 @@ export function ProudMomentSection() {
             </figcaption>
           </figure>
 
-          <div className="flex min-w-0 flex-1 flex-col gap-[var(--stack-prose)]">
-            <p className="text-body">{PROUD_MOMENT.lead}</p>
+          <div className="flex flex-col gap-[var(--stack-prose)] sm:col-start-2 sm:row-start-2">
             <p className="text-body">
               {closing.before}
               <span className="proud-highlight font-medium text-foreground">
@@ -81,7 +89,8 @@ export function ProudMomentSection() {
             alt={PROUD_MOMENT.imageAlt}
             width={736}
             height={1024}
-            className="h-auto max-h-[85vh] w-auto max-w-[min(90vw,280px)]"
+            sizes="(max-width: 640px) 92vw, 320px"
+            className="block h-auto w-[min(92vw,320px)] max-h-[min(85dvh,calc(100dvh-5.5rem))] object-contain"
           />
         </div>
       </ModalDialog>
