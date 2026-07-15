@@ -63,8 +63,12 @@ export function CurrentlyWorkingOnSection() {
       <SectionContent>
         <SectionLabel>{SECTIONS.building.label}</SectionLabel>
 
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
+        {/*
+          Mobile: header → demo → copy.
+          Desktop: header+copy left, phone right — tops flush with the title.
+        */}
+        <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-[minmax(0,1fr)_180px] sm:gap-x-[var(--media-gutter)] sm:gap-y-4">
+          <div className="flex items-center gap-3 sm:col-start-1 sm:row-start-1">
             <Image
               src={VIDEO_JOURNAL.iconSrc}
               alt={`${VIDEO_JOURNAL.name} app icon`}
@@ -80,47 +84,44 @@ export function CurrentlyWorkingOnSection() {
             </div>
           </div>
 
-          {/* Mobile: proof media before long copy. Desktop: copy left, media right. */}
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-[var(--media-gutter)]">
-            <button
-              ref={previewRef}
-              type="button"
-              onClick={() => setOpen(true)}
-              aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
-              aria-haspopup="dialog"
-              aria-describedby="video-journal-demo-summary"
-              className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[160px] shrink-0 overflow-hidden order-1 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:order-2 sm:mx-0 sm:max-w-none sm:w-48"
-            >
-              <video
-                ref={videoRef}
-                poster={VIDEO_JOURNAL.posterSrc}
-                muted
-                loop
-                playsInline
-                preload="none"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 motion-reduce:opacity-100 motion-reduce:transition-none">
-                <div className="flex size-11 items-center justify-center rounded-full bg-background/95 shadow-sm">
-                  <svg
-                    className="h-3.5 w-3.5 translate-x-0.5 text-foreground"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
+          <button
+            ref={previewRef}
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
+            aria-haspopup="dialog"
+            aria-describedby="video-journal-demo-summary"
+            className="proof-phone group surface-elevated relative mx-auto aspect-[9/16] shrink-0 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:col-start-2 sm:row-start-1 sm:row-span-2 sm:mx-0 sm:w-full"
+          >
+            <video
+              ref={videoRef}
+              poster={VIDEO_JOURNAL.posterSrc}
+              muted
+              loop
+              playsInline
+              preload="none"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 motion-reduce:opacity-100 motion-reduce:transition-none">
+              <div className="flex size-11 items-center justify-center rounded-full bg-background/95 shadow-sm">
+                <svg
+                  className="h-3.5 w-3.5 translate-x-0.5 text-foreground"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
-            </button>
-
-            <div className="order-2 flex min-w-0 flex-1 flex-col gap-4 sm:order-1">
-              <p className="text-body">{VIDEO_JOURNAL.description}</p>
-
-              <p className="text-meta">
-                {VIDEO_JOURNAL.highlights.join(" · ")}
-              </p>
             </div>
+          </button>
+
+          <div className="flex flex-col gap-4 sm:col-start-1 sm:row-start-2">
+            <p className="text-body">{VIDEO_JOURNAL.description}</p>
+
+            <p className="text-meta">
+              {VIDEO_JOURNAL.highlights.join(" · ")}
+            </p>
           </div>
         </div>
 

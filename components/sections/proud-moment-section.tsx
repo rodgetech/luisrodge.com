@@ -28,13 +28,13 @@ export function ProudMomentSection() {
             {PROUD_MOMENT.lead}
           </p>
 
-          <figure className="proud-figure mx-auto flex w-full max-w-[min(72vw,240px)] flex-col gap-2 sm:col-start-1 sm:row-start-1 sm:row-span-2 sm:mx-0 sm:max-w-none sm:w-[180px]">
+          <figure className="proud-figure mx-auto flex w-fit flex-col gap-2 sm:col-start-1 sm:row-start-1 sm:row-span-2 sm:mx-0">
             <button
               type="button"
               onClick={() => setOpen(true)}
               aria-label="View payout screenshot"
               aria-haspopup="dialog"
-              className="proud-phone surface-elevated relative w-full cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+              className="proof-phone proud-phone surface-elevated relative cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
             >
               <Image
                 src={PROUD_MOMENT.image}
