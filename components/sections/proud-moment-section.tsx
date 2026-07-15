@@ -20,7 +20,7 @@ export function ProudMomentSection() {
         <SectionLabel emphasis>{SECTIONS.proud.label}</SectionLabel>
 
         <div className="flex flex-col sm:flex-row sm:items-start sm:gap-[var(--media-gutter)]">
-          <figure className="mx-auto flex w-full max-w-[180px] shrink-0 flex-col gap-2 sm:mx-0">
+          <figure className="mx-auto flex w-full max-w-[140px] shrink-0 flex-col gap-2 sm:mx-0 sm:max-w-[180px]">
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -33,6 +33,7 @@ export function ProudMomentSection() {
                 alt={PROUD_MOMENT.imageAlt}
                 width={736}
                 height={1024}
+                sizes="(max-width: 640px) 140px, 180px"
                 className="h-auto w-full"
               />
               <span className="proud-phone-hint pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-background/80 to-transparent px-2 pb-2.5 pt-8 text-meta text-foreground/80">

@@ -19,7 +19,7 @@ export function FooterSection() {
             ) : null}
             <a
               href={item.href}
-              className="link-underline inline-flex min-h-11 items-center px-1"
+              className="link-underline inline-flex min-h-11 min-w-11 items-center justify-center px-1.5"
               {...(item.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}

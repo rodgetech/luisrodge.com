@@ -27,7 +27,7 @@ export function VideoDemoDialog({
             controls
             playsInline
             preload="metadata"
-            className="max-h-[90vh] w-auto"
+            className="h-auto max-h-[min(85dvh,calc(100dvh-5.5rem))] w-auto max-w-[min(100vw-2rem,280px)]"
           />
         </div>
       ) : null}

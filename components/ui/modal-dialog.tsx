@@ -61,14 +61,14 @@ export function ModalDialog({
       <button
         type="button"
         onClick={onClose}
-        className="fixed top-4 right-4 z-20 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-3 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+        className="fixed top-[max(1rem,env(safe-area-inset-top,0px))] right-[max(1rem,env(safe-area-inset-right,0px))] z-20 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-3 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
       >
         Close
       </button>
 
-      <div className="pointer-events-none fixed inset-0 z-10 flex items-center justify-center p-4">
+      <div className="pointer-events-none fixed inset-0 z-10 flex items-center justify-center p-4 pt-[max(1rem,env(safe-area-inset-top,0px))] pb-[max(1rem,env(safe-area-inset-bottom,0px))]">
         <div
-          className="pointer-events-auto"
+          className="pointer-events-auto max-h-full max-w-full"
           onClick={(event) => event.stopPropagation()}
         >
           {children}

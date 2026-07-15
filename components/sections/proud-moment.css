@@ -29,6 +29,11 @@
     opacity: 1;
     transform: none;
   }
+
+  .proud-phone:hover,
+  .proud-phone:focus-visible {
+    transform: none;
+  }
 }
 
 .proud-highlight {

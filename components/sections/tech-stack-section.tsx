@@ -11,7 +11,7 @@ function TechChip({ name, icon }: { name: string; icon: string }) {
   return (
     <span
       title={name}
-      className="inline-flex items-center gap-1.5 rounded-md bg-muted px-2.5 py-1 text-meta"
+      className="tech-chip inline-flex items-center gap-1.5 rounded-md bg-muted px-2.5 py-1 text-meta"
     >
       <Image
         src={icon}

@@ -67,11 +67,11 @@
   --stack-prose: 0.75rem;
   --media-gutter: 1.5rem;
   --scroll-margin: 4.25rem;
-  --nav-clearance: 6rem;
+  --nav-clearance: calc(6rem + env(safe-area-inset-bottom, 0px));
   --z-nav: 50;
   --z-modal: 70;
   --z-skip: 60;
-  --page-x: 1.5rem;
+  --page-x: 1.25rem;
   --page-x-sm: 2rem;
   --background: oklch(0.995 0.002 106);
   --foreground: oklch(0.18 0.01 265);
@@ -166,6 +166,8 @@
     line-height: var(--leading-body);
     font-kerning: normal;
     font-optical-sizing: auto;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 }
 
@@ -219,6 +221,18 @@
     max-width: 40ch;
   }
 
+  @media (max-width: 639px) {
+    .text-lead {
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      max-width: none;
+    }
+
+    .text-display {
+      font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+    }
+  }
+
   .link-subtle {
     @apply text-muted-foreground transition-colors duration-150 hover:text-foreground;
   }
@@ -253,6 +267,18 @@
     display: flex;
     flex-direction: column;
     gap: var(--section-inner);
+  }
+}
+
+/* Touch: larger tap comfort without changing mouse density */
+@media (pointer: coarse) {
+  .link-underline {
+    text-underline-offset: 5px;
+  }
+
+  .tech-chip {
+    min-height: 2.75rem;
+    padding-inline: 0.75rem;
   }
 }
 
