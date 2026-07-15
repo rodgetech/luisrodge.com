@@ -28,7 +28,7 @@ export const BOOKING_CTA_LABEL = "Book a call";
 export const CONTACT_CTA_LABEL = "Say Hi";
 export const CONTACT_MAILTO = `mailto:${USER.email}`;
 
-/** Co-equal primary actions — book a call and say hi. Shared by hero + dock. */
+/** Co-equal primary actions — book a call and say hi. Shared by hero + site nav. */
 export const OUTREACH_CTAS = [
   {
     id: "book",
@@ -114,6 +114,30 @@ export const SOCIAL_LINKS = {
   },
 };
 
+/** Soft path for visitors not ready to contact — footer links. */
+export const SOFT_PATH_SOCIALS = [
+  {
+    id: "github",
+    href: SOCIAL_LINKS.github.url,
+    label: "GitHub",
+    external: true,
+  },
+  {
+    id: "linkedin",
+    href: SOCIAL_LINKS.linkedin.url,
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    id: "x",
+    href: SOCIAL_LINKS.x.url,
+    label: "X",
+    external: true,
+  },
+] as const;
+
+export type SoftPathSocialId = (typeof SOFT_PATH_SOCIALS)[number]["id"];
+
 export const WORK_EXPERIENCE = {
   mostRecent: {
     company: "BuildShip",
@@ -150,7 +174,7 @@ export const TECH_STACK = [
   { name: "Convex", icon: "/stack/convex.png" },
 ];
 
-export const TECH_STACK_HOMEPAGE_COUNT = 8;
+export const TECH_STACK_HOMEPAGE_COUNT = 5;
 
 export const VIDEO_JOURNAL = {
   name: "Video Journal",

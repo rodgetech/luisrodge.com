@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { SECTIONS, VIDEO_JOURNAL } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
@@ -9,6 +9,15 @@ import { VideoDemoDialog } from "@/components/ui/video-demo-dialog";
 
 export function CurrentlyWorkingOnSection() {
   const [open, setOpen] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setAutoplay(!media.matches);
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, []);
 
   return (
     <>
@@ -52,18 +61,19 @@ export function CurrentlyWorkingOnSection() {
             onClick={() => setOpen(true)}
             aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
             aria-haspopup="dialog"
-            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[200px] shrink-0 overflow-hidden sm:mx-0 sm:w-48"
+            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[200px] shrink-0 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:mx-0 sm:w-48"
           >
             <video
               src={VIDEO_JOURNAL.videoSrc}
-              autoPlay
+              autoPlay={autoplay}
               muted
-              loop
+              loop={autoplay}
               playsInline
+              preload={autoplay ? "auto" : "metadata"}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/95 shadow-sm">
+            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">
+              <div className="flex size-11 items-center justify-center rounded-full bg-background/95 shadow-sm">
                 <svg
                   className="h-3.5 w-3.5 translate-x-0.5 text-foreground"
                   fill="currentColor"

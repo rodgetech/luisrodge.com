@@ -8,7 +8,7 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { PageSection } from "@/components/ui/page-section";
-import { SiteDock } from "@/components/ui/site-dock";
+import { SiteNav } from "@/components/ui/site-nav";
 import { SECTIONS } from "@/config/site";
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
         </PageSection>
       </main>
 
-      <SiteDock />
+      <SiteNav />
     </div>
   );
 }

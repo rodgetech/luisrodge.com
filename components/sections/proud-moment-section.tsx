@@ -23,7 +23,7 @@ export function ProudMomentSection() {
             onClick={() => setOpen(true)}
             aria-label="View payout screenshot"
             aria-haspopup="dialog"
-            className="surface-elevated relative mx-auto w-full max-w-[180px] shrink-0 cursor-zoom-in overflow-hidden transition-opacity hover:opacity-90 focus-visible:opacity-90 sm:mx-0"
+            className="surface-elevated relative mx-auto w-full max-w-[180px] shrink-0 cursor-zoom-in overflow-hidden transition-opacity hover:opacity-90 focus-visible:opacity-90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:mx-0"
           >
             <Image
               src={PROUD_MOMENT.image}
@@ -45,7 +45,7 @@ export function ProudMomentSection() {
               href={PROUD_MOMENT.link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline inline-flex items-center gap-1.5 self-start"
+              className="link-underline text-meta inline-flex min-h-11 items-center gap-1.5 self-start"
             >
               {PROUD_MOMENT.link.label}
               <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={1.75} />

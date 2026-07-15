@@ -35,7 +35,7 @@ export function HeroSection() {
               <h1 className="text-display">{USER.displayName}</h1>
               <p className="text-lead">{USER.tagline}</p>
               <div className="text-meta flex flex-col gap-1 pt-0.5 sm:flex-row sm:items-center sm:gap-3">
-                <span>Belize · US timezone overlap</span>
+                <span>Belize · US-friendly hours</span>
                 <span aria-hidden className="hidden text-border sm:inline">
                   /
                 </span>
@@ -45,13 +45,13 @@ export function HeroSection() {
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-2 sm:pl-[calc(8rem+1.25rem)]">
-            {OUTREACH_CTAS.map((cta, index) => (
+            {OUTREACH_CTAS.map((cta) => (
               <Button
                 key={cta.id}
                 asChild
                 size="sm"
-                variant={index === 0 ? "default" : "outline"}
-                className="h-9 px-4"
+                variant="default"
+                className="h-11 px-4"
               >
                 <Link
                   href={cta.href}

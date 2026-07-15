@@ -7,7 +7,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-serif: var(--font-newsreader);
-  --font-sans: var(--font-ibm-plex-sans);
+  --font-sans: var(--font-sans-face);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   --text-meta: 0.875rem;
@@ -55,19 +55,6 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --shadow-surface: var(--shadow-surface);
   --shadow-elevated: var(--shadow-elevated);
-  --animate-shine: shine var(--duration) infinite linear;
-
-  @keyframes shine {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
 }
 
 :root {
@@ -159,19 +146,23 @@
   html {
     scroll-behavior: smooth;
   }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
   body {
     @apply bg-background text-foreground font-sans;
     font-size: var(--text-body);
     line-height: var(--leading-body);
     font-kerning: normal;
     font-optical-sizing: auto;
-    font-feature-settings: "ss01", "cv01";
   }
 }
 
 @layer components {
   .section-label {
-    font-family: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
     @apply font-semibold tracking-tight text-foreground text-balance;
     font-size: var(--text-label);
     letter-spacing: -0.02em;
@@ -225,7 +216,6 @@
 
   .link-underline {
     @apply text-muted-foreground underline decoration-border underline-offset-4 transition-colors duration-150 hover:text-foreground hover:decoration-foreground;
-    font-size: var(--text-meta);
   }
 
   .surface {

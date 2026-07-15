@@ -46,7 +46,11 @@ export function WorkExperienceSection() {
           </ul>
 
           <p>
-            <a href={WORK_EXPERIENCE.resumeUrl} download className="link-underline">
+            <a
+              href={WORK_EXPERIENCE.resumeUrl}
+              download
+              className="link-underline text-meta"
+            >
               Full resume
             </a>
           </p>
