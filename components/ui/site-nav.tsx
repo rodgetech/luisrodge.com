@@ -1,11 +1,11 @@
 "use client";
 
+import { useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { Calendar, Home, MessageCircle } from "lucide-react";
+import { Calendar, Home, MessageCircle, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import type { ComponentType } from "react";
 
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import {
   OUTREACH_CTAS,
   type OutreachCtaId,
@@ -32,13 +32,36 @@ function Separator() {
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+  const isDark = resolvedTheme === "dark";
+
+  const toggleTheme = useCallback(() => {
+    const next = isDark ? "light" : "dark";
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion || typeof document.startViewTransition !== "function") {
+      setTheme(next);
+      return;
+    }
+
+    document.startViewTransition(() => setTheme(next));
+  }, [isDark, setTheme]);
 
   return (
-    <AnimatedThemeToggler
-      theme={resolvedTheme === "dark" ? "dark" : "light"}
-      onThemeChange={setTheme}
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      onClick={toggleTheme}
       className={ICON_BTN}
-    />
+    >
+      {mounted ? isDark ? <Sun /> : <Moon /> : <span className="size-4" aria-hidden />}
+    </button>
   );
 }
 
@@ -58,14 +81,12 @@ function scrollToTop() {
 /** Home + co-equal outreach + theme. Soft-path socials live in the footer. */
 export function SiteNav() {
   return (
-    <div
-      aria-label="Site navigation"
-      className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-2"
-    >
+    <div className="pointer-events-none fixed inset-x-0 bottom-4 z-[var(--z-nav)] flex justify-center px-2 pb-[env(safe-area-inset-bottom)]">
       <nav
+        aria-label="Site navigation"
         className={cn(
           "pointer-events-auto flex w-max max-w-[calc(100vw-1.25rem)] items-center gap-1",
-          "rounded-2xl border border-border/60 bg-background/95 p-1.5 shadow-lg backdrop-blur-sm",
+          "rounded-2xl border border-border/60 bg-background/95 p-1.5 shadow-elevated backdrop-blur-sm",
           "sm:gap-1.5 sm:p-2"
         )}
       >

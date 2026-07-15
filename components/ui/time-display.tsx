@@ -8,7 +8,7 @@ type TimeDisplayProps = {
 
 export function TimeDisplay({ timeZone }: TimeDisplayProps) {
   const [time, setTime] = useState<string | null>(null);
-  const [timeDiff, setTimeDiff] = useState<string>("local time");
+  const [relative, setRelative] = useState<string>("Belize time");
 
   useEffect(() => {
     const updateTime = () => {
@@ -46,11 +46,11 @@ export function TimeDisplay({ timeZone }: TimeDisplayProps) {
       if (diffHours < -12) diffHours += 24;
 
       if (diffHours === 0) {
-        setTimeDiff("same time");
+        setRelative("same as you");
       } else if (diffHours > 0) {
-        setTimeDiff(`${diffHours}h ahead`);
+        setRelative(`${diffHours}h ahead of you`);
       } else {
-        setTimeDiff(`${Math.abs(diffHours)}h behind`);
+        setRelative(`${Math.abs(diffHours)}h behind you`);
       }
     };
 
@@ -64,17 +64,18 @@ export function TimeDisplay({ timeZone }: TimeDisplayProps) {
     return (
       <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
         <span className="tabular-nums text-muted-foreground">--:--</span>
-        <span className="text-border">·</span>
-        <span>local time</span>
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+    <span
+      className="inline-flex items-center gap-1.5 whitespace-nowrap"
+      title={`Current time in ${timeZone.replaceAll("_", " ")}`}
+    >
       <span className="tabular-nums text-foreground">{time}</span>
       <span className="text-border">·</span>
-      <span>{timeDiff}</span>
+      <span>{relative}</span>
     </span>
   );
 }

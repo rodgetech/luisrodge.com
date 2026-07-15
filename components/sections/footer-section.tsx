@@ -5,33 +5,39 @@ export function FooterSection() {
   const year = new Date().getFullYear();
 
   return (
-    <SectionContent className="gap-6 border-t-0 pt-0 sm:flex-row sm:items-end sm:justify-between">
-      <div className="flex flex-col gap-3">
-        <p className="section-title max-w-[28ch]">{FOOTER_TAGLINE}</p>
-        <nav
-          aria-label="Social"
-          className="text-meta flex flex-wrap items-center gap-x-3 gap-y-1"
-        >
-          {SOFT_PATH_SOCIALS.map((item) => (
+    <SectionContent className="gap-[var(--section-inner)]">
+      <nav
+        aria-label="Social"
+        className="text-meta flex flex-wrap items-center gap-x-1 gap-y-1"
+      >
+        {SOFT_PATH_SOCIALS.map((item, index) => (
+          <span key={item.id} className="inline-flex items-center">
+            {index > 0 ? (
+              <span aria-hidden className="mx-1 text-border">
+                /
+              </span>
+            ) : null}
             <a
-              key={item.id}
               href={item.href}
-              className="link-underline"
+              className="link-underline inline-flex min-h-11 items-center px-1"
               {...(item.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
             >
               {item.label}
             </a>
-          ))}
-        </nav>
-      </div>
+          </span>
+        ))}
+      </nav>
 
-      <div className="text-meta flex flex-col gap-1 sm:items-end sm:text-right">
-        <p className="tabular-nums">
-          © {year} {USER.displayName}
-        </p>
-        <p>{USER.address}</p>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+        <p className="text-meta max-w-[36ch] text-pretty">{FOOTER_TAGLINE}</p>
+        <div className="text-meta flex flex-col gap-0.5 sm:items-end sm:text-right">
+          <p className="tabular-nums">
+            © {year} {USER.displayName}
+          </p>
+          <p>{USER.address}</p>
+        </div>
       </div>
     </SectionContent>
   );

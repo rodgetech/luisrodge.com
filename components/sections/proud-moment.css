@@ -1,0 +1,84 @@
+.proud-phone {
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.proud-phone:hover,
+.proud-phone:focus-visible {
+  transform: translateY(-5px) rotate(-1.25deg);
+  box-shadow: var(--shadow-elevated);
+}
+
+.proud-phone-hint {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.proud-phone:hover .proud-phone-hint,
+.proud-phone:focus-visible .proud-phone-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .proud-phone-hint {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.proud-highlight {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(
+    transparent 68%,
+    oklch(0.88 0.04 95 / 55%) 68%
+  );
+}
+
+.dark .proud-highlight {
+  background-image: linear-gradient(
+    transparent 68%,
+    oklch(0.45 0.06 95 / 40%) 68%
+  );
+}
+
+@keyframes proud-lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.proud-lightbox-image {
+  animation: proud-lightbox-in 0.4s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proud-phone,
+  .proud-phone-hint {
+    transition: none;
+  }
+
+  .proud-phone:hover,
+  .proud-phone:focus-visible {
+    transform: none;
+  }
+
+  .proud-phone-hint {
+    opacity: 1;
+    transform: none;
+  }
+
+  .proud-lightbox-image {
+    animation: none;
+  }
+}

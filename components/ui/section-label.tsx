@@ -15,8 +15,7 @@ export function SectionLabel({
   return (
     <h2
       className={cn(
-        "section-label",
-        emphasis && "section-label-emphasis",
+        emphasis ? "section-label-emphasis" : "section-label",
         className
       )}
     >

@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { OUTREACH_CTAS, USER } from "@/config/site";
-import { Button } from "@/components/ui/button";
+import { USER } from "@/config/site";
 import { TimeDisplay } from "@/components/ui/time-display";
 
 export function HeroSection() {
@@ -15,7 +13,7 @@ export function HeroSection() {
           className="object-cover object-bottom brightness-[0.9] saturate-[0.88]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/10 via-transparent to-background" />
       </div>
 
       <div className="relative z-10 -mt-12">
@@ -42,27 +40,6 @@ export function HeroSection() {
                 <TimeDisplay timeZone={USER.timeZone} />
               </div>
             </div>
-          </div>
-
-          <div className="mt-4 flex flex-wrap items-center gap-2 sm:pl-[calc(8rem+1.25rem)]">
-            {OUTREACH_CTAS.map((cta) => (
-              <Button
-                key={cta.id}
-                asChild
-                size="sm"
-                variant="default"
-                className="h-11 px-4"
-              >
-                <Link
-                  href={cta.href}
-                  {...(cta.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {cta.label}
-                </Link>
-              </Button>
-            ))}
           </div>
         </div>
       </div>

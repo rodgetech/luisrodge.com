@@ -45,7 +45,7 @@ export function ModalDialog({
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none border-0 bg-transparent p-0"
+      className="fixed inset-0 z-[var(--z-modal)] m-0 h-full w-full max-h-none max-w-none border-0 bg-transparent p-0"
     >
       <button
         type="button"
@@ -61,7 +61,7 @@ export function ModalDialog({
       <button
         type="button"
         onClick={onClose}
-        className="fixed top-4 right-4 z-20 rounded-lg px-3 py-1.5 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+        className="fixed top-4 right-4 z-20 inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-3 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
       >
         Close
       </button>

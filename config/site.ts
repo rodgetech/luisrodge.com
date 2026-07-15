@@ -28,7 +28,7 @@ export const BOOKING_CTA_LABEL = "Book a call";
 export const CONTACT_CTA_LABEL = "Say Hi";
 export const CONTACT_MAILTO = `mailto:${USER.email}`;
 
-/** Co-equal primary actions — book a call and say hi. Shared by hero + site nav. */
+/** Co-equal primary actions — book a call and say hi. Owned by the site nav. */
 export const OUTREACH_CTAS = [
   {
     id: "book",
@@ -181,19 +181,27 @@ export const VIDEO_JOURNAL = {
   description:
     "A TikTok style video journaling app for iOS. Writing never captured how I actually felt. With video, I can go back and see myself, not just the story I wrote down.",
   highlights: ["Feed", "Streaks", "Transcription", "iCloud sync"],
+  /** Short accessible summary of the demo for visitors who can't watch the video. */
+  demoSummary:
+    "Demo walkthrough: scrolling the journal feed, checking a streak, and reviewing a transcribed entry with iCloud sync.",
   techStack: ["Swift", "iOS", "SwiftUI", "AVFoundation"],
   videoSrc: "/videos/videojournalapp.mp4",
+  posterSrc: "/videos/videojournalapp-poster.jpg",
   iconSrc: "/journalapp-icon.png",
 };
 
 export const PROUD_MOMENT = {
-  paragraphs: [
-    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built alone that a stranger actually paid for.",
-    "That first internet dollar wasn't about the amount. It was proof I could ship something real enough for someone to open their wallet. That's the builder I want to be.",
-  ],
+  lead: "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built alone that a stranger actually paid for.",
+  closing: {
+    before: "That ",
+    highlight: "first internet dollar",
+    after:
+      " wasn't about the amount. It was proof I could ship something real enough for someone to open their wallet. That's the builder I want to be.",
+  },
+  imageCaption: "The notification.",
   image: "/first-payout.png",
   imageAlt:
-    "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups",
+    "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups — the first internet dollar",
   link: {
     label: "See Screen Mockups on TrustMRR",
     url: "https://trustmrr.com/startup/screen-mockups",

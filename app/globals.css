@@ -59,9 +59,18 @@
 
 :root {
   --radius: 0.5rem;
-  --section-space-first: 2.5rem;
-  --section-space: 3.25rem;
-  --section-inner: 1.25rem;
+  --section-space-first: 2rem;
+  --section-space: 1.75rem;
+  --section-space-footer: 1.5rem;
+  --section-space-emphasis: 2.25rem;
+  --section-inner: 1.125rem;
+  --stack-prose: 0.75rem;
+  --media-gutter: 1.5rem;
+  --scroll-margin: 4.25rem;
+  --nav-clearance: 6rem;
+  --z-nav: 50;
+  --z-modal: 70;
+  --z-skip: 60;
   --page-x: 1.5rem;
   --page-x-sm: 2rem;
   --background: oklch(0.995 0.002 106);
