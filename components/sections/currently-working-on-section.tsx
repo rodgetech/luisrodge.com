@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { SECTIONS, VIDEO_JOURNAL } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
@@ -9,72 +9,110 @@ import { VideoDemoDialog } from "@/components/ui/video-demo-dialog";
 
 export function CurrentlyWorkingOnSection() {
   const [open, setOpen] = useState(false);
+  const previewRef = useRef<HTMLButtonElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const button = previewRef.current;
+    const video = videoRef.current;
+    if (!button || !video) return;
+
+    let inView = false;
+
+    const prefersReducedMotion = () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const sync = () => {
+      const shouldPlay = inView && !open && !prefersReducedMotion();
+
+      if (shouldPlay) {
+        if (video.getAttribute("src") !== VIDEO_JOURNAL.videoSrc) {
+          video.src = VIDEO_JOURNAL.videoSrc;
+        }
+        void video.play().catch(() => {
+          // Autoplay can be blocked; poster + play affordance still work.
+        });
+        return;
+      }
+
+      video.pause();
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        sync();
+      },
+      { rootMargin: "120px", threshold: 0.15 }
+    );
+
+    observer.observe(button);
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    motionQuery.addEventListener("change", sync);
+    sync();
+
+    return () => {
+      observer.disconnect();
+      motionQuery.removeEventListener("change", sync);
+    };
+  }, [open]);
 
   return (
     <>
       <SectionContent>
         <SectionLabel>{SECTIONS.building.label}</SectionLabel>
 
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-[var(--media-gutter)]">
           <div className="flex min-w-0 flex-1 flex-col gap-4">
             <div className="flex items-center gap-3">
               <Image
                 src={VIDEO_JOURNAL.iconSrc}
                 alt={`${VIDEO_JOURNAL.name} app icon`}
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 className="surface rounded-lg"
               />
-              <h3 className="section-title">{VIDEO_JOURNAL.name}</h3>
+              <div className="flex min-w-0 flex-col gap-0.5">
+                <h3 className="section-title text-balance">{VIDEO_JOURNAL.name}</h3>
+                <p className="text-meta">
+                  {VIDEO_JOURNAL.techStack.join(" · ")}
+                </p>
+              </div>
             </div>
 
             <p className="text-body">{VIDEO_JOURNAL.description}</p>
 
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-wrap gap-1.5">
-                {VIDEO_JOURNAL.highlights.map((feature) => (
-                  <span
-                    key={feature}
-                    className="rounded-md bg-muted px-2 py-1 text-meta"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {VIDEO_JOURNAL.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border px-2 py-1 text-meta"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <p className="text-meta">
+              {VIDEO_JOURNAL.highlights.join(" · ")}
+            </p>
           </div>
 
           <button
+            ref={previewRef}
             type="button"
             onClick={() => setOpen(true)}
             aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
             aria-haspopup="dialog"
-            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[180px] shrink-0 overflow-hidden sm:mx-0 sm:w-44"
+            aria-describedby="video-journal-demo-summary"
+            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[200px] shrink-0 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:mx-0 sm:w-48"
           >
             <video
-              src={VIDEO_JOURNAL.videoSrc}
-              autoPlay
+              ref={videoRef}
+              poster={VIDEO_JOURNAL.posterSrc}
               muted
               loop
               playsInline
+              preload="none"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-background/95 shadow-sm">
+            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100 motion-reduce:opacity-100 motion-reduce:transition-none">
+              <div className="flex size-11 items-center justify-center rounded-full bg-background/95 shadow-sm">
                 <svg
                   className="h-3.5 w-3.5 translate-x-0.5 text-foreground"
                   fill="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -82,12 +120,17 @@ export function CurrentlyWorkingOnSection() {
             </div>
           </button>
         </div>
+
+        <p id="video-journal-demo-summary" className="sr-only">
+          {VIDEO_JOURNAL.demoSummary}
+        </p>
       </SectionContent>
 
       <VideoDemoDialog
         open={open}
         onClose={() => setOpen(false)}
         src={VIDEO_JOURNAL.videoSrc}
+        poster={VIDEO_JOURNAL.posterSrc}
         title={VIDEO_JOURNAL.name}
       />
     </>

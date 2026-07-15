@@ -6,6 +6,7 @@ type VideoDemoDialogProps = {
   open: boolean;
   onClose: () => void;
   src: string;
+  poster?: string;
   title: string;
 };
 
@@ -13,6 +14,7 @@ export function VideoDemoDialog({
   open,
   onClose,
   src,
+  poster,
   title,
 }: VideoDemoDialogProps) {
   return (
@@ -21,9 +23,10 @@ export function VideoDemoDialog({
         <div className="surface-elevated overflow-hidden">
           <video
             src={src}
+            poster={poster}
             controls
-            loop
             playsInline
+            preload="metadata"
             className="max-h-[90vh] w-auto"
           />
         </div>

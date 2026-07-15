@@ -7,20 +7,22 @@ export function BioSection() {
   return (
     <SectionContent>
       <SectionLabel>{SECTIONS.about.label}</SectionLabel>
-      <p className="text-body">{BIO.intro}</p>
-      <p className="text-body">{BIO.openTo}</p>
-      <p className="text-body">
-        Sometimes I&apos;m on{" "}
-        <Link
-          href={SOCIAL_LINKS.youtube.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-underline"
-        >
-          YouTube
-        </Link>{" "}
-        too.
-      </p>
+      <div className="flex flex-col gap-[var(--stack-prose)]">
+        <p className="text-body">{BIO.intro}</p>
+        <p className="text-body">{BIO.openTo}</p>
+        <p className="text-body">
+          Sometimes I&apos;m on{" "}
+          <Link
+            href={SOCIAL_LINKS.youtube.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline"
+          >
+            YouTube
+          </Link>{" "}
+          too.
+        </p>
+      </div>
     </SectionContent>
   );
 }

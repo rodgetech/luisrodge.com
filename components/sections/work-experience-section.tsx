@@ -23,26 +23,34 @@ export function WorkExperienceSection() {
         <div className="flex min-w-0 flex-1 flex-col gap-4">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
             <div>
-              <h3 className="section-title">{mostRecent.company}</h3>
-              <p className="text-body text-[0.875rem] leading-relaxed">
-                {mostRecent.title}
-              </p>
+              <h3 className="section-title text-balance">{mostRecent.company}</h3>
+              <p className="text-body">{mostRecent.title}</p>
             </div>
             <p className="text-meta shrink-0 tabular-nums">
               {mostRecent.startDate} to {mostRecent.endDate}
             </p>
           </div>
 
-          <ul className="flex flex-col gap-3 border-l border-border pl-4 text-body text-[0.875rem] leading-relaxed">
+          <ul className="flex flex-col gap-3">
             {mostRecent.responsibilities
               .slice(0, mostRecent.highlightCount)
               .map((responsibility) => (
-                <li key={responsibility}>{responsibility}</li>
+                <li key={responsibility} className="text-body relative pl-4">
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-[0.7em] size-1 rounded-full bg-muted-foreground/50"
+                  />
+                  {responsibility}
+                </li>
               ))}
           </ul>
 
           <p>
-            <a href={WORK_EXPERIENCE.resumeUrl} download className="link-underline">
+            <a
+              href={WORK_EXPERIENCE.resumeUrl}
+              download
+              className="link-underline text-meta inline-flex min-h-11 items-center font-medium text-foreground"
+            >
               Full resume
             </a>
           </p>

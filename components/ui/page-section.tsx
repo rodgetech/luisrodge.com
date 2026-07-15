@@ -1,31 +1,42 @@
 import { cn } from "@/lib/utils";
 
+export type PageSectionVariant = "first" | "default" | "emphasis" | "footer";
+
+const VARIANT_CLASS: Record<PageSectionVariant, string> = {
+  first: "pt-[var(--section-space-first)] pb-[var(--section-space)]",
+  default:
+    "border-t border-border pt-[var(--section-space)] pb-[var(--section-space)]",
+  emphasis:
+    "border-t border-border pt-[var(--section-space-emphasis)] pb-[var(--section-space)]",
+  footer:
+    "border-t border-border pt-[var(--section-space-footer)] pb-[var(--section-space-footer)]",
+};
+
 type PageSectionProps = {
   children: React.ReactNode;
   id?: string;
   className?: string;
-  /** First section in main — no top divider */
-  first?: boolean;
+  variant?: PageSectionVariant;
 };
 
 export function PageSection({
   children,
   id,
   className,
-  first = false,
+  variant = "default",
 }: PageSectionProps) {
+  const Comp = variant === "footer" ? "footer" : "section";
+
   return (
-    <section
+    <Comp
       id={id}
       className={cn(
-        "scroll-mt-[4.25rem] pb-[var(--section-space)]",
-        first
-          ? "pt-[var(--section-space-first)]"
-          : "border-t border-border pt-[var(--section-space)]",
+        "scroll-mt-[var(--scroll-margin)]",
+        VARIANT_CLASS[variant],
         className
       )}
     >
       {children}
-    </section>
+    </Comp>
   );
 }

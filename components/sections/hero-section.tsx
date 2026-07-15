@@ -10,32 +10,30 @@ export function HeroSection() {
           src="/cover.jpeg"
           alt=""
           fill
-          className="object-cover object-bottom brightness-[0.92] saturate-[0.85]"
+          className="object-cover object-bottom brightness-[0.9] saturate-[0.88]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/10 via-transparent to-background" />
       </div>
 
-      <div className="relative -mt-12 z-10">
-        <div className="mx-auto max-w-2xl page-x">
-          <div className="flex flex-col gap-section-inner sm:flex-row sm:items-end">
+      <div className="relative z-10 -mt-12">
+        <div className="page-x mx-auto max-w-2xl">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
             <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32">
               <Image
                 src="/me.png"
                 alt={USER.displayName}
                 fill
-                className="surface rounded-full object-cover"
+                className="surface rounded-full object-cover ring-4 ring-background"
                 priority
               />
             </div>
 
-            <div className="flex flex-col gap-1.5 pb-1">
-              <h1 className="text-[2rem] font-semibold tracking-[-0.02em] text-foreground sm:text-[2.25rem]">
-                {USER.displayName}
-              </h1>
-              <p className="text-base text-muted-foreground">{USER.tagline}</p>
-              <div className="text-meta flex flex-col gap-1.5 pt-0.5 sm:flex-row sm:items-center sm:gap-3">
-                <span>Belize · US timezone overlap</span>
+            <div className="flex min-w-0 flex-1 flex-col justify-center gap-1">
+              <h1 className="text-display">{USER.displayName}</h1>
+              <p className="text-lead">{USER.tagline}</p>
+              <div className="text-meta flex flex-col gap-1 pt-0.5 sm:flex-row sm:items-center sm:gap-3">
+                <span>Belize · US-friendly hours</span>
                 <span aria-hidden className="hidden text-border sm:inline">
                   /
                 </span>
