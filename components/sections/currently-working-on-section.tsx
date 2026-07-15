@@ -21,36 +21,29 @@ export function CurrentlyWorkingOnSection() {
               <Image
                 src={VIDEO_JOURNAL.iconSrc}
                 alt={`${VIDEO_JOURNAL.name} app icon`}
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 className="surface rounded-lg"
               />
-              <h3 className="section-title">{VIDEO_JOURNAL.name}</h3>
+              <div className="flex min-w-0 flex-col gap-0.5">
+                <h3 className="section-title text-balance">{VIDEO_JOURNAL.name}</h3>
+                <p className="text-meta">
+                  {VIDEO_JOURNAL.techStack.join(" · ")}
+                </p>
+              </div>
             </div>
 
-            <p className="text-body text-pretty">{VIDEO_JOURNAL.description}</p>
+            <p className="text-body">{VIDEO_JOURNAL.description}</p>
 
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-wrap gap-1.5">
-                {VIDEO_JOURNAL.highlights.map((feature) => (
-                  <span
-                    key={feature}
-                    className="rounded-md bg-muted px-2 py-1 text-meta"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {VIDEO_JOURNAL.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border px-2 py-1 text-meta"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-1.5">
+              {VIDEO_JOURNAL.highlights.map((feature) => (
+                <span
+                  key={feature}
+                  className="rounded-md bg-muted px-2.5 py-1 text-meta font-medium text-foreground/80"
+                >
+                  {feature}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -59,7 +52,7 @@ export function CurrentlyWorkingOnSection() {
             onClick={() => setOpen(true)}
             aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
             aria-haspopup="dialog"
-            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[180px] shrink-0 overflow-hidden sm:mx-0 sm:w-44"
+            className="group surface-elevated relative mx-auto aspect-[9/16] w-full max-w-[200px] shrink-0 overflow-hidden sm:mx-0 sm:w-48"
           >
             <video
               src={VIDEO_JOURNAL.videoSrc}
@@ -69,12 +62,13 @@ export function CurrentlyWorkingOnSection() {
               playsInline
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-background/95 shadow-sm">
+            <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/95 shadow-sm">
                 <svg
                   className="h-3.5 w-3.5 translate-x-0.5 text-foreground"
                   fill="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>

@@ -7,23 +7,22 @@ import type { ComponentType } from "react";
 
 import { XIcon } from "@/components/icons/x-icon";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
-import { Dock, DockIcon } from "@/components/ui/dock";
+import { DOCK_SOCIAL_ITEMS, type DockSocialItemId } from "@/config/dock";
 import {
-  DOCK_CTA_ITEMS,
-  DOCK_SOCIAL_ITEMS,
-  type DockCtaItemId,
-  type DockSocialItemId,
-} from "@/config/dock";
+  OUTREACH_CTAS,
+  type OutreachCtaId,
+} from "@/config/site";
+import { cn } from "@/lib/utils";
 
-const DOCK_CTA_ICONS: Record<
-  DockCtaItemId,
+const OUTREACH_ICONS: Record<
+  OutreachCtaId,
   ComponentType<{ className?: string; strokeWidth?: number }>
 > = {
   book: Calendar,
   email: MessageCircle,
 };
 
-const DOCK_SOCIAL_ICONS: Record<
+const SOCIAL_ICONS: Record<
   DockSocialItemId,
   ComponentType<{ className?: string }>
 > = {
@@ -32,107 +31,99 @@ const DOCK_SOCIAL_ICONS: Record<
   x: XIcon,
 };
 
-const ICON_CLASS =
-  "bg-black/10 dark:bg-white/10 text-muted-foreground transition-colors hover:text-foreground";
+const ICON_BTN =
+  "inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-black/10 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-white/10 [&_svg]:size-3.5";
 
-const CTA_ICON_CLASS =
-  "bg-primary/10 text-foreground transition-colors hover:bg-primary/15";
+const CTA_PILL =
+  "inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 text-meta font-semibold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50";
 
-const LINK_CLASS =
-  "inline-flex size-full items-center justify-center rounded-full bg-transparent text-inherit outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px] [&_svg]:size-4";
-
-function DockSeparator() {
+function Separator() {
   return <div aria-hidden className="mx-0.5 h-8 w-px shrink-0 bg-border" />;
 }
 
-function DockThemeToggle({ className }: { className: string }) {
+function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <AnimatedThemeToggler
       theme={resolvedTheme === "dark" ? "dark" : "light"}
       onThemeChange={setTheme}
-      className={className}
+      className={ICON_BTN}
     />
   );
 }
 
-export function SiteDock() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+function linkAttrs(external: boolean) {
+  return external
+    ? ({ target: "_blank", rel: "noopener noreferrer" } as const)
+    : {};
+}
 
+export function SiteDock() {
   return (
     <div
       aria-label="Site navigation"
-      className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex flex-col items-center px-2"
+      className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-2"
     >
-      <Dock
-        direction="middle"
-        iconSize={34}
-        iconMagnification={52}
-        iconDistance={80}
-        className="pointer-events-auto mt-0 max-w-[calc(100vw-1.25rem)] gap-1 border-border/60 bg-background/80 p-1.5 shadow-lg sm:gap-2 sm:p-2"
+      <nav
+        className={cn(
+          "pointer-events-auto flex w-max max-w-[calc(100vw-1.25rem)] items-center gap-1",
+          "rounded-2xl border border-border/60 bg-background/90 p-1.5 shadow-lg backdrop-blur-md",
+          "sm:gap-1.5 sm:p-2"
+        )}
       >
-        <DockIcon className={ICON_CLASS}>
-          <button
-            type="button"
-            aria-label="Home"
-            onClick={scrollToTop}
-            className={LINK_CLASS}
-          >
-            <Home className="size-4" />
-          </button>
-        </DockIcon>
+        <button
+          type="button"
+          aria-label="Home"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className={ICON_BTN}
+        >
+          <Home />
+        </button>
 
-        <DockSeparator />
+        <Separator />
 
-        {DOCK_CTA_ITEMS.map((item) => {
-          const Icon = DOCK_CTA_ICONS[item.id];
+        <div className="flex items-center gap-1.5">
+          {OUTREACH_CTAS.map((item) => {
+            const Icon = OUTREACH_ICONS[item.id];
 
-          return (
-            <DockIcon key={item.id} className={CTA_ICON_CLASS}>
+            return (
               <Link
+                key={item.id}
                 href={item.href}
-                aria-label={item.label}
-                className={LINK_CLASS}
-                {...(item.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                className={CTA_PILL}
+                {...linkAttrs(item.external)}
               >
-                <Icon className="size-4" strokeWidth={1.75} />
+                <Icon className="size-3.5 shrink-0" strokeWidth={2} />
+                <span className="sm:hidden">{item.shortLabel}</span>
+                <span className="hidden sm:inline">{item.label}</span>
               </Link>
-            </DockIcon>
-          );
-        })}
+            );
+          })}
+        </div>
 
-        <DockSeparator />
+        <Separator />
 
         {DOCK_SOCIAL_ITEMS.map((item) => {
-          const Icon = DOCK_SOCIAL_ICONS[item.id];
+          const Icon = SOCIAL_ICONS[item.id];
 
           return (
-            <DockIcon key={item.id} className={ICON_CLASS}>
-              <Link
-                href={item.href}
-                aria-label={item.label}
-                className={LINK_CLASS}
-                {...(item.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                <Icon className="size-4" />
-              </Link>
-            </DockIcon>
+            <Link
+              key={item.id}
+              href={item.href}
+              aria-label={item.label}
+              className={ICON_BTN}
+              {...linkAttrs(item.external)}
+            >
+              <Icon />
+            </Link>
           );
         })}
 
-        <DockSeparator />
+        <Separator />
 
-        <DockIcon className={ICON_CLASS}>
-          <DockThemeToggle className={LINK_CLASS} />
-        </DockIcon>
-      </Dock>
+        <ThemeToggle />
+      </nav>
     </div>
   );
 }

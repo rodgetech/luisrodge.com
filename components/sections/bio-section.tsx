@@ -7,9 +7,9 @@ export function BioSection() {
   return (
     <SectionContent>
       <SectionLabel>{SECTIONS.about.label}</SectionLabel>
-      <p className="text-body text-pretty">{BIO.intro}</p>
-      <p className="text-body text-pretty">{BIO.openTo}</p>
-      <p className="text-body text-pretty">
+      <p className="text-body">{BIO.intro}</p>
+      <p className="text-body">{BIO.openTo}</p>
+      <p className="text-body">
         Sometimes I&apos;m on{" "}
         <Link
           href={SOCIAL_LINKS.youtube.url}

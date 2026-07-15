@@ -15,15 +15,15 @@ export function ProudMomentSection() {
   return (
     <>
       <SectionContent>
-        <SectionLabel>{SECTIONS.proud.label}</SectionLabel>
+        <SectionLabel emphasis>{SECTIONS.proud.label}</SectionLabel>
 
-        <div className="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:gap-7">
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="View payout screenshot"
             aria-haspopup="dialog"
-            className="surface-elevated relative mx-auto w-full max-w-[160px] shrink-0 cursor-zoom-in overflow-hidden transition-opacity hover:opacity-90 sm:mx-0"
+            className="surface-elevated relative mx-auto w-full max-w-[180px] shrink-0 cursor-zoom-in overflow-hidden transition-opacity hover:opacity-90 focus-visible:opacity-90 sm:mx-0"
           >
             <Image
               src={PROUD_MOMENT.image}
@@ -35,10 +35,10 @@ export function ProudMomentSection() {
           </button>
 
           <div className="flex min-w-0 flex-1 flex-col gap-4">
-            <p className="text-body text-pretty text-[0.875rem] leading-relaxed">
+            <p className="text-body">
               {PROUD_MOMENT.paragraphs[0]}
             </p>
-            <p className="text-body text-pretty text-[0.875rem] leading-relaxed">
+            <p className="text-body">
               {PROUD_MOMENT.paragraphs[1]}
             </p>
             <Link

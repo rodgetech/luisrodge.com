@@ -28,6 +28,26 @@ export const BOOKING_CTA_LABEL = "Book a call";
 export const CONTACT_CTA_LABEL = "Say Hi";
 export const CONTACT_MAILTO = `mailto:${USER.email}`;
 
+/** Co-equal primary actions — book a call and say hi. Shared by hero + dock. */
+export const OUTREACH_CTAS = [
+  {
+    id: "book",
+    href: BOOKING_URL,
+    label: BOOKING_CTA_LABEL,
+    shortLabel: "Book",
+    external: true,
+  },
+  {
+    id: "email",
+    href: CONTACT_MAILTO,
+    label: CONTACT_CTA_LABEL,
+    shortLabel: "Hi",
+    external: false,
+  },
+] as const;
+
+export type OutreachCtaId = (typeof OUTREACH_CTAS)[number]["id"];
+
 export const FOOTER_TAGLINE = "Always building and shipping.";
 
 export const BIO = {
@@ -47,7 +67,7 @@ export const SECTIONS = {
   },
   work: {
     id: "work-experience",
-    label: "Last role",
+    label: "Experience",
   },
   stack: {
     id: "stack",
@@ -73,7 +93,7 @@ export const GITHUB_USERNAME = "rodgetech";
 
 export const SOCIAL_LINKS = {
   x: {
-    name: "X (formerly Twitter)",
+    name: "X",
     url: "https://x.com/rodgetech",
     username: "@rodgetech",
   },
@@ -102,32 +122,35 @@ export const WORK_EXPERIENCE = {
     startDate: "2023",
     endDate: "2025",
     responsibilities: [
-      "Built and maintained developer facing demos, templates, and sample apps on BuildShip's visual backend platform",
-      "Produced weekly YouTube tutorials showing real product workflows, translating complex APIs into approachable content",
-      "Owned developer support across Discord, email, and live sessions, surfacing product feedback directly to engineering",
-      "Improved platform documentation and onboarding, reducing time to first integration for new users",
-      "Hosted community events and led knowledge sharing sessions with cross functional teams",
+      "Shipped templates and sample apps that took founders from idea to a working backend on BuildShip's visual platform",
+      "Owned weekly product demos end-to-end — wiring real APIs into flows people could clone and launch from",
+      "Turned support and live sessions into product fixes, cutting time-to-first-integration for new teams",
+      "Improved platform documentation and onboarding for developer-facing launches",
+      "Hosted community sessions that fed engineering priorities from real user friction",
     ],
     highlightCount: 3,
   },
   resumeUrl: "/resume.pdf",
 };
 
+/** Homepage shows a tight stack; full set lives here for reference / resume. */
 export const TECH_STACK = [
   { name: "TypeScript", icon: "/stack/typescript.svg" },
-  { name: "JavaScript", icon: "/stack/javascript.svg" },
-  { name: "Python", icon: "/stack/python.svg" },
-  { name: "Ruby", icon: "/stack/ruby.svg" },
   { name: "React", icon: "/stack/react.svg" },
   { name: "Next.js", icon: "/stack/nextjs.svg" },
-  { name: "Tailwind CSS", icon: "/stack/tailwindcss.svg" },
   { name: "NestJS", icon: "/stack/nestjs.svg" },
-  { name: "Ruby on Rails", icon: "/stack/rubyonrails.svg" },
   { name: "PostgreSQL", icon: "/stack/postgresql.svg" },
   { name: "AWS", icon: "/stack/aws.svg" },
   { name: "Supabase", icon: "/stack/supabase.png" },
+  { name: "Python", icon: "/stack/python.svg" },
+  { name: "JavaScript", icon: "/stack/javascript.svg" },
+  { name: "Ruby", icon: "/stack/ruby.svg" },
+  { name: "Ruby on Rails", icon: "/stack/rubyonrails.svg" },
+  { name: "Tailwind CSS", icon: "/stack/tailwindcss.svg" },
   { name: "Convex", icon: "/stack/convex.png" },
 ];
+
+export const TECH_STACK_HOMEPAGE_COUNT = 8;
 
 export const VIDEO_JOURNAL = {
   name: "Video Journal",
@@ -141,14 +164,14 @@ export const VIDEO_JOURNAL = {
 
 export const PROUD_MOMENT = {
   paragraphs: [
-    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups, the first thing I built on my own that someone I'd never met actually paid for.",
-    "That first internet dollar wasn't about the amount. It was proof I could build something real enough for someone to open their wallet, and that's the builder I want to be.",
+    "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built alone that a stranger actually paid for.",
+    "That first internet dollar wasn't about the amount. It was proof I could ship something real enough for someone to open their wallet. That's the builder I want to be.",
   ],
   image: "/first-payout.png",
   imageAlt:
     "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups",
   link: {
-    label: "See on TrustMRR",
+    label: "See Screen Mockups on TrustMRR",
     url: "https://trustmrr.com/startup/screen-mockups",
   },
 };

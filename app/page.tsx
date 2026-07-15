@@ -21,12 +21,12 @@ export default function Home() {
           <BioSection />
         </PageSection>
 
-        <PageSection id={SECTIONS.building.id}>
-          <CurrentlyWorkingOnSection />
-        </PageSection>
-
         <PageSection id={SECTIONS.work.id}>
           <WorkExperienceSection />
+        </PageSection>
+
+        <PageSection id={SECTIONS.building.id}>
+          <CurrentlyWorkingOnSection />
         </PageSection>
 
         <PageSection id={SECTIONS.stack.id}>
