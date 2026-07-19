@@ -84,11 +84,11 @@ export function ExperienceTimeline() {
             className="grid gap-4 sm:grid-cols-[4.25rem_1fr] sm:items-start sm:gap-8"
             aria-labelledby={`experience-year-${chapter.year}`}
           >
-            <ExperienceReveal index={chapter.yearReveal}>
-              <p
-                id={`experience-year-${chapter.year}`}
-                className="sm:sticky sm:top-6"
-              >
+            <ExperienceReveal
+              index={chapter.yearReveal}
+              className="sm:sticky sm:top-6"
+            >
+              <p id={`experience-year-${chapter.year}`}>
                 <span className="text-meta block text-muted-foreground">
                   Ended
                 </span>
