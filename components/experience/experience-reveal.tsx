@@ -6,7 +6,10 @@ type ExperienceRevealProps = {
   className?: string;
 };
 
-/** Staggered entrance — disabled under prefers-reduced-motion via CSS. */
+/**
+ * Motion enhances an already-visible default (no opacity:0 gate).
+ * Disabled under prefers-reduced-motion via CSS.
+ */
 export function ExperienceReveal({
   children,
   index = 0,

@@ -257,15 +257,24 @@
     padding-right: var(--page-x);
   }
 
-  /* Experience page entrance — no-op under reduced motion */
+  /* Keep mid-scroll role content above the floating SiteNav */
+  .experience-page {
+    scroll-padding-bottom: var(--nav-clearance);
+  }
+
+  .experience-page ol > li {
+    scroll-margin-bottom: var(--nav-clearance);
+  }
+
+  /* Experience page entrance — visible by default; motion only enhances */
   .experience-reveal {
-    animation: experience-reveal-in 0.55s ease both;
+    opacity: 1;
   }
 
   @keyframes experience-reveal-in {
     from {
-      opacity: 0;
-      transform: translateY(0.4rem);
+      opacity: 0.88;
+      transform: translateY(0.35rem);
     }
     to {
       opacity: 1;
@@ -273,9 +282,9 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
     .experience-reveal {
-      animation: none;
+      animation: experience-reveal-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
   }
 

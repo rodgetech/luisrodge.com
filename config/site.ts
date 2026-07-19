@@ -138,6 +138,12 @@ export const SOFT_PATH_SOCIALS = [
 
 export type SoftPathSocialId = (typeof SOFT_PATH_SOCIALS)[number]["id"];
 
+/** Canonical site paths — import these instead of minting parallel string constants. */
+export const SITE_PATHS = {
+  experience: "/experience",
+  resumePdf: "/resume.pdf",
+} as const;
+
 export const WORK_EXPERIENCE = {
   mostRecent: {
     company: "BuildShip",
@@ -155,26 +161,57 @@ export const WORK_EXPERIENCE = {
     highlightCount: 3,
   },
   /** Full career story lives on /experience; PDF remains the downloadable alternate. */
-  experienceUrl: "/experience",
-  resumeUrl: "/resume.pdf",
+  experienceUrl: SITE_PATHS.experience,
+  resumeUrl: SITE_PATHS.resumePdf,
 };
 
 /** Homepage shows a tight stack; full set lives here for reference / resume. */
 export const TECH_STACK = [
   { name: "TypeScript", icon: "/stack/typescript.svg" },
   { name: "React", icon: "/stack/react.svg" },
-  { name: "Next.js", icon: "/stack/nextjs.svg" },
+  { name: "Next.js", icon: "/stack/nextjs.svg", invertInDark: true },
   { name: "NestJS", icon: "/stack/nestjs.svg" },
   { name: "PostgreSQL", icon: "/stack/postgresql.svg" },
   { name: "AWS", icon: "/stack/aws.svg" },
+  { name: "GCP", icon: "/stack/gcp.svg" },
   { name: "Supabase", icon: "/stack/supabase.png" },
   { name: "Python", icon: "/stack/python.svg" },
   { name: "JavaScript", icon: "/stack/javascript.svg" },
+  { name: "HTML", icon: "/stack/html5.svg" },
+  { name: "CSS", icon: "/stack/css3.svg" },
+  { name: "jQuery", icon: "/stack/jquery.svg" },
+  { name: "AngularJS", icon: "/stack/angularjs.svg" },
+  { name: "Express.js", icon: "/stack/express.svg", invertInDark: true },
+  { name: "MySQL", icon: "/stack/mysql.svg" },
+  { name: "DigitalOcean", icon: "/stack/digitalocean.svg" },
+  { name: "ASP.NET", icon: "/stack/dotnet.svg" },
   { name: "Ruby", icon: "/stack/ruby.svg" },
   { name: "Ruby on Rails", icon: "/stack/rubyonrails.svg" },
+  { name: "Shopify", icon: "/stack/shopify.svg" },
   { name: "Tailwind CSS", icon: "/stack/tailwindcss.svg" },
   { name: "Convex", icon: "/stack/convex.png" },
-];
+  { name: "Docker", icon: "/stack/docker.svg" },
+  { name: "PHP", icon: "/stack/php.svg" },
+] as const;
+
+export type TechStackItem = (typeof TECH_STACK)[number];
+export type TechName = TechStackItem["name"];
+
+const TECH_BY_NAME = Object.fromEntries(
+  TECH_STACK.map((item) => [item.name, item]),
+) as Record<TechName, TechStackItem>;
+
+/** Resolve role/homepage tech by typed name. */
+export function resolveTech(...names: TechName[]): TechStackItem[] {
+  return names.map((name) => TECH_BY_NAME[name]);
+}
+
+/** Dark-mode tone for mono vs colored stack icons. */
+export function techIconToneClass(item: TechStackItem): string {
+  return "invertInDark" in item && item.invertInDark
+    ? "dark:invert"
+    : "dark:brightness-110";
+}
 
 export const TECH_STACK_HOMEPAGE_COUNT = 5;
 

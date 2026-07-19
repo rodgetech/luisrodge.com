@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import type { ExperienceTech } from "@/config/experience";
+import { techIconToneClass, type TechStackItem } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 type TechMarksProps = {
-  tech: ExperienceTech[];
+  tech: readonly TechStackItem[];
   className?: string;
 };
 
@@ -13,22 +13,24 @@ export function TechMarks({ tech, className }: TechMarksProps) {
 
   return (
     <ul
-      className={cn("flex flex-wrap items-center gap-2", className)}
+      className={cn("flex flex-wrap items-center gap-x-3 gap-y-2", className)}
       aria-label="Technologies"
     >
       {tech.map((item) => (
-        <li key={item.name} className="flex items-center gap-1.5">
+        <li
+          key={item.name}
+          className="flex min-h-11 items-center gap-1.5 sm:min-h-0"
+        >
           <span className="relative size-5 shrink-0">
             <Image
               src={item.icon}
               alt=""
               fill
-              className="object-contain dark:brightness-110"
+              sizes="20px"
+              className={cn("object-contain", techIconToneClass(item))}
             />
           </span>
-          <span className="text-meta sr-only sm:not-sr-only sm:inline">
-            {item.name}
-          </span>
+          <span className="text-meta text-foreground/85">{item.name}</span>
         </li>
       ))}
     </ul>

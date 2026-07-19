@@ -4,14 +4,13 @@ import { ExperienceTimeline } from "@/components/experience/experience-timeline"
 import { FooterSection } from "@/components/sections";
 import { PageSection } from "@/components/ui/page-section";
 import { SiteNav } from "@/components/ui/site-nav";
-import { EXPERIENCE_PAGE_PATH } from "@/config/experience";
-import { SITE_INFO } from "@/config/site";
+import { SITE_INFO, SITE_PATHS } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Experience",
   description: `Career experience for ${SITE_INFO.name} — roles, outcomes, and stack in context.`,
   alternates: {
-    canonical: EXPERIENCE_PAGE_PATH,
+    canonical: SITE_PATHS.experience,
   },
 };
 
@@ -28,9 +27,9 @@ export default function ExperiencePage() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="page-x mx-auto w-full max-w-2xl flex-1 pb-[var(--nav-clearance)] outline-none"
+        className="page-x experience-page mx-auto w-full max-w-2xl flex-1 pb-[var(--nav-clearance)] outline-none"
       >
-        <PageSection variant="first">
+        <PageSection variant="first" className="pb-[calc(var(--section-space)+1.5rem)]">
           <ExperienceTimeline />
         </PageSection>
 
