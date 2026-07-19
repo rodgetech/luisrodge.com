@@ -3,25 +3,28 @@ import {
   SECTIONS,
   TECH_STACK,
   TECH_STACK_HOMEPAGE_COUNT,
+  techIconToneClass,
+  type TechStackItem,
 } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
 import { SectionLabel } from "@/components/ui/section-label";
+import { cn } from "@/lib/utils";
 
-function TechChip({ name, icon }: { name: string; icon: string }) {
+function TechChip(tech: TechStackItem) {
   return (
     <span
-      title={name}
+      title={tech.name}
       className="tech-chip inline-flex items-center gap-1.5 rounded-md bg-muted px-2.5 py-1 text-meta"
     >
       <Image
-        src={icon}
+        src={tech.icon}
         alt=""
         width={14}
         height={14}
-        className="object-contain opacity-80"
+        className={cn("object-contain opacity-80", techIconToneClass(tech))}
         aria-hidden
       />
-      {name}
+      {tech.name}
     </span>
   );
 }
@@ -35,7 +38,7 @@ export function TechStackSection() {
       <SectionLabel>{SECTIONS.stack.label}</SectionLabel>
       <div className="flex flex-wrap gap-2">
         {primary.map((tech) => (
-          <TechChip key={tech.name} name={tech.name} icon={tech.icon} />
+          <TechChip key={tech.name} {...tech} />
         ))}
       </div>
       {rest.length > 0 ? (
@@ -46,7 +49,7 @@ export function TechStackSection() {
           </summary>
           <div className="mt-2 flex flex-wrap gap-2">
             {rest.map((tech) => (
-              <TechChip key={tech.name} name={tech.name} icon={tech.icon} />
+              <TechChip key={tech.name} {...tech} />
             ))}
           </div>
         </details>

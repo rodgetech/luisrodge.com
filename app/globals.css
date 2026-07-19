@@ -257,6 +257,36 @@
     padding-right: var(--page-x);
   }
 
+  /* Keep mid-scroll role content above the floating SiteNav */
+  .experience-page {
+    scroll-padding-bottom: var(--nav-clearance);
+  }
+
+  .experience-page ol > li {
+    scroll-margin-bottom: var(--nav-clearance);
+  }
+
+  /* Experience page entrance — visible by default; motion only enhances */
+  .experience-reveal {
+    opacity: 1;
+  }
+
+  /* Opacity only — transform on an ancestor breaks position: sticky year labels */
+  @keyframes experience-reveal-in {
+    from {
+      opacity: 0.88;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .experience-reveal {
+      animation: experience-reveal-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  }
+
   @media (min-width: 640px) {
     .page-x {
       padding-left: var(--page-x-sm);

@@ -78,8 +78,13 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
 }
 
+type SiteNavProps = {
+  /** When set, Home navigates here instead of scrolling the current page. */
+  homeHref?: string;
+};
+
 /** Home + co-equal outreach + theme. Soft-path socials live in the footer. */
-export function SiteNav() {
+export function SiteNav({ homeHref }: SiteNavProps) {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-3 z-[var(--z-nav)] flex justify-center px-2 pb-[env(safe-area-inset-bottom,0px)] sm:bottom-4">
       <nav
@@ -90,14 +95,20 @@ export function SiteNav() {
           "sm:max-w-[calc(100vw-1.25rem)] sm:gap-1.5 sm:p-2"
         )}
       >
-        <button
-          type="button"
-          aria-label="Home"
-          onClick={scrollToTop}
-          className={ICON_BTN}
-        >
-          <Home />
-        </button>
+        {homeHref ? (
+          <Link href={homeHref} aria-label="Home" className={ICON_BTN}>
+            <Home />
+          </Link>
+        ) : (
+          <button
+            type="button"
+            aria-label="Home"
+            onClick={scrollToTop}
+            className={ICON_BTN}
+          >
+            <Home />
+          </button>
+        )}
 
         <Separator />
 
