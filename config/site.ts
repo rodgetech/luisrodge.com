@@ -154,6 +154,8 @@ export const WORK_EXPERIENCE = {
     ],
     highlightCount: 3,
   },
+  /** Full career story lives on /experience; PDF remains the downloadable alternate. */
+  experienceUrl: "/experience",
   resumeUrl: "/resume.pdf",
 };
 

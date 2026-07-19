@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SECTIONS, WORK_EXPERIENCE } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
 import { SectionLabel } from "@/components/ui/section-label";
@@ -46,13 +47,12 @@ export function WorkExperienceSection() {
           </ul>
 
           <p>
-            <a
-              href={WORK_EXPERIENCE.resumeUrl}
-              download
+            <Link
+              href={WORK_EXPERIENCE.experienceUrl}
               className="link-underline text-meta inline-flex min-h-11 items-center font-medium text-foreground"
             >
-              Full resume
-            </a>
+              Full experience
+            </Link>
           </p>
         </div>
       </div>
