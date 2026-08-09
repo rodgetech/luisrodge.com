@@ -18,6 +18,8 @@ Working plan and progress log for ranking luisrodge.com. Update the **Status** t
 | `Person` + `WebSite` JSON-LD | ✅ Live | `components/seo/structured-data.tsx` |
 | Google Search Console verification file | ✅ Live | `public/google257c1b1f2cfd6f0f.html` |
 | `/hire-a-software-developer-in-belize` + `FAQPage` schema | ✅ Live 2026-08-09 | `4617d72` |
+| Hire page reshape: proof, stack chips, rates still missing | ✅ 2026-08-09 | see Log |
+| Focus ring contrast (WCAG 1.4.11) | ✅ Fixed 2026-08-09 | `f6a68c2` |
 | Submit sitemap in Search Console | ⬜ **User action** | — |
 | Request indexing on all 3 URLs | ⬜ **User action** | — |
 | Bing Webmaster Tools | ⬜ **User action** | — |
@@ -172,8 +174,10 @@ Don't read anything into an empty Performance tab before ~3 weeks. That's normal
 
 ## Known gaps
 
-- **No rates on the hire page.** A real filter for buyers, and a query people type. Needs Luis's numbers.
-- **Agency names unverified.** Idea Lab Studios, Castlebridge Systems, and 501 Enterprise came from SERP data, not first-hand knowledge. A wrong name undercuts the page's first-hand credibility.
+- **No rates on the hire page.** A real filter for buyers, and a query people type. Needs Luis's numbers. Still the largest remaining gap.
+- **No availability signal.** Nothing says whether Luis is free, or from when.
+- **No engagement terms.** IP ownership especially — the thing people are quietly most anxious about when hiring across a border.
+- **No testimonial.** PRODUCT.md records none on hand. One line from BuildShip would outweigh a lot of copy.
 - **`PRODUCT.md` audience is stale** — see Settled decisions.
 - **Dark-mode body contrast unverified.** `muted-chalk` `oklch(0.72 0.015 265)` on `night-paper` `oklch(0.145 0.008 265)` is every word of body copy in dark mode; never got a correct measurement.
 - **Stale index entries.** Google still has `rodgetech.com` / `me.rodgetech.com` indexed under the old brand, now resolving to a for-sale page. Decays on its own over a few months. Don't fight it — just get luisrodge.com indexed.
@@ -192,3 +196,10 @@ Don't read anything into an empty Performance tab before ~3 weeks. That's normal
 - Chose contract/MVP as the lead audience for the hire page.
 - Shipped `/hire-a-software-developer-in-belize` (~810 words) with `FAQPage` schema, sitemap entry at priority 0.9, and a homepage link for crawlability. (`4617d72`)
 - Corrected a factual error in the time zone claim: Belize is UTC-6 year round, matching US **Central in winter and Mountain in summer** — not Central year round, as first stated.
+- Critiqued the hire page (22/28). Snapshot in `.impeccable/critique/`. Three P1s: invisible CTA, thirteen identically-treated blocks, zero imagery or proof.
+- **Corrected the company names.** Research found all three originals came from one stale Clutch list with no independent corroboration: Castlebridge Systems' site is unedited template boilerplate with a leftover placeholder name and nothing published since May 2024; Idea Lab Studios is an advertising agency, not an app developer; 501 Enterprise is a managed-IT and security-camera firm. Dropped Castlebridge, recategorized the rest, and the copy now warns readers that Belize "top developer" directory lists are unreliable — which is a first-hand observation a directory page structurally cannot make.
+- Reshaped the page against the critique: proof block with the payout screenshot, byline with the avatar, a real CTA pill, FAQ collapsed into disclosures, and the caveat pulled out of the hiring-options list.
+- Added payment rails from experience (Bill.com, Rippling, Remitly) and the **BZD/USD 2:1 peg**, fixed since 1976 — a checkable no-FX-risk advantage over LatAm alternatives.
+- Added the stack as chips: the page previously named zero technologies, which cost both buyer confidence and every non-geo stack query.
+- Fixed the site-wide focus ring, which failed WCAG 1.4.11 at 1.51:1. Full palette audit found every text pairing already passing in both themes.
+- Design pass: entry rules with an inked tick so section starts are legible (the hairline alone measured 1.29:1), scroll-driven rule draw, disclosure animation, and a bolder masthead. `DESIGN.md` updated to match.
