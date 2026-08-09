@@ -13,7 +13,7 @@
   --text-meta: 0.875rem;
   --text-body: 1rem;
   --text-title: 1.125rem;
-  --text-label: 1.25rem;
+  --text-label: 1.375rem;
   --text-display: clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
   --leading-body: 1.7;
   --leading-display: 1.15;
@@ -58,11 +58,20 @@
 }
 
 :root {
+  /* Lets height transition to and from `auto`, which is what makes the
+     disclosure animation possible without measuring in JS. */
+  interpolate-size: allow-keywords;
   --radius: 0.5rem;
   --section-space-first: 2rem;
   --section-space: 1.75rem;
   --section-space-footer: 1.5rem;
   --section-space-emphasis: 2.25rem;
+  /* Asymmetric on purpose: a section needs more air above its rule than below
+     it, or the heading reads as belonging to the section that just ended. */
+  --section-space-top: 2.75rem;
+  --section-space-top-emphasis: 3.25rem;
+  --rule-tick: 2.25rem;
+  --rule-tick-emphasis: 3.75rem;
   --section-inner: 1.125rem;
   --stack-prose: 0.75rem;
   --media-gutter: 1.5rem;
@@ -222,6 +231,71 @@
     max-width: 40ch;
   }
 
+  /*
+   * Marketing-surface tiers. DESIGN.md's Quiet Ceiling rule caps display type
+   * at 1.75rem on the core résumé pages and carves out one exception for a
+   * top-of-funnel surface; /hire is that surface. These classes are the whole
+   * exception — do not reach for them on / or /experience.
+   */
+  .page-title {
+    @apply font-semibold tracking-tight text-balance text-foreground;
+    font-size: clamp(2.125rem, 1.5rem + 3.1vw, 3.5rem);
+    letter-spacing: -0.032em;
+    line-height: 1.03;
+  }
+
+  /* The lead is the promise; it should not be the narrowest thing on the page. */
+  .page-lead {
+    @apply font-medium text-pretty text-foreground;
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.5;
+    max-width: 54ch;
+  }
+
+  /*
+   * The masthead mark: the same inked tick that opens every other entry,
+   * turned up for the page opening. The header was the one section that
+   * carried none of the page's structural vocabulary.
+   */
+  .page-mark {
+    display: block;
+    width: var(--rule-tick-emphasis);
+    height: 3px;
+    border-radius: 1.5px;
+    background: var(--foreground);
+    transform-origin: left center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .page-mark {
+      animation: rule-draw 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  }
+
+  /* One tier above .section-title, so the persuasive claims outrank the
+     reference material further down the page. */
+  .claim-title {
+    @apply font-semibold tracking-tight text-foreground text-balance;
+    font-size: var(--text-label);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .cta-pill {
+    @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold tracking-tight text-primary-foreground transition-opacity;
+    height: 3rem;
+    padding-inline: 1.5rem;
+    font-size: var(--text-body);
+  }
+
+  .cta-pill:hover {
+    opacity: 0.9;
+  }
+
+  .cta-pill:focus-visible {
+    @apply outline-none ring-[3px] ring-ring;
+  }
+
   @media (max-width: 639px) {
     .text-lead {
       font-size: 0.9375rem;
@@ -300,6 +374,87 @@
     gap: var(--section-inner);
   }
 
+  /* Bind a heading to what it introduces. Without this the label floats
+     equidistant between two sections and reads as belonging to neither. */
+  .section-content > :where(.section-label, .section-label-emphasis) {
+    margin-bottom: calc(var(--section-inner) * -0.4);
+  }
+
+  /*
+   * The entry rule. A quiet full-width hairline carries the structure; a short
+   * inked tick at the margin announces that a new entry starts here. The
+   * hairline alone measured 1.29:1 against paper, which is why sections used
+   * to dissolve into each other — the tick does the announcing so the rule
+   * itself can stay faint.
+   */
+  .section-rule {
+    position: relative;
+  }
+
+  .section-rule::before,
+  .section-rule::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left center;
+  }
+
+  .section-rule::before {
+    right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-rule::after {
+    width: var(--rule-tick);
+    height: 2px;
+    border-radius: 1px;
+    background: var(--foreground);
+  }
+
+  .section-rule-emphasis::after {
+    width: var(--rule-tick-emphasis);
+  }
+
+  /*
+   * The authored moment: the rule draws itself as the entry comes into view,
+   * ink first. Scroll-driven so it fires when the section is actually read,
+   * not all at once on load. Both pseudo-elements are fully drawn at rest, so
+   * anywhere `view()` is unsupported the rule simply renders — the animation
+   * only enhances.
+   */
+  @keyframes rule-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      /*
+       * Ranges are deliberately long. A short range finishes before the
+       * section is properly on screen, so the draw reads as a flicker rather
+       * than as a line being drawn. The tick lands first and fast; the
+       * hairline then extends across the page over most of the entry.
+       */
+      .section-rule::before {
+        animation: rule-draw both linear;
+        animation-timeline: view();
+        animation-range: entry 8% entry 88%;
+      }
+
+      .section-rule::after {
+        animation: rule-draw both cubic-bezier(0.16, 1, 0.3, 1);
+        animation-timeline: view();
+        animation-range: entry 0% entry 38%;
+      }
+    }
+  }
+
   /* Shared mobile proof media (Video Journal + Proud moment) */
   .proof-phone {
     width: var(--proof-phone-max);
@@ -308,6 +463,33 @@
   @media (min-width: 640px) {
     .proof-phone {
       width: 180px;
+    }
+  }
+
+  /*
+   * Disclosure open/close. Native <details> snaps, which makes an answer feel
+   * like it teleported rather than unfolded. ::details-content is the only
+   * handle on the content box, and `allow-discrete` is what keeps it rendered
+   * for the duration of the closing transition instead of vanishing on frame
+   * one. Where the pseudo-element isn't supported the disclosure simply snaps
+   * as it does today — nothing depends on this.
+   */
+  @supports selector(::details-content) {
+    @media (prefers-reduced-motion: no-preference) {
+      .disclosure::details-content {
+        block-size: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition:
+          block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 200ms ease-out,
+          content-visibility 300ms allow-discrete;
+      }
+
+      .disclosure[open]::details-content {
+        block-size: auto;
+        opacity: 1;
+      }
     }
   }
 }
