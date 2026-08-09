@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BIO, SECTIONS, SOCIAL_LINKS } from "@/config/site";
+import { BIO, SECTIONS, SITE_PATHS, SOCIAL_LINKS } from "@/config/site";
 import { SectionContent } from "@/components/ui/section-content";
 import { SectionLabel } from "@/components/ui/section-label";
 
@@ -9,7 +9,12 @@ export function BioSection() {
       <SectionLabel>{SECTIONS.about.label}</SectionLabel>
       <div className="flex flex-col gap-[var(--stack-prose)]">
         <p className="text-body">{BIO.intro}</p>
-        <p className="text-body">{BIO.openTo}</p>
+        <p className="text-body">
+          {BIO.openTo}{" "}
+          <Link href={SITE_PATHS.hire} className="link-underline">
+            Hiring from Belize?
+          </Link>
+        </p>
         <p className="text-body">
           Sometimes I&apos;m on{" "}
           <Link

@@ -150,6 +150,7 @@ export type SoftPathSocialId = (typeof SOFT_PATH_SOCIALS)[number]["id"];
 /** Canonical site paths — import these instead of minting parallel string constants. */
 export const SITE_PATHS = {
   experience: "/experience",
+  hire: "/hire-a-software-developer-in-belize",
   resumePdf: "/resume.pdf",
 } as const;
 
