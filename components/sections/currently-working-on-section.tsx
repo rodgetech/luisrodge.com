@@ -91,7 +91,7 @@ export function CurrentlyWorkingOnSection() {
             aria-label={`Play ${VIDEO_JOURNAL.name} demo`}
             aria-haspopup="dialog"
             aria-describedby="video-journal-demo-summary"
-            className="proof-phone group surface-elevated relative mx-auto aspect-[9/16] shrink-0 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:col-start-2 sm:row-start-1 sm:row-span-2 sm:mx-0 sm:w-full"
+            className="proof-phone group surface-elevated relative mx-auto aspect-[9/16] shrink-0 overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring sm:col-start-2 sm:row-start-1 sm:row-span-2 sm:mx-0 sm:w-full"
           >
             <video
               ref={videoRef}

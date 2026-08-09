@@ -91,7 +91,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.91 0.004 106);
   --input: oklch(0.91 0.004 106);
-  --ring: oklch(0.72 0.01 265);
+  --ring: oklch(0.6658 0.01 265);
   --shadow-surface: 0 1px 2px oklch(0.18 0.01 265 / 4%),
     0 0 0 1px oklch(0.18 0.01 265 / 4%);
   --shadow-elevated: 0 4px 16px oklch(0.18 0.01 265 / 8%),
@@ -151,7 +151,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
   html {
     scroll-behavior: smooth;

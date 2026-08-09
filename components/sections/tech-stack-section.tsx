@@ -43,7 +43,7 @@ export function TechStackSection() {
       </div>
       {rest.length > 0 ? (
         <details className="group">
-          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center rounded-md px-2.5 py-2 text-meta font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 [&::-webkit-details-marker]:hidden">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center rounded-md px-2.5 py-2 text-meta font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">and {rest.length} more</span>
             <span className="hidden group-open:inline">Show less</span>
           </summary>

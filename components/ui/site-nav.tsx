@@ -21,10 +21,10 @@ const OUTREACH_ICONS: Record<
 };
 
 const ICON_BTN =
-  "inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 [&_svg]:size-3.5";
+  "inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring [&_svg]:size-3.5";
 
 const CTA_PILL =
-  "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 text-meta font-semibold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 sm:px-3.5";
+  "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full bg-primary px-3 text-meta font-semibold tracking-tight text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring sm:px-3.5";
 
 function Separator() {
   return <div aria-hidden className="mx-0.5 h-8 w-px shrink-0 bg-border" />;

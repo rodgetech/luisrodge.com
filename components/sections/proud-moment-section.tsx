@@ -34,7 +34,7 @@ export function ProudMomentSection() {
               onClick={() => setOpen(true)}
               aria-label="View payout screenshot"
               aria-haspopup="dialog"
-              className="proof-phone proud-phone surface-elevated relative cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+              className="proof-phone proud-phone surface-elevated relative cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring"
             >
               <Image
                 src={PROUD_MOMENT.image}
