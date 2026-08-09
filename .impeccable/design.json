@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-09T00:00:00.000Z",
+  "title": "Design System: Luis Rodge",
+  "extensions": {
+    "colorMeta": {
+      "bright-paper": {
+        "role": "neutral",
+        "displayName": "Bright Paper",
+        "canonical": "oklch(0.995 0.002 106)",
+        "tonalRamp": [
+          "oklch(0.15 0.002 106)",
+          "oklch(0.27 0.002 106)",
+          "oklch(0.39 0.002 106)",
+          "oklch(0.51 0.002 106)",
+          "oklch(0.63 0.002 106)",
+          "oklch(0.75 0.002 106)",
+          "oklch(0.87 0.002 106)",
+          "oklch(0.995 0.002 106)"
+        ]
+      },
+      "paper-tint": {
+        "role": "neutral",
+        "displayName": "Paper Tint",
+        "canonical": "oklch(0.965 0.003 106)",
+        "tonalRamp": [
+          "oklch(0.15 0.003 106)",
+          "oklch(0.27 0.003 106)",
+          "oklch(0.39 0.003 106)",
+          "oklch(0.51 0.003 106)",
+          "oklch(0.63 0.003 106)",
+          "oklch(0.75 0.003 106)",
+          "oklch(0.87 0.003 106)",
+          "oklch(0.965 0.003 106)"
+        ]
+      },
+      "rule-line": {
+        "role": "neutral",
+        "displayName": "Rule Line",
+        "canonical": "oklch(0.91 0.004 106)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 106)",
+          "oklch(0.26 0.004 106)",
+          "oklch(0.37 0.004 106)",
+          "oklch(0.48 0.004 106)",
+          "oklch(0.59 0.004 106)",
+          "oklch(0.70 0.004 106)",
+          "oklch(0.81 0.004 106)",
+          "oklch(0.91 0.004 106)"
+        ]
+      },
+      "pressed-ink": {
+        "role": "primary",
+        "displayName": "Pressed Ink",
+        "canonical": "oklch(0.18 0.01 265)",
+        "tonalRamp": [
+          "oklch(0.18 0.01 265)",
+          "oklch(0.29 0.01 265)",
+          "oklch(0.40 0.01 265)",
+          "oklch(0.51 0.01 265)",
+          "oklch(0.62 0.01 265)",
+          "oklch(0.73 0.01 265)",
+          "oklch(0.84 0.01 265)",
+          "oklch(0.95 0.01 265)"
+        ]
+      },
+      "ink-primary": {
+        "role": "primary",
+        "displayName": "Ink Primary",
+        "canonical": "oklch(0.22 0.015 265)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 265)",
+          "oklch(0.26 0.015 265)",
+          "oklch(0.37 0.015 265)",
+          "oklch(0.48 0.015 265)",
+          "oklch(0.59 0.015 265)",
+          "oklch(0.70 0.015 265)",
+          "oklch(0.82 0.015 265)",
+          "oklch(0.94 0.015 265)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(0.44 0.015 265)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 265)",
+          "oklch(0.26 0.015 265)",
+          "oklch(0.37 0.015 265)",
+          "oklch(0.44 0.015 265)",
+          "oklch(0.59 0.015 265)",
+          "oklch(0.70 0.015 265)",
+          "oklch(0.82 0.015 265)",
+          "oklch(0.94 0.015 265)"
+        ]
+      },
+      "night-paper": {
+        "role": "neutral",
+        "displayName": "Night Paper",
+        "canonical": "oklch(0.145 0.008 265)",
+        "tonalRamp": [
+          "oklch(0.145 0.008 265)",
+          "oklch(0.26 0.008 265)",
+          "oklch(0.37 0.008 265)",
+          "oklch(0.48 0.008 265)",
+          "oklch(0.59 0.008 265)",
+          "oklch(0.70 0.008 265)",
+          "oklch(0.82 0.008 265)",
+          "oklch(0.94 0.008 265)"
+        ]
+      },
+      "chalk-ink": {
+        "role": "neutral",
+        "displayName": "Chalk Ink",
+        "canonical": "oklch(0.93 0.005 265)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 265)",
+          "oklch(0.26 0.005 265)",
+          "oklch(0.37 0.005 265)",
+          "oklch(0.48 0.005 265)",
+          "oklch(0.60 0.005 265)",
+          "oklch(0.71 0.005 265)",
+          "oklch(0.82 0.005 265)",
+          "oklch(0.93 0.005 265)"
+        ]
+      },
+      "signal-red": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": [
+          "oklch(0.20 0.245 27.325)",
+          "oklch(0.31 0.245 27.325)",
+          "oklch(0.42 0.245 27.325)",
+          "oklch(0.53 0.245 27.325)",
+          "oklch(0.64 0.245 27.325)",
+          "oklch(0.75 0.245 27.325)",
+          "oklch(0.86 0.245 27.325)",
+          "oklch(0.95 0.245 27.325)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero and the h1 of any sub-page. Fluid but capped at 1.75rem."
+      },
+      "headline": {
+        "displayName": "Section Label",
+        "purpose": "Primary wayfinding tier — About, Experience, Stack."
+      },
+      "emphasis": {
+        "displayName": "Emphasis (Newsreader italic)",
+        "purpose": "The single serif moment. One per page at most, never in body copy."
+      },
+      "title": {
+        "displayName": "Entry Title",
+        "purpose": "A company, project, or FAQ question inside a section."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The tagline under the display name. Max 40ch, relaxes under 640px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose, set in Muted Ink at 1.7 leading."
+      },
+      "label": {
+        "displayName": "Meta",
+        "purpose": "Metadata, timestamps, chips, footer, nav CTA text."
+      }
+    },
+    "shadows": [
+      {
+        "name": "surface",
+        "value": "0 1px 2px oklch(0.18 0.01 265 / 4%), 0 0 0 1px oklch(0.18 0.01 265 / 4%)",
+        "purpose": "Avatar ring and elements that read as physical objects. Effectively a ring with a hint of contact shadow."
+      },
+      {
+        "name": "elevated",
+        "value": "0 4px 16px oklch(0.18 0.01 265 / 8%), 0 0 0 1px oklch(0.18 0.01 265 / 4%)",
+        "purpose": "The floating nav and modal surfaces — the only things that genuinely float above the scroll."
+      },
+      {
+        "name": "surface-dark",
+        "value": "0 1px 2px oklch(0 0 0 / 24%), 0 0 0 1px oklch(1 0 0 / 6%)",
+        "purpose": "Dark-theme counterpart. The ring flips to white because a dark shadow on a dark ground reads as nothing."
+      },
+      {
+        "name": "elevated-dark",
+        "value": "0 8px 24px oklch(0 0 0 / 32%), 0 0 0 1px oklch(1 0 0 / 6%)",
+        "purpose": "Dark-theme floating surfaces."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing curve in the system. Used for the 0.55s opacity reveal on the experience timeline."
+      },
+      {
+        "name": "duration-state",
+        "value": "150ms",
+        "purpose": "Link and control color transitions. Never applied to layout properties."
+      },
+      {
+        "name": "reveal-opacity",
+        "value": "0.88 → 1 over 0.55s",
+        "purpose": "Opacity-only entrance. Transform is forbidden here because it breaks position: sticky on ancestor year labels."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "container", "value": "42rem" }
+    ],
+    "zIndex": [
+      { "name": "nav", "value": "50" },
+      { "name": "skip", "value": "60" },
+      { "name": "modal", "value": "70" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Nav CTA Pill",
+      "kind": "button",
+      "refersTo": "nav-cta",
+      "description": "Co-equal outreach action in the floating dock. Hover drops opacity only — no color shift, no lift.",
+      "html": "<a class=\"ds-nav-cta\" href=\"#\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 2v4M16 2v4M3 10h18\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/></svg>Book a call</a>",
+      "css": ".ds-nav-cta { display: inline-flex; align-items: center; gap: 0.375rem; height: 2.75rem; padding: 0 0.875rem; border-radius: 9999px; background: var(--primary); color: var(--primary-foreground); font-size: 0.875rem; font-weight: 600; letter-spacing: -0.01em; text-decoration: none; transition: opacity 150ms; } .ds-nav-cta:hover { opacity: 0.9; } .ds-nav-cta:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent); }"
+    },
+    {
+      "name": "Nav Icon Button",
+      "kind": "button",
+      "refersTo": "nav-icon-button",
+      "description": "Home and theme-toggle controls. Fill stays put on hover; only the icon darkens.",
+      "html": "<button class=\"ds-nav-icon\" aria-label=\"Home\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><path d=\"M9 22V12h6v10\"/></svg></button>",
+      "css": ".ds-nav-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border: none; border-radius: 9999px; background: var(--muted); color: var(--muted-foreground); cursor: pointer; transition: color 150ms; } .ds-nav-icon:hover { color: var(--foreground); } .ds-nav-icon:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent); }"
+    },
+    {
+      "name": "Nav Shell",
+      "kind": "nav",
+      "refersTo": "nav-shell",
+      "description": "The floating dock fixed to the bottom center of every page. Hairline border plus elevated shadow over a blurred translucent ground.",
+      "html": "<nav class=\"ds-nav-shell\" aria-label=\"Site navigation\"><button class=\"ds-nav-icon-sm\" aria-label=\"Home\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg></button><span class=\"ds-nav-sep\"></span><a class=\"ds-nav-cta-sm\" href=\"#\">Book a call</a></nav>",
+      "css": ".ds-nav-shell { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem; border: 1px solid color-mix(in oklch, var(--border) 60%, transparent); border-radius: 1rem; background: color-mix(in oklch, var(--background) 95%, transparent); backdrop-filter: blur(4px); box-shadow: 0 4px 16px oklch(0.18 0.01 265 / 8%), 0 0 0 1px oklch(0.18 0.01 265 / 4%); } .ds-nav-sep { width: 1px; height: 2rem; background: var(--border); margin: 0 0.125rem; } .ds-nav-icon-sm { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border: none; border-radius: 9999px; background: var(--muted); color: var(--muted-foreground); cursor: pointer; } .ds-nav-cta-sm { display: inline-flex; align-items: center; height: 2.75rem; padding: 0 0.875rem; border-radius: 9999px; background: var(--primary); color: var(--primary-foreground); font-size: 0.875rem; font-weight: 600; text-decoration: none; }"
+    },
+    {
+      "name": "Tech Chip",
+      "kind": "chip",
+      "refersTo": "tech-chip",
+      "description": "Stack marker. Grows to a 44px touch target under coarse pointers without changing mouse density.",
+      "html": "<span class=\"ds-chip\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" opacity=\"0.8\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><ellipse cx=\"12\" cy=\"12\" rx=\"11\" ry=\"4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><ellipse cx=\"12\" cy=\"12\" rx=\"11\" ry=\"4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" transform=\"rotate(60 12 12)\"/><ellipse cx=\"12\" cy=\"12\" rx=\"11\" ry=\"4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" transform=\"rotate(120 12 12)\"/></svg>React</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.25rem 0.625rem; border-radius: 0.375rem; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.5; } @media (pointer: coarse) { .ds-chip { min-height: 2.75rem; padding-inline: 0.75rem; } }"
+    },
+    {
+      "name": "Inline Link",
+      "kind": "custom",
+      "refersTo": "inline-link",
+      "description": "The system's only link treatment. Rule-line underline at 4px offset; both text and underline darken on hover.",
+      "html": "<p class=\"ds-link-host\">Past roles are on the <a class=\"ds-link\" href=\"#\">experience page</a>.</p>",
+      "css": ".ds-link-host { color: var(--muted-foreground); font-size: 1rem; line-height: 1.7; } .ds-link { color: var(--muted-foreground); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; transition: color 150ms, text-decoration-color 150ms; } .ds-link:hover { color: var(--foreground); text-decoration-color: var(--foreground); } @media (pointer: coarse) { .ds-link { text-underline-offset: 5px; } }"
+    },
+    {
+      "name": "Section Divider",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The workhorse of the layout. A 1px rule with asymmetric rhythm above and below — this replaces cards entirely.",
+      "html": "<div class=\"ds-section-host\"><section class=\"ds-section\"><h2 class=\"ds-section-label\">Experience</h2><p class=\"ds-section-body\">Kept production web apps shipping on AWS.</p></section><section class=\"ds-section\"><h2 class=\"ds-section-label ds-section-label-emphasis\">Proud moment</h2><p class=\"ds-section-body\">The first thing I built alone that a stranger paid for.</p></section></div>",
+      "css": ".ds-section-host { max-width: 42rem; } .ds-section { display: flex; flex-direction: column; gap: 1.125rem; border-top: 1px solid var(--border); padding-top: 1.75rem; padding-bottom: 1.75rem; } .ds-section-label { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: var(--foreground); } .ds-section-label-emphasis { font-family: Newsreader, ui-serif, Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; line-height: 1.3; } .ds-section-body { margin: 0; color: var(--muted-foreground); font-size: 1rem; line-height: 1.7; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Notebook",
+    "overview": "This is a working notebook, not a brochure. Entries are packed tight and separated by hairline rules rather than whitespace or cards. Nothing is enlarged to attract attention; the density itself is the argument, on the theory that a reader who is actually evaluating someone wants signal per scroll, not a guided tour. The page reads like a document a person maintains, not a page a team launched.\n\nThe material is paper and ink, and the two disagree about temperature on purpose. Surfaces sit at hue 106, a barely-there warm cast that keeps the background off clinical white. Ink sits at hue 265, cool and faintly blue, the color of a good pen rather than pure black. That warm-surface / cool-ink split is the single most distinctive property of the palette and it holds in both themes.\n\nAgainst an entirely sans-serif page, one italic serif recurs: a section label, a year numeral, a photo caption. It appears rarely enough to register as a hand in the margin rather than a typographic system. Everything else stays out of the way. Motion is nearly absent by design, limited to a single opacity settle and a view-transition when the theme flips.",
+    "keyCharacteristics": [
+      "Warm paper surfaces, cool blue-black ink, held apart by hue rather than tone",
+      "Résumé-grade density in one 42rem column, never wider",
+      "Hairline rules between sections instead of cards or panels",
+      "One recurring italic serif gesture against an all-sans page",
+      "Flat by default: depth is a 1px ring, not a drop shadow",
+      "Motion is the exception, not the grammar"
+    ],
+    "rules": [
+      {
+        "name": "The No Accent Rule",
+        "body": "This system has no brand color and does not want one. Emphasis comes from ink weight, type size, and rule lines. Introducing an accent hue would break the notebook premise and make the page look like every other portfolio.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Hues Rule",
+        "body": "Surfaces are hue 106, ink is hue 265, and nothing else enters the palette. New neutrals extend one of those two families; they never split the difference into a third.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Hand Rule",
+        "body": "Newsreader italic is reserved for one moment per page: an emphasis label, a numeral, or a caption. Never body copy, never a heading in the normal flow, never two instances competing in the same viewport. It reads as a hand in the margin precisely because it is rare — spread it and it becomes a typeface.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Ceiling Rule",
+        "body": "Display type stops at 1.75rem (28px). This is deliberate density, not an oversight: the page is a document, and documents don't shout. The one documented exception is a future top-of-funnel marketing surface, which may scale past the ceiling — but it must do so as a stated departure, and the core site stays under it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tight Tracking Rule",
+        "body": "Every heading tier carries negative letter-spacing (-0.015em to -0.02em). Body and label copy carry none. Setting a heading at default tracking makes it read as unstyled.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Column Rule",
+        "body": "42rem, centered, always. If content doesn't fit the column, the content gets shorter — the column does not get wider and does not split.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ring-First Rule",
+        "body": "When an element needs separation, reach for a 1px border in Rule Line before reaching for a shadow. Shadows are reserved for things that actually float above the scroll.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do separate sections with a 1px Rule Line border and varied vertical rhythm (1.75rem standard, 2.25rem emphasis).",
+      "Do keep every page in the single 42rem column.",
+      "Do set body copy in Muted Ink and step up to Pressed Ink for headings, rather than starting at ink and stepping down.",
+      "Do give every interactive target a 2.75rem minimum touch dimension and a focus-visible ring at 3px / 50% alpha.",
+      "Do keep reveal animations opacity-only and visible at rest, guarded by prefers-reduced-motion: no-preference.",
+      "Do use text-wrap: balance on headings and text-wrap: pretty on prose — both are already wired into the type classes."
+    ],
+    "donts": [
+      "Don't introduce a brand accent color. The palette is two hues and no accent by design.",
+      "Don't wrap content in cards or panels. Rule lines and rhythm carry structure here.",
+      "Don't set Newsreader in body copy, in a normal-flow heading, or twice in one viewport.",
+      "Don't scale display type past 1.75rem on the core site; a marketing surface may, as a stated exception.",
+      "Don't reach for a drop shadow where a 1px ring would separate the element.",
+      "Don't animate transform on any ancestor of a position: sticky element.",
+      "Don't revive components/ui/button.tsx or the --chart-* / --sidebar-* tokens. They are unused shadcn scaffolding, and the nav builds its own pill and icon-button treatments instead."
+    ]
+  }
+}
