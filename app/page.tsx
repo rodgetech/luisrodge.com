@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import {
   HeroSection,
   BioSection,
@@ -10,6 +12,13 @@ import {
 import { PageSection } from "@/components/ui/page-section";
 import { SiteNav } from "@/components/ui/site-nav";
 import { SECTIONS } from "@/config/site";
+
+/** Self-referencing canonical — each route declares its own, never inherited. */
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Newsreader, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { StructuredData } from "@/components/seo/structured-data";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_INFO, USER } from "@/config/site";
 
@@ -78,6 +79,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <StructuredData />
         <Analytics />
       </body>
     </html>

@@ -5,9 +5,13 @@ export const USER = {
   username: "rodgetech",
   tagline: "Full stack engineer who takes products from idea to launch",
   address: "Cayo, Belize, Central America",
+  /** Structured-data breakdown of `address` — keep the two in sync. */
+  addressRegion: "Cayo",
+  addressCountry: "BZ",
+  countryName: "Belize",
   phoneNumber: "+5016082077",
   email: "rodgetech@gmail.com",
-  website: "https://rodgetech.com",
+  website: "https://www.luisrodge.com",
   jobTitle: "Software Engineer",
   avatar: "/me.png",
   ogImage: "/me.png",
@@ -83,7 +87,12 @@ export type SectionKey = keyof typeof SECTIONS;
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: "https://rodgetech.com",
+  /**
+   * Canonical origin. Must match the host Vercel serves after redirects —
+   * the apex 308s to www, so www is canonical. Feeds metadataBase, canonicals,
+   * sitemap, and structured data.
+   */
+  url: "https://www.luisrodge.com",
   ogImage: USER.ogImage,
   description: `${USER.firstName} ${USER.lastName}, full stack engineer from Belize who takes products from idea to launch. Building Video Journal. Open to full-time roles and founder partnerships.`,
   keywords: USER.keywords,
