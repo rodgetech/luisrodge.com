@@ -1,4 +1,10 @@
-import { SITE_PATHS, USER } from "@/config/site";
+import {
+  PROUD_MOMENT,
+  resolveTech,
+  SITE_PATHS,
+  USER,
+  WORK_EXPERIENCE,
+} from "@/config/site";
 
 /**
  * Content for /hire-a-software-developer-in-belize.
@@ -20,6 +26,33 @@ export const HIRE_PAGE = {
     "If you're weighing Belize as a place to hire, this is the guide I wish existed, including the parts that argue against me.",
 } as const;
 
+/**
+ * Attribution row under the lead. The page's whole claim is that it's written
+ * by someone who actually lives here, so the person has to be visible before
+ * the argument starts — PRODUCT.md's "person first, then proof".
+ */
+export const HIRE_BYLINE = {
+  avatar: USER.avatar,
+  name: `${USER.firstName} ${USER.lastName}`,
+  meta: `${USER.addressRegion}, Belize · US-friendly hours`,
+} as const;
+
+/**
+ * The belief ladder wants evidence before the ask. Reuses assets the homepage
+ * already carries rather than minting new claims.
+ */
+export const HIRE_PROOF = {
+  heading: "Proof, not just claims",
+  lead: "I spent two years at BuildShip helping founders get from an idea to a working backend, and I ship my own products on the side.",
+  payoutImage: PROUD_MOMENT.image,
+  payoutAlt: PROUD_MOMENT.imageAlt,
+  payoutCaption: "First payout from a product I built alone.",
+  closing:
+    "That notification is from Screen Mockups, the first thing I built solo that a stranger paid for. It's the shortest version of what I do: take an idea to something people will actually pay for.",
+  companyLogo: WORK_EXPERIENCE.mostRecent.logo,
+  companyName: WORK_EXPERIENCE.mostRecent.company,
+} as const;
+
 /** Differentiators vs. the LatAm alternatives buyers are usually comparing. */
 export const WHY_BELIZE = [
   {
@@ -39,10 +72,25 @@ export const WHY_BELIZE = [
   },
   {
     id: "cost",
-    title: "Below US market rates",
-    body: "Cost of living here is a fraction of a US metro, and rates reflect that. You're not paying a US senior salary for senior work. You're also not in a marketplace where the lowest bid sets both the price and the quality.",
+    title: "Below US rates, in a currency that doesn't move",
+    body: "Cost of living here is a fraction of a US metro, and rates reflect that. You're not paying a US senior salary for senior work, and you're not in a marketplace where the lowest bid sets both the price and the quality. The Belize dollar has also been pegged to the US dollar at two to one since 1976, so a number agreed here doesn't drift with the exchange rate the way one from Mexico City or Buenos Aires can.",
   },
 ] as const;
+
+/**
+ * Answers "is this person a match for my project?" right before the ask.
+ * Also the page's only non-geo keyword surface — stack queries carry far more
+ * volume than anything Belize-shaped.
+ */
+export const HIRE_STACK = resolveTech(
+  "TypeScript",
+  "React",
+  "Next.js",
+  "NestJS",
+  "PostgreSQL",
+  "AWS",
+  "Supabase",
+);
 
 /** Kept honest on purpose. This section is why the page deserves to rank. */
 export const OTHER_OPTIONS = {
@@ -52,7 +100,7 @@ export const OTHER_OPTIONS = {
     {
       id: "agencies",
       title: "Local agencies and studios",
-      body: "If you need a full team, ongoing staffing, or coverage that survives someone taking a holiday, a studio is the better structure. Idea Lab Studios, Castlebridge Systems, and 501 Enterprise are the established names locally.",
+      body: "If you need a full team, ongoing staffing, or coverage that survives someone taking a holiday, a studio is the better structure. Be careful with the directory listings, though: most of the Belize “top software developers” lists recycle the same handful of names, and several are managed-IT or advertising firms rather than development shops. Idea Lab Studios in Belize City is a long-running digital agency that also builds software; eData, the company behind the NeoPeople HR platform, is the most established software business in the country, though it now focuses on its own product rather than client work.",
     },
     {
       id: "marketplaces",
@@ -64,17 +112,24 @@ export const OTHER_OPTIONS = {
       title: "Employer of Record, for full-time hires",
       body: "You can employ someone in Belize without opening an entity here. An EOR handles payroll, contributions, and compliance. That's the standard route when you want headcount rather than a contract.",
     },
-    {
-      id: "honest",
-      title: "And the honest caveat",
-      body: "Belize is a country of roughly 400,000 people. The developer pool is small, and anyone telling you there's a deep bench of specialists in any given niche is selling you something. Depth is the real limitation here. The time zone, the language, and the rates are not.",
-    },
   ],
+} as const;
+
+/**
+ * Deliberately not a fourth item in OTHER_OPTIONS — it isn't another way to
+ * hire, it's a caveat about the whole country, and it's the most disarming
+ * line on the page. Burying it in a list wasted it.
+ */
+export const HONEST_CAVEAT = {
+  heading: "The honest caveat",
+  body: "Belize is a country of roughly 400,000 people. The developer pool is small, and anyone telling you there's a deep bench of specialists in any given niche is selling you something. Depth is the real limitation here. The time zone, the language, and the rates are not.",
 } as const;
 
 export const HIRE_CTA = {
   heading: "Working together",
   body: "The work I take on is usually one of two shapes. Taking an idea to a launched MVP, or joining a small team to ship a product that's stuck. Web and mobile, front to back.",
+  stackNote:
+    "Most of what I build runs on this stack, and I've shipped iOS in Swift and SwiftUI too:",
   scopeNote:
     "Fastest way to find out if it's a fit is a short call. Bring the problem, not a spec.",
 } as const;
@@ -98,7 +153,7 @@ export const HIRE_FAQ = [
   {
     question: "How do you pay a contractor in Belize?",
     answer:
-      "Most engagements settle by international bank transfer or a service like Wise or Deel. A contractor invoices you directly and handles their own taxes locally. If you want to employ someone full-time instead, an Employer of Record can run payroll without you registering a company in Belize.",
+      "The same tools you already use. I've been paid through Bill.com, Rippling, and Remitly, and Wise, Deel, and plain international bank transfer all work too. A contractor invoices you directly and handles their own taxes locally, so there's nothing to set up on your side. The Belize dollar is pegged to the US dollar at two to one, so the number you agree is the number you pay. If you'd rather employ someone full-time, an Employer of Record can run payroll without you registering a company in Belize.",
   },
   {
     question: "Is it cheaper to hire a software developer in Belize?",
