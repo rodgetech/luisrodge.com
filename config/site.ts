@@ -1,6 +1,17 @@
 export const USER = {
   firstName: "Luis",
   lastName: "Rodriguez",
+  /**
+   * The name the site leads with: page titles, the homepage h1, the byline,
+   * and `name` in the Person schema. People search the real name, so it
+   * carries the weight.
+   */
+  fullName: "Luis Rodriguez",
+  /**
+   * Kept as `alternateName` in the Person schema and nowhere else. It still
+   * matters — it ties the aged @rodgetech identity to this one — but it is no
+   * longer what any visible heading says.
+   */
   displayName: "Luis Rodge",
   username: "rodgetech",
   tagline: "Full stack engineer who takes products from idea to launch",
@@ -86,7 +97,7 @@ export const SECTIONS = {
 export type SectionKey = keyof typeof SECTIONS;
 
 export const SITE_INFO = {
-  name: USER.displayName,
+  name: USER.fullName,
   /**
    * Canonical origin. Must match the host Vercel serves after redirects —
    * the apex 308s to www, so www is canonical. Feeds metadataBase, canonicals,
@@ -94,7 +105,7 @@ export const SITE_INFO = {
    */
   url: "https://www.luisrodge.com",
   ogImage: USER.ogImage,
-  description: `${USER.firstName} ${USER.lastName}, full stack engineer from Belize who takes products from idea to launch. Building Video Journal. Open to full-time roles and founder partnerships.`,
+  description: `${USER.fullName}, full stack engineer from Belize who takes products from idea to launch. Building Video Journal. Open to full-time roles and founder partnerships.`,
   keywords: USER.keywords,
 };
 

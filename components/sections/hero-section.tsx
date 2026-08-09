@@ -24,7 +24,7 @@ export function HeroSection() {
             <div className="relative h-20 w-20 shrink-0 sm:h-32 sm:w-32">
               <Image
                 src="/me.png"
-                alt={USER.displayName}
+                alt={USER.fullName}
                 fill
                 sizes="(max-width: 640px) 80px, 128px"
                 className="surface rounded-full object-cover ring-4 ring-background"
@@ -33,7 +33,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 sm:gap-1">
-              <h1 className="text-display">{USER.displayName}</h1>
+              <h1 className="text-display">{USER.fullName}</h1>
               <p className="text-lead">{USER.tagline}</p>
               <div className="text-meta flex flex-col gap-0.5 pt-0.5 sm:flex-row sm:items-center sm:gap-3">
                 <span>Belize · US-friendly hours</span>

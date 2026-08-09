@@ -34,7 +34,7 @@ export function FooterSection() {
         <p className="text-meta max-w-[36ch] text-pretty">{FOOTER_TAGLINE}</p>
         <div className="text-meta flex flex-col gap-0.5 sm:items-end sm:text-right">
           <p className="tabular-nums">
-            © {year} {USER.displayName}
+            © {year} {USER.fullName}
           </p>
           <p>{USER.address}</p>
         </div>

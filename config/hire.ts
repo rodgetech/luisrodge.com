@@ -21,7 +21,7 @@ export const HIRE_PAGE = {
   title: "Hire a Software Developer in Belize",
   description:
     "An honest guide to hiring a software developer in Belize. Time zones, language, how contracts work, and what the talent pool actually looks like. Written by a full stack engineer based in Cayo.",
-  lead: `I'm ${USER.firstName} ${USER.lastName}, a full stack engineer based in ${USER.addressRegion}, Belize. I build MVPs and ship production software for founders and small teams.`,
+  lead: `I'm ${USER.fullName}, a full stack engineer based in ${USER.addressRegion}, Belize. I build MVPs and ship production software for founders and small teams.`,
   subLead:
     "If you're weighing Belize as a place to hire, this is the guide I wish existed, including the parts that argue against me.",
 } as const;
@@ -33,7 +33,7 @@ export const HIRE_PAGE = {
  */
 export const HIRE_BYLINE = {
   avatar: USER.avatar,
-  name: `${USER.firstName} ${USER.lastName}`,
+  name: USER.fullName,
   meta: `${USER.addressRegion}, Belize · US-friendly hours`,
 } as const;
 

@@ -24,7 +24,7 @@ const graph = {
     {
       "@type": "Person",
       "@id": PERSON_ID,
-      name: `${USER.firstName} ${USER.lastName}`,
+      name: USER.fullName,
       alternateName: USER.displayName,
       url: SITE_INFO.url,
       image: absolute(USER.avatar),
