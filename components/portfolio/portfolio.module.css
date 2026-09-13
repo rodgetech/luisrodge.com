@@ -12,7 +12,8 @@
 .profile h1 { font-family: var(--font-newsreader), Georgia, serif; font-style: italic; font-weight: 400; font-size: 36px; letter-spacing: -1.1px; line-height: 1.2; margin: 28px 0 12px; }
 .profile p { color: #777; margin-bottom: 14px; }
 .price span { color: #555; }
-.price a, .serviceLinks a { text-decoration: underline; text-decoration-color: #ccc; text-underline-offset: 4px; }
+.price a, .serviceLinks a { text-decoration: none; text-underline-offset: 4px; transition: color 180ms; }
+.price a:hover, .serviceLinks a:hover, .price a:focus-visible, .serviceLinks a:focus-visible { color: #202020; text-decoration: underline; text-decoration-color: #aaa; }
 .profile .serviceLinks { font-size: 14px; }
 .socials { display: flex; gap: 9px; margin: 20px 0; }
 .socials a { width: 44px; height: 44px; border: 1px solid #ededed; border-radius: 50%; display: grid; place-items: center; color: #8c8c8c; transition: color 180ms, background 180ms; }
