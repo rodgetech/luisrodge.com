@@ -17,6 +17,7 @@ export function WorkExperienceSection() {
             src={mostRecent.logo}
             alt={mostRecent.company}
             fill
+            sizes="40px"
             className="object-contain"
           />
         </div>

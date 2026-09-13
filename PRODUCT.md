@@ -10,22 +10,22 @@ web
 
 ## Users
 
-Hiring managers and recruiters evaluating fit for full-time roles, and founders looking for contract or MVP help. The homepage speaks to both with equal weight — neither audience is secondary.
+Business owners and founders looking for a designer-developer to build a website or focused app. Hiring managers remain supported through the dedicated About, Experience, and résumé paths, but they are no longer the homepage's primary audience.
 
 ## Product Purpose
 
-Make Luis easy to hire: clear stack, experience, and fit at a glance. Success is a page he’s proud to send — the link that represents him well.
+Turn strong work into qualified client conversations. Success is a prospective client understanding what Luis builds, seeing real proof, recognizing the $500–$3,000 fit, and starting a conversation.
 
 ## Positioning
 
-Full-stack engineer who takes products from idea to launch.
+Independent web and app developer who pairs strategy, design, and development in one engagement.
 
 ## Conversion & proof
 
-- Primary and secondary CTA: **Book a call** (Cal.com) and **Say Hi** (email) are co-equal primary actions. Soft fallback for visitors not ready to contact: follow on X, LinkedIn, or GitHub.
-- The line a visitor remembers after 10 seconds: Full stack engineer who takes products from idea to launch.
-- Belief ladder: Personable and clear → solid experience → building something interesting now → reach out.
-- Proof on hand: BuildShip role write-up; Video Journal demo and highlights; Screen Mockups first-payout story (TrustMRR); resume PDF; tech stack logos. No extra testimonials or press beyond what’s already on the site.
+- Primary CTA: **Start a project** by email. Secondary CTA: book a short call through Cal.com.
+- The line a visitor remembers after 10 seconds: Luis designs and builds websites and apps for businesses and founders, with projects from $500 to $3,000.
+- Belief ladder: Distinct point of view → six real shipped projects → transparent working range → reach out.
+- Proof on hand: six live client/product websites on the homepage. BuildShip experience, Video Journal, Screen Mockups, full career history, and the PDF résumé remain on `/about` and `/experience`.
 
 ## Brand Personality
 

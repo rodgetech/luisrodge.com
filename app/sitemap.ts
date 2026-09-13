@@ -13,16 +13,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${SITE_INFO.url}${SITE_PATHS.hire}`,
+      url: `${SITE_INFO.url}${SITE_PATHS.about}`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${SITE_INFO.url}${SITE_PATHS.experience}`,
+      url: `${SITE_INFO.url}${SITE_PATHS.hire}`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${SITE_INFO.url}${SITE_PATHS.experience}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ];
 }

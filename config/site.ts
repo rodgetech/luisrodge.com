@@ -30,6 +30,9 @@ export const USER = {
   keywords: [
     "rodgetech",
     "luis rodriguez",
+    "web designer belize",
+    "website developer belize",
+    "freelance app developer",
     "software engineer belize",
     "full stack developer",
     "indie hacker",
@@ -105,7 +108,7 @@ export const SITE_INFO = {
    */
   url: "https://www.luisrodge.com",
   ogImage: USER.ogImage,
-  description: `${USER.fullName}, full stack engineer from Belize who takes products from idea to launch. Building Video Journal. Open to full-time roles and founder partnerships.`,
+  description: `${USER.fullName} designs and builds distinctive websites and apps for businesses and founders. Based in Belize and working worldwide.`,
   keywords: USER.keywords,
 };
 
@@ -160,6 +163,7 @@ export type SoftPathSocialId = (typeof SOFT_PATH_SOCIALS)[number]["id"];
 
 /** Canonical site paths — import these instead of minting parallel string constants. */
 export const SITE_PATHS = {
+  about: "/about",
   experience: "/experience",
   hire: "/hire-a-software-developer-in-belize",
   resumePdf: "/resume.pdf",

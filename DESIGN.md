@@ -132,6 +132,14 @@ components:
 
 ## Overview
 
+### Portfolio homepage — reference-led work gallery
+
+The homepage follows the supplied alimdesigner.com reference: a white page, compact sticky profile column, circular portrait, modest Newsreader italic name, gray prose, and small navigation pills. Six project previews occupy the right column from the top of the page. Each sits inside a neutral gray mat with 6.8% padding, displaying the entire 16:9 canvas without cropping. Muted ten-second MP4 loops dissolve between three settled captures of each live website, returning to the opening frame for a clean loop. These are capture-based walkthroughs, not recordings of live interaction. No simulated cursor, scan lines, browser chrome, colored panels, or oversized sales headings. Playback pauses offscreen; reduced motion starts on the static poster, with a manual play control. On mobile the profile precedes the gallery without taking an entire screen.
+
+The gallery has no visible captions beneath the previews. A 32% desktop profile column uses a 68px portrait and tighter vertical spacing. A shared gallery controller activates only the showcase with the greatest visible height, resets inactive videos to the beginning, and stops playback when the document is hidden. Manual pause remains available on the active preview.
+
+The existing Field Notebook becomes the About and Experience system. Its rules below still govern `/about`, `/experience`, and the résumé-oriented surfaces.
+
 **Creative North Star: "The Field Notebook"**
 
 This is a working notebook, not a brochure. Entries are packed tight and separated by hairline rules rather than whitespace or cards. Nothing is enlarged to attract attention; the density itself is the argument, on the theory that a reader who is actually evaluating someone wants signal per scroll, not a guided tour. The page reads like a document a person maintains, not a page a team launched.
