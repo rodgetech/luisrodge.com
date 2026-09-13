@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CalendarDays, Github, Linkedin, Mail, MessageCircle, UserRound } from "lucide-react";
 import { ProjectGallery } from "@/components/portfolio/project-gallery";
 import styles from "@/components/portfolio/portfolio.module.css";
 import { BOOKING_URL, USER, SOCIAL_LINKS } from "@/config/site";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Websites & apps built by Luis Rodriguez",
-  description: "Independent web and app developer in Belize. Selected work and projects from $500 to $3,000.",
-  alternates: { canonical: "/" },
-};
+export const metadata = pageMetadata("Web Designer & App Developer in Belize", "Custom websites and apps for businesses in Belize and the US. Explore Luis Rodriguez’s work, projects from $500–$3,000, and chat about your next build.", "/");
 
 export default function Home() {
   return (
@@ -21,7 +18,8 @@ export default function Home() {
             <Image src={USER.avatar} alt="Luis Rodriguez" width={80} height={80} priority className={styles.portrait} />
             <h1>Luis Rodriguez</h1>
             <p>I design and build websites and apps for businesses and founders here in Belize and internationally.</p>
-            <p className={styles.price}>Website & app design and development. <span>$500–$3,000 per project.</span></p>
+            <p className={styles.price}><Link href="/web-design-belize">Website design</Link> & <Link href="/web-app-development">app development</Link>. <span>$500–$3,000 per project.</span></p>
+            <p className={styles.serviceLinks}><Link href="/work">Explore the projects</Link> · <Link href="/small-business-web-design">For US small businesses</Link></p>
             <nav className={styles.socials} aria-label="Social profiles">
               <a href={SOCIAL_LINKS.github.url} aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github size={17} /></a>
               <a href={SOCIAL_LINKS.linkedin.url} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin size={17} /></a>
@@ -33,7 +31,7 @@ export default function Home() {
               <a href={`mailto:${USER.email}`} aria-label="Email Luis"><Mail size={18} /></a>
             </nav>
             <nav className={styles.navigation} aria-label="Main navigation">
-              <a href="/about">About <UserRound size={16} /></a>
+              <Link href="/about">About <UserRound size={16} /></Link>
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Let’s talk <CalendarDays size={17} /></a>
               <a href={`https://wa.me/${USER.phoneNumber.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">Let’s Chat <MessageCircle size={17} /></a>
             </nav>

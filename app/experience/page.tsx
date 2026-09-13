@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-metadata";
 
 import { ExperienceTimeline } from "@/components/experience/experience-timeline";
 import { FooterSection } from "@/components/sections";
@@ -6,13 +6,7 @@ import { PageSection } from "@/components/ui/page-section";
 import { SiteNav } from "@/components/ui/site-nav";
 import { SITE_INFO, SITE_PATHS } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "Experience",
-  description: `Career experience for ${SITE_INFO.name} — roles, outcomes, and stack in context.`,
-  alternates: {
-    canonical: SITE_PATHS.experience,
-  },
-};
+export const metadata = pageMetadata("Experience", `Career experience for ${SITE_INFO.name} — roles, outcomes, and stack in context.`, SITE_PATHS.experience);
 
 export default function ExperiencePage() {
   return (

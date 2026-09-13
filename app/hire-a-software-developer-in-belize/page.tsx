@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { Plus } from "lucide-react";
@@ -24,18 +24,7 @@ import {
 } from "@/config/hire";
 import { BOOKING_CTA_LABEL, BOOKING_URL } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: HIRE_PAGE.title,
-  description: HIRE_PAGE.description,
-  alternates: {
-    canonical: HIRE_PAGE.slug,
-  },
-  openGraph: {
-    title: HIRE_PAGE.title,
-    description: HIRE_PAGE.description,
-    url: HIRE_PAGE.slug,
-  },
-};
+export const metadata = pageMetadata(HIRE_PAGE.title, HIRE_PAGE.description, HIRE_PAGE.slug);
 
 export default function HirePage() {
   return (
@@ -83,6 +72,7 @@ export default function HirePage() {
             <div className="flex flex-col gap-[var(--stack-prose)]">
               <p className="page-lead">{HIRE_PAGE.lead}</p>
               <p className="text-body">{HIRE_PAGE.subLead}</p>
+              <p className="text-body">Looking for a project build? Explore <Link href="/web-design-belize" className="link-underline">website design in Belize</Link>, <Link href="/small-business-web-design" className="link-underline">websites for US small businesses</Link>, or <Link href="/web-app-development" className="link-underline">web app development</Link>.</p>
             </div>
           </div>
         </PageSection>

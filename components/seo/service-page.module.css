@@ -1,0 +1,19 @@
+.page { min-height: 100dvh; background: white; color: #242424; padding: 28px max(20px, calc((100vw - 960px) / 2)) 64px; }
+.nav { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 15px; margin-bottom: 56px; }
+.page a { text-underline-offset: 4px; text-decoration: underline; }
+.page a:hover { color: #666; }
+.page a:focus-visible, .page summary:focus-visible { outline: 2px solid #555; outline-offset: 5px; }
+.page h1 { font-family: var(--font-newsreader), Georgia, serif; font-size: clamp(36px, 5vw, 60px); line-height: 1.08; font-weight: 400; max-width: 800px; margin: 0 0 24px; }
+.page h2 { font-family: var(--font-newsreader), Georgia, serif; font-size: 30px; line-height: 1.2; font-weight: 400; margin-bottom: 16px; }
+.page p { font-size: 18px; line-height: 1.7; color: #606060; max-width: 740px; }
+.section { margin-top: 44px; }
+.actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 20px; background: #f4f4f4; border-radius: 32px; text-decoration: none; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
+.project img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #eee; margin-bottom: 18px; }
+.project h2, .project h3 { font-size: 25px; margin-bottom: 8px; }
+.project p { font-size: 17px; margin-bottom: 14px; }
+.page details { padding: 20px 0; border-bottom: 1px solid #eee; }
+.page summary { cursor: pointer; font-size: 18px; }
+.page details p { margin-top: 12px; }
+@media (max-width: 640px) { .projects { grid-template-columns: 1fr; } .nav { margin-bottom: 36px; } }

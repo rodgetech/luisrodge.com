@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-metadata";
 
 import {
   HeroSection,
@@ -13,11 +13,7 @@ import { PageSection } from "@/components/ui/page-section";
 import { SiteNav } from "@/components/ui/site-nav";
 import { SECTIONS } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "About & résumé",
-  description: "Luis Rodriguez's background, product work, technical experience, and résumé.",
-  alternates: { canonical: "/about" },
-};
+export const metadata = pageMetadata("About & résumé", "Luis Rodriguez's background, product work, technical experience, and résumé.", "/about");
 
 export default function AboutPage() {
   return (
