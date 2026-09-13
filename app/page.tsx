@@ -42,7 +42,7 @@ export default function Home() {
             <div className={styles.stats}>
               <div><strong>12+</strong><span>Clients</span></div>
               <div><strong>13+</strong><span>Projects shipped</span></div>
-              <div><strong>$500</strong><span>Starting price</span></div>
+              <div><strong><span className={styles.currency}>$</span>500</strong><span>Starting price</span></div>
             </div>
           </div>
         </aside>
