@@ -21,6 +21,31 @@
 .navigation a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 16px; border-radius: 999px; background: #f5f5f5; font-size: 15px; transition: background 180ms, transform 180ms; }
 .navigation a:hover { background: #e9e9e9; transform: translateY(-2px); }
 .navigation a:active { transform: translateY(0); }
+.quickQuote { margin-top: 18px; padding: 17px 0 13px; border-bottom: 1px solid #ededed; }
+.quickQuote h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 0 5px; color: #202020; font-size: 17px; font-weight: 600; letter-spacing: -.25px; line-height: 1.45; }
+.quickQuoteRotator { display: inline-block; width: 6.35em; height: 26px; overflow: hidden; clip-path: inset(0); font-weight: 500; vertical-align: bottom; }
+.quickQuoteWords { display: flex; flex-direction: column; }
+.quickQuotePlatform { display: inline-flex; box-sizing: border-box; height: 22px; width: max-content; flex: none; align-items: center; gap: 4px; margin: 2px 0; border-radius: 999px; padding: 0 7px 0 5px; font-size: .88em; line-height: 1; }
+.quickQuotePlatform svg { width: 14px; height: 14px; flex: none; }
+.facebook { color: #1877f2; background: #edf4ff; }
+.facebook svg, .tiktok svg { fill: currentColor; }
+.instagram { color: #c13584; background: #fff0f6; }
+.instagram svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.instagram .instagramDot { fill: currentColor; stroke: none; }
+.tiktok { color: #161616; background: #f1f1f1; }
+.tiktok svg { filter: drop-shadow(-.7px 0 #25f4ee) drop-shadow(.7px 0 #fe2c55); }
+.quickQuote > p { margin: 4px 0 12px; color: #777; font-size: 13px; line-height: 1.45; }
+.quickQuoteForm { min-width: 0; }
+.quickQuoteField { display: flex; min-width: 0; align-items: center; gap: 8px; padding: 4px 4px 4px 12px; border-radius: 999px; background: #f5f5f5; box-shadow: inset 0 0 0 1px transparent; transition: background 180ms, box-shadow 180ms; }
+.quickQuoteField:focus-within { background: #f1f1f1; box-shadow: inset 0 0 0 1px #d4d4d4; }
+.quickQuoteField > svg { flex: none; color: #999; }
+.quickQuoteField input { width: 100%; min-width: 0; height: 36px; border: 0; outline: 0; background: transparent; color: #202020; font: inherit; font-size: 13px; }
+.quickQuoteField input::placeholder { color: #888; opacity: 1; }
+.quickQuoteField button { display: inline-flex; min-height: 38px; flex: none; align-items: center; gap: 6px; border-radius: 999px; background: #202020; color: #fff; padding: 0 14px; font-size: 12px; font-weight: 600; transition: background 180ms; }
+.quickQuoteField button:hover { background: #3a3a3a; }
+.quickQuoteField button svg { transition: transform 180ms; }
+.quickQuoteField button:hover svg { transform: translateX(2px); }
+.quickQuoteError { min-height: 15px; margin: 5px 12px -4px; color: #a12626; font-size: 11px; line-height: 1.35; }
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 32px; }
 .stats > div { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .stats strong { font-family: var(--font-newsreader), Georgia, serif; font-size: clamp(32px, 3.5vw, 56px); font-weight: 400; line-height: 1; letter-spacing: -2px; }
@@ -41,8 +66,15 @@
 @media (prefers-reduced-motion: no-preference) {
   .profile { animation: arrive 600ms ease both; }
   .workColumn { animation: arrive 800ms ease both; }
+  .quickQuoteWords { animation: quote-platforms 10s cubic-bezier(.76, 0, .24, 1) 1.4s infinite; }
 }
 @keyframes arrive { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+@keyframes quote-platforms {
+  0%, 18% { transform: translateY(0); }
+  25%, 43% { transform: translateY(-25%); }
+  50%, 68% { transform: translateY(-50%); }
+  75%, 100% { transform: translateY(-75%); }
+}
 @media (max-width: 1100px) {
   .shell { grid-template-columns: 32% minmax(0, 1fr); gap: 18px; padding: 18px; }
   .navigation { gap: 7px; }
@@ -56,8 +88,15 @@
   .profileFooter { margin: 24px 0 28px; }
   .navigation { padding: 16px 0; }
   .navigation a { padding: 10px 15px; }
+  .quickQuote { margin-top: 18px; padding-top: 16px; }
   .preview { padding: 6.8%; }
   .playback { opacity: 1; width: 30px; height: 30px; right: 3px; bottom: 0; background: #d6d6d6; }
+}
+@media (max-width: 340px) {
+  .quickQuoteField { align-items: stretch; flex-wrap: wrap; padding: 8px; }
+  .quickQuoteField > svg { align-self: center; margin-left: 3px; }
+  .quickQuoteField input { width: calc(100% - 28px); }
+  .quickQuoteField button { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .portfolioPage *, .portfolioPage *::before { animation: none !important; transition: none !important; }

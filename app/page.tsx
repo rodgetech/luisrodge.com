@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, Github, Linkedin, Mail, MessageCircle, UserRound } from "lucide-react";
 import { ProjectGallery } from "@/components/portfolio/project-gallery";
+import { QuickQuoteCta } from "@/components/portfolio/quick-quote-cta";
 import styles from "@/components/portfolio/portfolio.module.css";
 import { BOOKING_URL, USER, SOCIAL_LINKS } from "@/config/site";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -35,6 +36,7 @@ export default function Home() {
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Let’s talk <CalendarDays size={17} /></a>
               <a href={`https://wa.me/${USER.phoneNumber.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">Let’s Chat <MessageCircle size={17} /></a>
             </nav>
+            <QuickQuoteCta phoneNumber={USER.phoneNumber} />
           </div>
           <div className={styles.profileFooter}>
             <div className={styles.stats}>
