@@ -67,6 +67,7 @@
 .skipLink:focus { transform: none; }
 @media (prefers-reduced-motion: no-preference) {
   .profile { animation: arrive 600ms ease both; }
+  .profileFooter { animation: arrive 600ms ease both; }
   .workColumn { animation: arrive 800ms ease both; }
   .quickQuoteWords { animation: quote-platforms 10s cubic-bezier(.76, 0, .24, 1) 1.4s infinite; }
 }
