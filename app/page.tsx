@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CalendarDays, Github, Linkedin, Mail, MessageCircle, UserRound } from "lucide-react";
 import { ProjectGallery } from "@/components/portfolio/project-gallery";
 import { QuickQuoteCta } from "@/components/portfolio/quick-quote-cta";
+import { PortfolioStats } from "@/components/portfolio/portfolio-stats";
 import styles from "@/components/portfolio/portfolio.module.css";
 import { BOOKING_URL, USER, SOCIAL_LINKS } from "@/config/site";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -39,11 +40,7 @@ export default function Home() {
             <QuickQuoteCta phoneNumber={USER.phoneNumber} />
           </div>
           <div className={styles.profileFooter}>
-            <div className={styles.stats}>
-              <div><strong>12+</strong><span>Clients</span></div>
-              <div><strong>13+</strong><span>Projects shipped</span></div>
-              <div><strong><span className={styles.currency}>$</span>500</strong><span>Starting price</span></div>
-            </div>
+            <PortfolioStats />
           </div>
         </aside>
         <section className={styles.workColumn} id="selected-work" aria-label="Selected work" tabIndex={-1}>
