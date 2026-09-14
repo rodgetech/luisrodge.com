@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Analytics } from "@vercel/analytics/next";
-import { SITE_INFO, USER } from "@/config/site";
+import { SITE_INFO, SOCIAL_IMAGE, USER } from "@/config/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -43,18 +43,13 @@ export const metadata: Metadata = {
     title: SITE_INFO.name,
     description: SITE_INFO.description,
     siteName: SITE_INFO.name,
-    images: [
-      {
-        url: SITE_INFO.ogImage,
-        alt: SITE_INFO.name,
-      },
-    ],
+    images: [SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_INFO.name,
     description: SITE_INFO.description,
-    images: [SITE_INFO.ogImage],
+    images: [SOCIAL_IMAGE],
   },
   metadataBase: new URL(SITE_INFO.url),
 };

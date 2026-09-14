@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "social:generate": "node scripts/generate-social-card.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

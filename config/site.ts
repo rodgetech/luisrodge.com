@@ -25,7 +25,7 @@ export const USER = {
   website: "https://www.luisrodge.com",
   jobTitle: "Software Engineer",
   avatar: "/me.png",
-  ogImage: "/me.png",
+  ogImage: "/social/made-by-lr-og.png",
   timeZone: "America/Belize",
   keywords: [
     "rodgetech",
@@ -111,6 +111,14 @@ export const SITE_INFO = {
   description: `${USER.fullName} designs and builds distinctive websites and apps for businesses and founders. Based in Belize and working worldwide.`,
   keywords: USER.keywords,
 };
+
+export const SOCIAL_IMAGE = {
+  url: SITE_INFO.ogImage,
+  width: 1200,
+  height: 630,
+  alt: "Made by LR: websites worth remembering and products people return to",
+  type: "image/png",
+} as const;
 
 export const GITHUB_USERNAME = "rodgetech";
 
