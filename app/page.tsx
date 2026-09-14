@@ -8,7 +8,7 @@ import styles from "@/components/portfolio/portfolio.module.css";
 import { BOOKING_URL, USER, SOCIAL_LINKS } from "@/config/site";
 import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata = pageMetadata("Web Designer & App Developer in Belize", "Custom websites and apps for businesses in Belize and the US. Explore Luis Rodriguez’s work, projects from $500–$3,000, and chat about your next build.", "/");
+export const metadata = pageMetadata("Ideas, Designed and Shipped", "Custom websites and apps for businesses in Belize and the US. Explore Luis Rodriguez’s work, projects from $500–$3,000, and chat about your next build.", "/");
 
 export default function Home() {
   return (
