@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { ArrowRight, Link2 } from "lucide-react";
 
+import { trackMetaEvent } from "@/components/analytics/meta-pixel";
 import styles from "@/components/portfolio/portfolio.module.css";
 
 type QuickQuoteCtaProps = {
@@ -33,6 +34,10 @@ export function QuickQuoteCta({ phoneNumber }: QuickQuoteCtaProps) {
       const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
 
       setError("");
+      trackMetaEvent("Lead", {
+        contact_method: "whatsapp",
+        content_name: "Fast website quote",
+      });
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     } catch {
       setError("Paste a complete Facebook, Instagram, TikTok, or website link.");

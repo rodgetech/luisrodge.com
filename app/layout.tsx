@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Analytics } from "@vercel/analytics/next";
+import { MetaPixel } from "@/components/analytics/meta-pixel";
 import { SITE_INFO, SOCIAL_IMAGE, USER } from "@/config/site";
 
 export const viewport: Viewport = {
@@ -73,6 +74,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <StructuredData />
+        <MetaPixel />
         <Analytics />
       </body>
     </html>
