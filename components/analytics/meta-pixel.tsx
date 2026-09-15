@@ -3,7 +3,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
-const META_PIXEL_ID = "1128704139822062";
+const META_PIXEL_ID = "4488532068035683";
 
 type MetaEventParameters = Record<string, string | number | boolean>;
 
