@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Made by LR reversed logo</title>
+  <desc id="desc">Transparent lowercase madebylr wordmark for dark backgrounds, with bylr double underlined in electric blue.</desc>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="98" y="226" fill="#18A8F5" font-size="162" font-weight="700" letter-spacing="-8">made</text>
+    <text x="480" y="226" fill="#F7F8FA" font-size="162" font-weight="300" letter-spacing="-9">bylr</text>
+  </g>
+  <g fill="none" stroke="#18A8F5" stroke-linecap="round">
+    <path d="M486 260 C560 251 646 249 730 252" stroke-width="7"/>
+    <path d="M486 281 C564 270 650 268 730 271" stroke-width="4" opacity="0.92"/>
+  </g>
+</svg>
