@@ -1,31 +1,28 @@
 # Product
 
-## Register
-
-brand
-
 ## Platform
 
 web
 
 ## Users
 
-Business owners and founders looking for a designer-developer to build a website or focused app. Hiring managers remain supported through the dedicated About, Experience, and résumé paths, but they are no longer the homepage's primary audience.
+Recruiters and hiring managers evaluating Luis for full-time or contract roles, plus anyone curious about who he is and what he builds. Client web-design work moved to Made by LR's own site (Nov 2026) and is no longer offered here.
 
 ## Product Purpose
 
-Turn strong work into qualified client conversations. Success is a prospective client understanding what Luis builds, seeing real proof, recognizing the $500–$3,000 fit, and starting a conversation.
+Wow a visitor in one scroll: a real product with paying, daily users (esigna), a solid career, and a clear way to reach out. Success is a page Luis is proud to send.
 
 ## Positioning
 
-Independent web and app developer who pairs strategy, design, and development in one engagement.
+Software engineer from Belize who builds products people use every day.
 
 ## Conversion & proof
 
-- Primary CTA: **Start a project** by email. Secondary CTA: book a short call through Cal.com.
-- The line a visitor remembers after 10 seconds: Luis designs and builds websites and apps for businesses and founders, with projects from $500 to $3,000.
-- Belief ladder: Distinct point of view → six real shipped projects → transparent working range → reach out.
-- Proof on hand: six live client/product websites on the homepage. BuildShip experience, Video Journal, Screen Mockups, full career history, and the PDF résumé remain on `/about` and `/experience`.
+- Primary CTA: **Email me**. Secondary: **Résumé** (PDF). Soft path: GitHub, X, YouTube, LinkedIn.
+- The line a visitor remembers after 10 seconds: Luis built esigna solo, and it has $500+ in revenue and daily users.
+- Belief ladder: who he is → esigna proof → fluent in the agentic era (daily Claude Code / Codex workflow, AI shipped in products) → most recent role (BuildShip) → GitHub activity → stack.
+- Proof on hand: esigna ($500+ gross revenue, used daily, also a ChatGPT app); Screen Mockups mentioned briefly as the retired product that earned his first internet dollar; only the BuildShip role on the homepage, with the full history on `/experience`; résumé PDF.
+- No pricing, quote, or web-design CTAs anywhere on the site. The one booking CTA is "Book a call" on `/hire-a-software-developer-in-belize`, for hiring Luis himself (contract or full-time).
 
 ## Brand Personality
 
@@ -40,8 +37,8 @@ Generic SaaS landing pages (hero metric strips, gradient CTAs, feature card grid
 - **Hireable at a glance** — a scanning visitor should leave with stack, experience, and fit without a scavenger hunt.
 - **Prove by shipping** — show real products, demos, and the first-payout story before asking for trust.
 - **Person first, then proof** — warm clarity opens the door; credentials close it.
-- **Tight single-column density** — résumé-like signal density without corporate template energy.
-- **Co-equal outreach** — booking and email stay equally easy; social is the soft path for lurkers.
+- **Dense, not cluttered** — résumé-like signal density, each fact said once, without corporate template energy.
+- **One clear ask** — "Email me" is the primary action on every page; the résumé is the secondary; social is the soft path for lurkers.
 
 ## Accessibility & Inclusion
 

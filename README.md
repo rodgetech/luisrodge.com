@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# luisrodge.com
 
-## Getting Started
+Personal portfolio of Luis Rodriguez, a software engineer in Cayo, Belize. Built with Next.js (App Router), React and Tailwind CSS v4, deployed on Vercel.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+| --- | --- |
+| Homepage content (esigna, Screen Mockups, AI section, stack) | `config/home.ts` |
+| Work history (homepage BuildShip entry and `/experience`) | `config/experience.ts` |
+| Identity, socials, SEO, tech icon registry | `config/site.ts` |
+| Hire page copy and FAQ | `config/hire.ts` |
+| Shared layout (identity column, nav, footer) | `components/site/site-shell.tsx` |
+| GitHub contribution graph | `lib/github.ts`, `components/home/github-activity.tsx` |
+| Design tokens | `app/globals.css` (`.home`) |
+| Retired URLs (301 to `/`) | `next.config.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Numbers on the site (revenue, usage) are hand-maintained in `config/home.ts`. Keep them literally true.
 
-## Learn More
+## Social preview image
 
-To learn more about Next.js, take a look at the following resources:
+`public/social/luis-rodriguez-og.png` is generated from the avatar and the esigna screenshot:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run social:generate
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Docs
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `PRODUCT.md`: audience, positioning and content rules
+- `DESIGN.md`: the design system
+- `SEO.md`: SEO plan and progress log

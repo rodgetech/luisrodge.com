@@ -6,8 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-serif: var(--font-newsreader);
-  --font-sans: var(--font-sans-face);
+  --font-sans: var(--font-geist), "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   --text-meta: 0.875rem;
@@ -182,290 +181,6 @@
 }
 
 @layer components {
-  .section-label {
-    font-family: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
-    @apply font-semibold tracking-tight text-foreground text-balance;
-    font-size: var(--text-label);
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-  }
-
-  .section-label-emphasis {
-    font-family: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
-    @apply font-normal italic tracking-tight text-foreground text-balance;
-    font-size: var(--text-label);
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-
-  .section-title {
-    @apply font-semibold tracking-tight text-foreground text-balance;
-    font-size: var(--text-title);
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-  }
-
-  .text-body {
-    @apply text-muted-foreground text-pretty;
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-  }
-
-  .text-meta {
-    @apply text-muted-foreground;
-    font-size: var(--text-meta);
-    line-height: 1.5;
-  }
-
-  .text-display {
-    @apply font-semibold tracking-tight text-balance text-foreground;
-    font-size: var(--text-display);
-    letter-spacing: -0.02em;
-    line-height: var(--leading-display);
-  }
-
-  .text-lead {
-    @apply font-medium text-pretty text-foreground/85;
-    font-size: var(--text-body);
-    line-height: 1.55;
-    max-width: 40ch;
-  }
-
-  /*
-   * Marketing-surface tiers. DESIGN.md's Quiet Ceiling rule caps display type
-   * at 1.75rem on the core résumé pages and carves out one exception for a
-   * top-of-funnel surface; /hire is that surface. These classes are the whole
-   * exception — do not reach for them on / or /experience.
-   */
-  .page-title {
-    @apply font-semibold tracking-tight text-balance text-foreground;
-    font-size: clamp(2.125rem, 1.5rem + 3.1vw, 3.5rem);
-    letter-spacing: -0.032em;
-    line-height: 1.03;
-  }
-
-  /* The lead is the promise; it should not be the narrowest thing on the page. */
-  .page-lead {
-    @apply font-medium text-pretty text-foreground;
-    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
-    line-height: 1.5;
-    max-width: 54ch;
-  }
-
-  /*
-   * The masthead mark: the same inked tick that opens every other entry,
-   * turned up for the page opening. The header was the one section that
-   * carried none of the page's structural vocabulary.
-   */
-  .page-mark {
-    display: block;
-    width: var(--rule-tick-emphasis);
-    height: 3px;
-    border-radius: 1.5px;
-    background: var(--foreground);
-    transform-origin: left center;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .page-mark {
-      animation: rule-draw 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-  }
-
-  /* One tier above .section-title, so the persuasive claims outrank the
-     reference material further down the page. */
-  .claim-title {
-    @apply font-semibold tracking-tight text-foreground text-balance;
-    font-size: var(--text-label);
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-  }
-
-  .cta-pill {
-    @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold tracking-tight text-primary-foreground transition-opacity;
-    height: 3rem;
-    padding-inline: 1.5rem;
-    font-size: var(--text-body);
-  }
-
-  .cta-pill:hover {
-    opacity: 0.9;
-  }
-
-  .cta-pill:focus-visible {
-    @apply outline-none ring-[3px] ring-ring;
-  }
-
-  @media (max-width: 639px) {
-    .text-lead {
-      font-size: 0.9375rem;
-      line-height: 1.45;
-      max-width: none;
-    }
-
-    .text-display {
-      font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
-    }
-  }
-
-  .link-subtle {
-    @apply text-muted-foreground transition-colors duration-150 hover:text-foreground;
-  }
-
-  .link-underline {
-    @apply text-muted-foreground underline decoration-border underline-offset-4 transition-colors duration-150 hover:text-foreground hover:decoration-foreground;
-  }
-
-  .surface {
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-surface);
-  }
-
-  .surface-elevated {
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-elevated);
-  }
-
-  .page-x {
-    padding-left: var(--page-x);
-    padding-right: var(--page-x);
-  }
-
-  /* Keep mid-scroll role content above the floating SiteNav */
-  .experience-page {
-    scroll-padding-bottom: var(--nav-clearance);
-  }
-
-  .experience-page ol > li {
-    scroll-margin-bottom: var(--nav-clearance);
-  }
-
-  /* Experience page entrance — visible by default; motion only enhances */
-  .experience-reveal {
-    opacity: 1;
-  }
-
-  /* Opacity only — transform on an ancestor breaks position: sticky year labels */
-  @keyframes experience-reveal-in {
-    from {
-      opacity: 0.88;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .experience-reveal {
-      animation: experience-reveal-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-  }
-
-  @media (min-width: 640px) {
-    .page-x {
-      padding-left: var(--page-x-sm);
-      padding-right: var(--page-x-sm);
-    }
-  }
-
-  .section-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--section-inner);
-  }
-
-  /* Bind a heading to what it introduces. Without this the label floats
-     equidistant between two sections and reads as belonging to neither. */
-  .section-content > :where(.section-label, .section-label-emphasis) {
-    margin-bottom: calc(var(--section-inner) * -0.4);
-  }
-
-  /*
-   * The entry rule. A quiet full-width hairline carries the structure; a short
-   * inked tick at the margin announces that a new entry starts here. The
-   * hairline alone measured 1.29:1 against paper, which is why sections used
-   * to dissolve into each other — the tick does the announcing so the rule
-   * itself can stay faint.
-   */
-  .section-rule {
-    position: relative;
-  }
-
-  .section-rule::before,
-  .section-rule::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: left center;
-  }
-
-  .section-rule::before {
-    right: 0;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .section-rule::after {
-    width: var(--rule-tick);
-    height: 2px;
-    border-radius: 1px;
-    background: var(--foreground);
-  }
-
-  .section-rule-emphasis::after {
-    width: var(--rule-tick-emphasis);
-  }
-
-  /*
-   * The authored moment: the rule draws itself as the entry comes into view,
-   * ink first. Scroll-driven so it fires when the section is actually read,
-   * not all at once on load. Both pseudo-elements are fully drawn at rest, so
-   * anywhere `view()` is unsupported the rule simply renders — the animation
-   * only enhances.
-   */
-  @keyframes rule-draw {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      /*
-       * Ranges are deliberately long. A short range finishes before the
-       * section is properly on screen, so the draw reads as a flicker rather
-       * than as a line being drawn. The tick lands first and fast; the
-       * hairline then extends across the page over most of the entry.
-       */
-      .section-rule::before {
-        animation: rule-draw both linear;
-        animation-timeline: view();
-        animation-range: entry 8% entry 88%;
-      }
-
-      .section-rule::after {
-        animation: rule-draw both cubic-bezier(0.16, 1, 0.3, 1);
-        animation-timeline: view();
-        animation-range: entry 0% entry 38%;
-      }
-    }
-  }
-
-  /* Shared mobile proof media (Video Journal + Proud moment) */
-  .proof-phone {
-    width: var(--proof-phone-max);
-  }
-
-  @media (min-width: 640px) {
-    .proof-phone {
-      width: 180px;
-    }
-  }
-
   /*
    * Disclosure open/close. Native <details> snaps, which makes an answer feel
    * like it teleported rather than unfolded. ::details-content is the only
@@ -496,10 +211,6 @@
 
 /* Touch: larger tap comfort without changing mouse density */
 @media (pointer: coarse) {
-  .link-underline {
-    text-underline-offset: 5px;
-  }
-
   .tech-chip {
     min-height: 2.75rem;
     padding-inline: 0.75rem;
@@ -523,4 +234,145 @@
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
+}
+/*
+ * Site-wide system — palette, type and surfaces taken from marclou.com:
+ * pure neutral grays, Geist, ring-shadow cards. `.home` is on <body>, so
+ * every route (including 404 and error) shares it.
+ */
+.home {
+  --background: #fff;
+  --foreground: #0a0a0a;
+  --card: #fff;
+  --card-foreground: #0a0a0a;
+  --popover: #fff;
+  --popover-foreground: #0a0a0a;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #a1a1a1;
+  --radius: 0.625rem;
+  --live: #35c26d;
+  --surface-shadow: 0 0 0 1px #0000000f, 0 1px 2px -1px #0000000f,
+    0 2px 4px 0 #0000000a;
+  --surface-shadow-hover: 0 0 0 1px #00000014, 0 1px 2px -1px #00000014,
+    0 2px 4px 0 #0000000f;
+  font-family: var(--font-geist), "Geist", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.dark .home {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #171717;
+  --card-foreground: #fafafa;
+  --popover: #171717;
+  --popover-foreground: #fafafa;
+  --primary: #e5e5e5;
+  --primary-foreground: #171717;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a1a1a1;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --ring: #737373;
+  --live: #47cf79;
+  --surface-shadow: 0 0 0 1px #ffffff14;
+  --surface-shadow-hover: 0 0 0 1px #ffffff21;
+}
+
+.home ::selection {
+  background: color-mix(in oklab, var(--foreground) 14%, transparent);
+  color: var(--foreground);
+}
+
+body:has(.home) {
+  background: #fff;
+}
+.dark .home ::selection {
+  background: color-mix(in oklab, var(--foreground) 14%, transparent);
+  color: var(--foreground);
+}
+
+body:has(.home) {
+  background: #0a0a0a;
+}
+
+@layer components {
+  .home .shadow-border {
+    box-shadow: var(--surface-shadow);
+  }
+  .home .shadow-border-hover,
+  .home .hover-lift:hover,
+  .home .hover-lift:has(:focus-visible) {
+    box-shadow: var(--surface-shadow-hover);
+  }
+
+  .home .bg-dots {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      color-mix(in oklab, var(--foreground) 14%, transparent) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+    mask-image: radial-gradient(60% 70% at 50% 0, #000 20%, #0000 70%);
+  }
+
+  .home .animate-enter {
+    animation: home-enter 0.4s cubic-bezier(0.2, 0, 0, 1) both;
+    animation-delay: calc(var(--stagger, 0) * 80ms);
+  }
+
+  .home .live-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--live);
+  }
+  .home .live-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--live);
+    animation: home-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home .animate-enter,
+    .home .live-dot::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes home-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+    filter: blur(4px);
+  }
+}
+
+@keyframes home-ping {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }

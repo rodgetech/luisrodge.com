@@ -1,38 +1,46 @@
+import { RoleItem } from "@/components/experience/role-item";
+import { SectionHeader } from "@/components/home/section-header";
+import { SiteShell } from "@/components/site/site-shell";
+import { EXPERIENCE_ROLES } from "@/config/experience";
+import { SITE_INFO, SITE_PATHS } from "@/config/site";
 import { pageMetadata } from "@/lib/page-metadata";
 
-import { ExperienceTimeline } from "@/components/experience/experience-timeline";
-import { FooterSection } from "@/components/sections";
-import { PageSection } from "@/components/ui/page-section";
-import { SiteNav } from "@/components/ui/site-nav";
-import { SITE_INFO, SITE_PATHS } from "@/config/site";
+export const metadata = pageMetadata("Experience", `Career experience for ${SITE_INFO.name}: roles, outcomes, and stack in context.`, SITE_PATHS.experience);
 
-export const metadata = pageMetadata("Experience", `Career experience for ${SITE_INFO.name} — roles, outcomes, and stack in context.`, SITE_PATHS.experience);
+const RECENT = EXPERIENCE_ROLES.filter((role) => role.section === "featured");
+const EARLIER = EXPERIENCE_ROLES.filter((role) => role.section === "earlier");
 
 export default function ExperiencePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <a
-        href="#main-content"
-        className="bg-primary text-primary-foreground sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-[var(--z-skip)] focus-visible:rounded-md focus-visible:px-3 focus-visible:py-2.5 focus-visible:text-sm focus-visible:font-medium focus-visible:shadow-elevated focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring"
-      >
-        Skip to content
-      </a>
+    <SiteShell>
+      <header className="animate-enter">
+        <h1 className="text-3xl font-semibold tracking-tight">Experience</h1>
+        <p className="mt-2 max-w-[60ch] text-[15px] text-pretty text-muted-foreground">
+          Every role since 2011, newest first. The most recent ones in full, the rest in brief.
+        </p>
+      </header>
 
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="page-x experience-page mx-auto w-full max-w-2xl flex-1 pb-[var(--nav-clearance)] outline-none"
-      >
-        <PageSection variant="first" className="pb-[calc(var(--section-space)+1.5rem)]">
-          <ExperienceTimeline />
-        </PageSection>
+      <section aria-labelledby="recent-heading" style={{ "--stagger": 1 } as React.CSSProperties} className="animate-enter">
+        <SectionHeader id="recent-heading" title="Recent" />
+        <ol className="flex flex-col gap-10">
+          {RECENT.map((role, index) => (
+            <li key={role.id}>
+              <RoleItem role={role} detailed priorityMark={index === 0} />
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <PageSection variant="footer">
-          <FooterSection />
-        </PageSection>
-      </main>
-
-      <SiteNav homeHref="/" />
-    </div>
+      <section aria-labelledby="earlier-heading">
+        <SectionHeader id="earlier-heading" title="Earlier" />
+        <ol className="flex flex-col gap-8">
+          {EARLIER.map((role) => (
+            <li key={role.id}>
+              <RoleItem role={role} />
+            </li>
+          ))}
+        </ol>
+      </section>
+    </SiteShell>
   );
 }
