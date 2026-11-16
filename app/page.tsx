@@ -5,6 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 import { RoleItem } from "@/components/experience/role-item";
 import { GitHubActivity } from "@/components/home/github-activity";
 import { SectionHeader } from "@/components/home/section-header";
+import { GitHubIcon } from "@/components/home/social-icons";
+import { FOCUS } from "@/components/site/styles";
 import { TechGroups, TechRow } from "@/components/home/tech-groups";
 import { SiteShell } from "@/components/site/site-shell";
 import { AI_SECTION, ESIGNA, SCREEN_MOCKUPS, STACK_GROUPS } from "@/config/home";
@@ -87,6 +89,17 @@ export default function Home() {
               <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">{SCREEN_MOCKUPS.badge}</span>
             </p>
             <p className="mt-1 max-w-[52ch] text-sm text-pretty text-muted-foreground">{SCREEN_MOCKUPS.description}</p>
+            <a
+              href={SCREEN_MOCKUPS.repo}
+              target="_blank"
+              rel="noopener"
+              className={`group mt-2 -ml-1 inline-flex h-8 items-center gap-1.5 rounded-md px-1 text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground ${FOCUS}`}
+            >
+              <GitHubIcon className="size-3.5" />
+              <span className="decoration-foreground/30 underline-offset-4 group-hover:underline">View the source</span>
+              <span className="sr-only"> on GitHub (opens in a new tab)</span>
+              <ArrowUpRight aria-hidden className="size-3.5 transition-transform duration-150 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
       </section>

@@ -30,11 +30,12 @@ export const ESIGNA = {
 export const SCREEN_MOCKUPS = {
   name: "Screen Mockups",
   badge: "First internet dollar",
+  repo: "https://github.com/rodgetech/ai-screen-mockups-app",
   proof: "/projects/first-payout-notification.webp",
   proofAlt:
     "iPhone notification: Screen Mockups, your payout of USD 127.79 has been initiated",
   description:
-    "The first thing I built alone that a stranger paid for. Retired now, but it's where this started.",
+    "The first thing I built alone that a stranger paid for. Retired now, but it's where this started, and the app is open source.",
 } as const;
 
 export type TechGroup = { label: string; tech: TechStackItem[] };
