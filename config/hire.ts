@@ -1,5 +1,5 @@
+import { SCREEN_MOCKUPS } from "@/config/home";
 import {
-  PROUD_MOMENT,
   resolveTech,
   SITE_PATHS,
   USER,
@@ -27,25 +27,14 @@ export const HIRE_PAGE = {
 } as const;
 
 /**
- * Attribution row under the lead. The page's whole claim is that it's written
- * by someone who actually lives here, so the person has to be visible before
- * the argument starts — PRODUCT.md's "person first, then proof".
- */
-export const HIRE_BYLINE = {
-  avatar: USER.avatar,
-  name: USER.fullName,
-  meta: `${USER.addressRegion}, Belize · US-friendly hours`,
-} as const;
-
-/**
  * The belief ladder wants evidence before the ask. Reuses assets the homepage
  * already carries rather than minting new claims.
  */
 export const HIRE_PROOF = {
   heading: "Proof, not just claims",
   lead: "I spent two years at BuildShip helping founders get from an idea to a working backend, and I ship my own products on the side.",
-  payoutImage: PROUD_MOMENT.image,
-  payoutAlt: PROUD_MOMENT.imageAlt,
+  payoutImage: SCREEN_MOCKUPS.proof,
+  payoutAlt: SCREEN_MOCKUPS.proofAlt,
   payoutCaption: "First payout from a product I built alone.",
   closing:
     "That notification is from Screen Mockups, the first thing I built solo that a stranger paid for. It's the shortest version of what I do: take an idea to something people will actually pay for.",

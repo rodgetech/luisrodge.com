@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Source_Sans_3 } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StructuredData } from "@/components/seo/structured-data";
 import { Analytics } from "@vercel/analytics/next";
-import { MetaPixel } from "@/components/analytics/meta-pixel";
 import { SITE_INFO, SOCIAL_IMAGE, USER } from "@/config/site";
 
 export const viewport: Viewport = {
@@ -13,18 +12,10 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-sans-face",
+/** The site face, from the marclou.com-derived system. */
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -63,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sourceSans.variable} ${newsreader.variable} font-sans antialiased`}
+        className={`${geist.variable} home antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -74,7 +65,6 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <StructuredData />
-        <MetaPixel />
         <Analytics />
       </body>
     </html>

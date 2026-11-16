@@ -23,15 +23,7 @@ export type ExperienceRole = {
   tech: TechStackItem[];
 };
 
-export type ExperienceYearChapter = {
-  year: string;
-  roles: ExperienceRole[];
-};
 
-export type ExperiencePageModel = {
-  chapters: ExperienceYearChapter[];
-  earlier: ExperienceRole[];
-};
 
 /**
  * Role packages for /experience.
@@ -162,26 +154,3 @@ export const EXPERIENCE_ROLES: ExperienceRole[] = [
     tech: resolveTech("PHP"),
   },
 ];
-
-/** Featured year-chapters + flat earlier list — the shape /experience actually renders. */
-export function getExperienceSections(
-  roles: ExperienceRole[] = EXPERIENCE_ROLES,
-): ExperiencePageModel {
-  const featured = roles.filter((role) => role.section === "featured");
-  const earlier = roles.filter((role) => role.section === "earlier");
-
-  const chapters = new Map<string, ExperienceRole[]>();
-  for (const role of featured) {
-    const list = chapters.get(role.endDate) ?? [];
-    list.push(role);
-    chapters.set(role.endDate, list);
-  }
-
-  return {
-    chapters: [...chapters.entries()].map(([year, yearRoles]) => ({
-      year,
-      roles: yearRoles,
-    })),
-    earlier,
-  };
-}

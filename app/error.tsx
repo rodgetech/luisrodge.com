@@ -7,8 +7,8 @@ type ErrorProps = {
 
 export default function Error({ reset }: ErrorProps) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background px-6 text-center">
-      <h1 className="font-serif text-lg font-semibold text-foreground">
+    <div className="flex min-h-dvh flex-col items-center justify-center gap-4 px-6 text-center">
+      <h1 className="text-2xl font-semibold tracking-tight">
         Something went wrong
       </h1>
       <p className="text-sm text-muted-foreground">
@@ -17,7 +17,7 @@ export default function Error({ reset }: ErrorProps) {
       <button
         type="button"
         onClick={reset}
-        className="inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring"
+        className="inline-flex h-9 items-center justify-center rounded-[8px] bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/85 outline-none focus-visible:ring-3 focus-visible:ring-ring"
       >
         Try again
       </button>

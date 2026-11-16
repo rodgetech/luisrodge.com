@@ -25,14 +25,11 @@ export const USER = {
   website: "https://www.luisrodge.com",
   jobTitle: "Software Engineer",
   avatar: "/me.png",
-  ogImage: "/social/made-by-lr-og.png",
+  ogImage: "/social/luis-rodriguez-og.png",
   timeZone: "America/Belize",
   keywords: [
     "rodgetech",
     "luis rodriguez",
-    "web designer belize",
-    "website developer belize",
-    "freelance app developer",
     "software engineer belize",
     "full stack developer",
     "indie hacker",
@@ -43,61 +40,13 @@ export const USER = {
 export const BOOKING_URL = "https://cal.com/luisrodge/15min";
 export const BOOKING_CTA_LABEL = "Book a call";
 
-export const CONTACT_CTA_LABEL = "Say Hi";
 export const CONTACT_MAILTO = `mailto:${USER.email}`;
-
-/** Co-equal primary actions — book a call and say hi. Owned by the site nav. */
-export const OUTREACH_CTAS = [
-  {
-    id: "book",
-    href: BOOKING_URL,
-    label: BOOKING_CTA_LABEL,
-    shortLabel: "Book",
-    external: true,
-  },
-  {
-    id: "email",
-    href: CONTACT_MAILTO,
-    label: CONTACT_CTA_LABEL,
-    shortLabel: "Hi",
-    external: false,
-  },
-] as const;
-
-export type OutreachCtaId = (typeof OUTREACH_CTAS)[number]["id"];
-
-export const FOOTER_TAGLINE = "Always building and shipping.";
 
 export const BIO = {
   intro:
-    "I'm a software engineer from Belize. I take products from idea to launch on web and mobile. Currently building an iOS app solo.",
+    "I'm a software engineer from Belize. I take products from idea to launch on web and mobile. I built esigna, an email signature app people use every day.",
   openTo: "Open to full time roles, contract MVPs, and building with founders.",
 } as const;
-
-export const SECTIONS = {
-  about: {
-    id: "about",
-    label: "About",
-  },
-  building: {
-    id: "currently-working-on",
-    label: "Building",
-  },
-  work: {
-    id: "work-experience",
-    label: "Experience",
-  },
-  stack: {
-    id: "stack",
-    label: "Stack",
-  },
-  proud: {
-    id: "proud-moment",
-    label: "Proud moment",
-  },
-} as const;
-
-export type SectionKey = keyof typeof SECTIONS;
 
 export const SITE_INFO = {
   name: USER.fullName,
@@ -108,7 +57,7 @@ export const SITE_INFO = {
    */
   url: "https://www.luisrodge.com",
   ogImage: USER.ogImage,
-  description: `${USER.fullName} designs and builds distinctive websites and apps for businesses and founders. Based in Belize and working worldwide.`,
+  description: `${USER.fullName}, software engineer from Belize. Built esigna, an email signature app people use every day. Experience at BuildShip and Capacitive Media.`,
   keywords: USER.keywords,
 };
 
@@ -116,7 +65,7 @@ export const SOCIAL_IMAGE = {
   url: SITE_INFO.ogImage,
   width: 1200,
   height: 630,
-  alt: "Made by LR: websites worth remembering and products people return to",
+  alt: "Luis Rodriguez, software engineer from Belize, and esigna",
   type: "image/png",
 } as const;
 
@@ -145,33 +94,8 @@ export const SOCIAL_LINKS = {
   },
 };
 
-/** Soft path for visitors not ready to contact — footer links. */
-export const SOFT_PATH_SOCIALS = [
-  {
-    id: "github",
-    href: SOCIAL_LINKS.github.url,
-    label: "GitHub",
-    external: true,
-  },
-  {
-    id: "linkedin",
-    href: SOCIAL_LINKS.linkedin.url,
-    label: "LinkedIn",
-    external: true,
-  },
-  {
-    id: "x",
-    href: SOCIAL_LINKS.x.url,
-    label: "X",
-    external: true,
-  },
-] as const;
-
-export type SoftPathSocialId = (typeof SOFT_PATH_SOCIALS)[number]["id"];
-
 /** Canonical site paths — import these instead of minting parallel string constants. */
 export const SITE_PATHS = {
-  about: "/about",
   experience: "/experience",
   hire: "/hire-a-software-developer-in-belize",
   resumePdf: "/resume.pdf",
@@ -225,6 +149,20 @@ export const TECH_STACK = [
   { name: "Convex", icon: "/stack/convex.png" },
   { name: "Docker", icon: "/stack/docker.svg" },
   { name: "PHP", icon: "/stack/php.svg" },
+  { name: "Swift", icon: "/stack/swift.svg" },
+  { name: "React Native", icon: "/stack/react.svg" },
+  { name: "Expo", icon: "/stack/expo.svg", invertInDark: true },
+  { name: "Claude Code", icon: "/stack/claude.svg" },
+  { name: "Codex", icon: "/stack/openai.svg", invertInDark: true },
+  { name: "herdr", icon: "/stack/herdr.svg", invertInDark: true },
+  { name: "AI SDK", icon: "/stack/vercel.svg", invertInDark: true },
+  { name: "OpenAI API", icon: "/stack/openai.svg", invertInDark: true },
+  { name: "MCP & ChatGPT Apps", icon: "/stack/modelcontextprotocol.svg", invertInDark: true },
+  { name: "Stripe", icon: "/stack/stripe.svg" },
+  { name: "Dodo Payments", icon: "/stack/dodopayments.svg" },
+  { name: "Clerk", icon: "/stack/clerk.svg" },
+  { name: "PostHog", icon: "/stack/posthog.svg", invertInDark: true },
+  { name: "Vercel", icon: "/stack/vercel.svg", invertInDark: true },
 ] as const;
 
 export type TechStackItem = (typeof TECH_STACK)[number];
@@ -245,37 +183,3 @@ export function techIconToneClass(item: TechStackItem): string {
     ? "dark:invert"
     : "dark:brightness-110";
 }
-
-export const TECH_STACK_HOMEPAGE_COUNT = 5;
-
-export const VIDEO_JOURNAL = {
-  name: "Video Journal",
-  description:
-    "A TikTok style video journaling app for iOS. Writing never captured how I actually felt. With video, I can go back and see myself, not just the story I wrote down.",
-  highlights: ["Feed", "Streaks", "Transcription", "iCloud sync"],
-  /** Short accessible summary of the demo for visitors who can't watch the video. */
-  demoSummary:
-    "Demo walkthrough: scrolling the journal feed, checking a streak, and reviewing a transcribed entry with iCloud sync.",
-  techStack: ["Swift", "iOS", "SwiftUI", "AVFoundation"],
-  videoSrc: "/videos/videojournalapp.mp4",
-  posterSrc: "/videos/videojournalapp-poster.jpg",
-  iconSrc: "/journalapp-icon.png",
-};
-
-export const PROUD_MOMENT = {
-  lead: "I've learned a lot from talented people and from shipping real products. But the moment that stayed with me was simpler: a payout notification from Screen Mockups — the first thing I built alone that a stranger actually paid for.",
-  closing: {
-    before: "That ",
-    highlight: "first internet dollar",
-    after:
-      " wasn't about the amount. It was proof I could ship something real enough for someone to open their wallet. That's the builder I want to be.",
-  },
-  imageCaption: "The notification.",
-  image: "/first-payout.png",
-  imageAlt:
-    "iPhone lock screen showing a Dodo Payments payout notification for Screen Mockups — the first internet dollar",
-  link: {
-    label: "See Screen Mockups on TrustMRR",
-    url: "https://trustmrr.com/startup/screen-mockups",
-  },
-};
