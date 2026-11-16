@@ -1,9 +1,9 @@
+import { EXPERIENCE_ROLES } from "@/config/experience";
 import { SCREEN_MOCKUPS } from "@/config/home";
 import {
   resolveTech,
   SITE_PATHS,
   USER,
-  WORK_EXPERIENCE,
 } from "@/config/site";
 
 /**
@@ -30,6 +30,8 @@ export const HIRE_PAGE = {
  * The belief ladder wants evidence before the ask. Reuses assets the homepage
  * already carries rather than minting new claims.
  */
+const BUILDSHIP = EXPERIENCE_ROLES.find((role) => role.id === "buildship")!;
+
 export const HIRE_PROOF = {
   heading: "Proof, not just claims",
   lead: "I spent two years at BuildShip helping founders get from an idea to a working backend, and I ship my own products on the side.",
@@ -38,8 +40,8 @@ export const HIRE_PROOF = {
   payoutCaption: "First payout from a product I built alone.",
   closing:
     "That notification is from Screen Mockups, the first thing I built solo that a stranger paid for. It's the shortest version of what I do: take an idea to something people will actually pay for.",
-  companyLogo: WORK_EXPERIENCE.mostRecent.logo,
-  companyName: WORK_EXPERIENCE.mostRecent.company,
+  companyLogo: BUILDSHIP.mark.kind === "logo" ? BUILDSHIP.mark.src : "",
+  companyName: BUILDSHIP.company,
 } as const;
 
 /** Differentiators vs. the LatAm alternatives buyers are usually comparing. */

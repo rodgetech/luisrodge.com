@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
+import { RoleItem } from "@/components/experience/role-item";
 import { GitHubActivity } from "@/components/home/github-activity";
 import { SectionHeader } from "@/components/home/section-header";
 import { TechGroups, TechRow } from "@/components/home/tech-groups";
 import { SiteShell } from "@/components/site/site-shell";
 import { AI_SECTION, ESIGNA, SCREEN_MOCKUPS, STACK_GROUPS } from "@/config/home";
-import { SITE_INFO, SOCIAL_IMAGE, USER, WORK_EXPERIENCE } from "@/config/site";
+import { EXPERIENCE_ROLES } from "@/config/experience";
+import { SITE_INFO, SITE_PATHS, SOCIAL_IMAGE, USER } from "@/config/site";
 
 export const metadata: Metadata = {
   title: { absolute: `${USER.fullName} | ${USER.jobTitle}` },
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: USER.fullName, description: SITE_INFO.description, images: [SOCIAL_IMAGE] },
 };
 
-const ROLE = WORK_EXPERIENCE.mostRecent;
+/** The homepage shows the BuildShip role only (owner's call); /experience has the rest. */
+const LATEST_ROLE = EXPERIENCE_ROLES.find((role) => role.id === "buildship")!;
 
 export default function Home() {
   return (
@@ -120,27 +123,10 @@ export default function Home() {
         </dl>
       </section>
 
-      {/* Most recent role only; the full history lives on /experience. */}
+      {/* Most recent role only, same entry as /experience; the full history lives there. */}
       <section aria-labelledby="experience-heading">
-        <SectionHeader id="experience-heading" title="Experience" link={{ href: WORK_EXPERIENCE.experienceUrl, label: "Full experience" }} />
-        <div className="flex items-start gap-4">
-          <Image src={ROLE.logo} alt="" width={36} height={36} className="mt-0.5 size-9 shrink-0 object-contain" />
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <h3 className="font-semibold tracking-tight">{ROLE.company}</h3>
-              <p className="text-sm text-muted-foreground tabular-nums">{ROLE.startDate}–{ROLE.endDate}</p>
-            </div>
-            <p className="text-sm text-muted-foreground">{ROLE.title}</p>
-            <ul className="mt-3 flex max-w-[65ch] flex-col gap-2">
-              {ROLE.responsibilities.slice(0, ROLE.highlightCount).map((item) => (
-                <li key={item} className="relative pl-4 text-sm text-pretty text-muted-foreground">
-                  <span aria-hidden className="absolute top-[0.6em] left-0 size-1 rounded-full bg-muted-foreground/50" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <SectionHeader id="experience-heading" title="Experience" link={{ href: SITE_PATHS.experience, label: "Full experience" }} />
+        <RoleItem role={LATEST_ROLE} detailed />
       </section>
 
       <GitHubActivity />

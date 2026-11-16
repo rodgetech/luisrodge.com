@@ -26,7 +26,7 @@ Software engineer from Belize who builds products people use every day.
 - The line a visitor remembers after 10 seconds: Luis built esigna solo, and it has $500+ in revenue and daily users.
 - Belief ladder: who he is → esigna proof → fluent in the agentic era (daily Claude Code / Codex workflow, AI shipped in products) → most recent role (BuildShip) → GitHub activity → stack.
 - Proof on hand: esigna ($500+ gross revenue, used daily, also a ChatGPT app); Screen Mockups mentioned briefly as the retired product that earned his first internet dollar; only the BuildShip role on the homepage, with the full history on `/experience`; résumé PDF.
-- No pricing, quote, booking-a-project, or web-design CTAs anywhere on the site.
+- No pricing, quote, or web-design CTAs anywhere on the site. The one booking CTA is "Book a call" on `/hire-a-software-developer-in-belize`, for hiring Luis himself (contract or full-time).
 
 ## Brand Personality
 
@@ -42,7 +42,7 @@ Generic SaaS landing pages (hero metric strips, gradient CTAs, feature card grid
 - **Prove by shipping** — show real products, demos, and the first-payout story before asking for trust.
 - **Person first, then proof** — warm clarity opens the door; credentials close it.
 - **Tight single-column density** — résumé-like signal density without corporate template energy.
-- **Co-equal outreach** — booking and email stay equally easy; social is the soft path for lurkers.
+- **One clear ask** — "Email me" is the primary action on every page; the résumé is the secondary; social is the soft path for lurkers.
 
 ## Accessibility & Inclusion
 

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { FOCUS } from "@/components/site/styles";
+
 type SectionHeaderProps = {
   id?: string;
   title: string;
@@ -16,7 +18,7 @@ export function SectionHeader({ id, title, link }: SectionHeaderProps) {
         <Link
           href={link.href}
           {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-          className="group relative flex items-center gap-1.5 text-sm text-muted-foreground transition-colors duration-150 after:absolute after:-inset-x-2 after:-inset-y-2.5 hover:text-foreground outline-none focus-visible:text-foreground focus-visible:underline underline-offset-4"
+          className={`group relative flex items-center gap-1.5 rounded-md text-sm text-muted-foreground transition-colors duration-150 after:absolute after:-inset-x-2 after:-inset-y-2.5 hover:text-foreground focus-visible:text-foreground ${FOCUS}`}
         >
           {link.label}
           <ArrowUpRight

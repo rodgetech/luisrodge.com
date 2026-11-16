@@ -45,7 +45,6 @@ export const CONTACT_MAILTO = `mailto:${USER.email}`;
 export const BIO = {
   intro:
     "I'm a software engineer from Belize. I take products from idea to launch on web and mobile. I built esigna, an email signature app people use every day.",
-  openTo: "Open to full time roles, contract MVPs, and building with founders.",
 } as const;
 
 export const SITE_INFO = {
@@ -100,27 +99,6 @@ export const SITE_PATHS = {
   hire: "/hire-a-software-developer-in-belize",
   resumePdf: "/resume.pdf",
 } as const;
-
-export const WORK_EXPERIENCE = {
-  mostRecent: {
-    company: "BuildShip",
-    logo: "/buildship.png",
-    title: "Software Engineer",
-    startDate: "2023",
-    endDate: "2025",
-    responsibilities: [
-      "Shipped templates and sample apps that took founders from idea to a working backend on BuildShip's visual platform",
-      "Owned weekly product demos end-to-end — wiring real APIs into flows people could clone and launch from",
-      "Turned support and live sessions into product fixes, cutting time-to-first-integration for new teams",
-      "Improved platform documentation and onboarding for developer-facing launches",
-      "Hosted community sessions that fed engineering priorities from real user friction",
-    ],
-    highlightCount: 3,
-  },
-  /** Full career story lives on /experience; PDF remains the downloadable alternate. */
-  experienceUrl: SITE_PATHS.experience,
-  resumeUrl: SITE_PATHS.resumePdf,
-};
 
 /** Homepage shows a tight stack; full set lives here for reference / resume. */
 export const TECH_STACK = [
