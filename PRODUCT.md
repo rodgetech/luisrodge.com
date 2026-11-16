@@ -1,9 +1,5 @@
 # Product
 
-## Register
-
-brand
-
 ## Platform
 
 web
@@ -41,7 +37,7 @@ Generic SaaS landing pages (hero metric strips, gradient CTAs, feature card grid
 - **Hireable at a glance** — a scanning visitor should leave with stack, experience, and fit without a scavenger hunt.
 - **Prove by shipping** — show real products, demos, and the first-payout story before asking for trust.
 - **Person first, then proof** — warm clarity opens the door; credentials close it.
-- **Tight single-column density** — résumé-like signal density without corporate template energy.
+- **Dense, not cluttered** — résumé-like signal density, each fact said once, without corporate template energy.
 - **One clear ask** — "Email me" is the primary action on every page; the résumé is the secondary; social is the soft path for lurkers.
 
 ## Accessibility & Inclusion

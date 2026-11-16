@@ -1,8 +1,6 @@
 export const USER = {
-  firstName: "Luis",
-  lastName: "Rodriguez",
   /**
-   * The name the site leads with: page titles, the homepage h1, the byline,
+   * The name the site leads with: page titles, the homepage h1, the hire page,
    * and `name` in the Person schema. People search the real name, so it
    * carries the weight.
    */
@@ -13,20 +11,15 @@ export const USER = {
    * longer what any visible heading says.
    */
   displayName: "Luis Rodge",
-  username: "rodgetech",
-  tagline: "Full stack engineer who takes products from idea to launch",
-  address: "Cayo, Belize, Central America",
-  /** Structured-data breakdown of `address` — keep the two in sync. */
+  /** Structured-data address (Person schema). */
   addressRegion: "Cayo",
   addressCountry: "BZ",
   countryName: "Belize",
-  phoneNumber: "+5016082077",
   email: "rodgetech@gmail.com",
   website: "https://www.luisrodge.com",
   jobTitle: "Software Engineer",
   avatar: "/me.png",
   ogImage: "/social/luis-rodriguez-og.png",
-  timeZone: "America/Belize",
   keywords: [
     "rodgetech",
     "luis rodriguez",
@@ -34,7 +27,6 @@ export const USER = {
     "full stack developer",
     "indie hacker",
   ],
-  dateCreated: "2025-12-14", // YYYY-MM-DD
 };
 
 export const BOOKING_URL = "https://cal.com/luisrodge/15min";
