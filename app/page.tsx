@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { RoleItem } from "@/components/experience/role-item";
 import { GitHubActivity } from "@/components/home/github-activity";
@@ -9,7 +9,7 @@ import { GitHubIcon } from "@/components/home/social-icons";
 import { FOCUS } from "@/components/site/styles";
 import { TechGroups, TechRow } from "@/components/home/tech-groups";
 import { SiteShell } from "@/components/site/site-shell";
-import { AI_SECTION, ESIGNA, SCREEN_MOCKUPS, STACK_GROUPS } from "@/config/home";
+import { AI_SECTION, ESIGNA, SCREEN_MOCKUPS, STACK_ASIDE, STACK_GROUPS } from "@/config/home";
 import { EXPERIENCE_ROLES } from "@/config/experience";
 import { SITE_INFO, SITE_PATHS, SOCIAL_IMAGE, USER } from "@/config/site";
 
@@ -110,16 +110,18 @@ export default function Home() {
         <p className="mb-6 max-w-[60ch] text-[15px] text-pretty">{AI_SECTION.intro}</p>
         <dl className="flex flex-col gap-5">
           <TechRow label={AI_SECTION.workflow.label} tech={AI_SECTION.workflow.tech} />
-          <div className="grid gap-2 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
-            <dt className="text-sm text-muted-foreground sm:pt-0.5">{AI_SECTION.usedFor.label}</dt>
-            <dd>
-              <ul className="flex flex-wrap gap-1.5">
-                {AI_SECTION.usedFor.items.map((item) => (
-                  <li key={item} className="rounded-full border border-border px-2.5 py-0.5 text-[13px] text-muted-foreground">{item}</li>
-                ))}
-              </ul>
-            </dd>
-          </div>
+          {AI_SECTION.split.map((row) => (
+            <div key={row.label} className="grid gap-2 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
+              <dt className="text-sm text-muted-foreground sm:pt-0.5">{row.label}</dt>
+              <dd>
+                <ul className="flex flex-wrap gap-1.5">
+                  {row.items.map((item) => (
+                    <li key={item} className="rounded-full border border-border px-2.5 py-0.5 text-[13px] text-muted-foreground">{item}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
           <div className="grid gap-2 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
             <dt className="text-sm text-muted-foreground">{AI_SECTION.shipped.label}</dt>
             <dd>
@@ -147,6 +149,21 @@ export default function Home() {
       <section aria-labelledby="stack-heading">
         <SectionHeader id="stack-heading" title="Stack" />
         <TechGroups groups={STACK_GROUPS} />
+        {/* The punchline under the stack: lined up with the chips, closed by default. */}
+        <details className="disclosure group mt-4 sm:ml-[calc(8.5rem+1rem)]">
+          <summary className={`inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-md text-sm text-muted-foreground italic transition-colors duration-150 hover:text-foreground sm:min-h-0 [&::-webkit-details-marker]:hidden ${FOCUS}`}>
+            {STACK_ASIDE.summary}
+            <ChevronDown
+              aria-hidden
+              className="size-3.5 transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-open:rotate-180 motion-reduce:transition-none"
+            />
+          </summary>
+          <div className="flex max-w-[60ch] flex-col gap-2 pt-2 text-sm text-pretty text-muted-foreground">
+            {STACK_ASIDE.body.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+        </details>
       </section>
     </SiteShell>
   );

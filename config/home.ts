@@ -45,9 +45,13 @@ export type TechGroup = { label: string; tech: TechStackItem[] };
  * users. Every "shipped" line is verified against the esigna codebase.
  */
 export const AI_SECTION = {
-  intro: "I work agent-first, with several coding agents running side by side, locally and in the cloud. I also ship AI to real users and test it like any other feature.",
+  // esigna's commit count is from its git history (1,348 on 2026-11-22). Keep it a floor ("1,300+") so it never overstates.
+  intro: "I haven't written code by hand in months. I decide what to build, write the spec, and Claude Code and Codex write and review it, side by side. That's how esigna, built solo, has 1,300+ commits since June.",
   workflow: { label: "Workflow", tech: resolveTech("Claude Code", "Codex", "herdr") },
-  usedFor: { label: "Used for", items: ["Planning features", "Fast iteration", "Code review", "ICP research"] },
+  split: [
+    { label: "Agents handle", items: ["Writing the code", "Code review", "Tests", "Refactors", "Customer research"] },
+    { label: "I handle", items: ["What to build", "The spec", "What ships"] },
+  ],
   shipped: {
     label: "Shipped in esigna",
     items: [
@@ -68,3 +72,12 @@ export const STACK_GROUPS: TechGroup[] = [
     tech: resolveTech("Supabase", "Convex", "Stripe", "Dodo Payments", "Clerk", "PostHog", "Vercel", "AWS", "Docker"),
   },
 ];
+
+/** The aside under the Stack rows: sarcastic, but literally true. */
+export const STACK_ASIDE = {
+  summary: "Not that it even matters anymore",
+  body: [
+    "Agents write the code now, so this list is what I reach for out of habit, not what I'm tied to. Say \"use Postgres\" or \"actually, make it Convex\" and that's what gets built.",
+    "Tell me your stack and I'll ship in it. My real stack is a clear spec, decent taste, and a lot of tokens.",
+  ],
+} as const;
