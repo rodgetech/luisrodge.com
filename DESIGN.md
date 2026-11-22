@@ -62,7 +62,7 @@ Tokens live in `app/globals.css` under `.home`, which sits on `<body>`, so every
 ### Homepage order
 
 1. **Things I've built.** esigna is the only raised card on the page: icon, name, "Used every day" live badge, the $500+ revenue figure (the largest number in the column), description, and a screenshot on the right (hidden on mobile). Screen Mockups sits under it, flat: the real payout-notification crop, name, "First internet dollar" badge, one sentence, and a link to its open-source repo.
-2. **Building with AI.** One foreground sentence, then labeled rows: Workflow (Claude Code, Codex, herdr chips), Used for (outlined text tags), Shipped in esigna (three bold-lead lines, each verified against the esigna code), Built with (chips).
+2. **Building with AI.** One foreground sentence, then labeled rows: Workflow (Claude Code, Codex, herdr chips), Agents handle / I handle (outlined text tags), Shipped in esigna (three bold-lead lines, each verified against the esigna code), Built with (chips).
 3. **Experience.** BuildShip only, rendered by the same `RoleItem` as `/experience`, with "Full experience" linking there.
 4. **GitHub.** A flat contribution heatmap read from the public profile and revalidated daily. Grayscale levels from `muted` to `foreground/90`, fluid square cells, scrolls from the newest week below 40rem, and hides itself if GitHub is unreachable.
 5. **Stack.** Labeled rows (Web, Mobile, Product & infra). No CSS frameworks or utility libraries.
